@@ -1,16 +1,17 @@
-import { TEST } from "./actionTypes"
+import { CREATEAUCTION } from "./actionTypes"
 
 const initialState = {
-  test: ''
+  auction: '222',
 }
 
 export default function(state = initialState, action){
   switch (action.type) {
-    case TEST:
+    case CREATEAUCTION:
       return {
         ...state,
+        auction: action.auction
       }
-  
+
     default:
       return state
   }

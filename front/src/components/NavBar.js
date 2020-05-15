@@ -9,6 +9,7 @@ export default function NavBar() {
       <Link to="/">Главная</Link>
       <Link to="/users/1">Личный кабинет Блогера</Link>
       <Link to="/org/1">Личный кабинет Рекламодателя</Link>
+
     </>
   )
 }

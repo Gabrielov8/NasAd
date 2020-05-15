@@ -5,6 +5,7 @@ import Main from './conteiner/Main'
 import NavBar from './components/NavBar';
 import RegForm from './conteiner/RegForm';
 import Advertiser from './conteiner/Advertiser';
+import Auction from './conteiner/Auction'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/regform" exact component={RegForm} />
       <Route path="/users/:id" exact component={CurrentUser} />
       <Route path="/org/:id" exact component={Advertiser} />
+      <Route path="/org/:id/auction" exact component={Auction} />
     </div>
   );
 }
