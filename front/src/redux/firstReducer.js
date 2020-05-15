@@ -1,17 +1,17 @@
-import { TEST } from "./actionTypes"
+import { TEST } from "./actionTypes";
 
 const initialState = {
-  test: '',
-}
+  test: "",
+};
 
-export default function(state = initialState, action){
+export default function (state = initialState, action) {
   switch (action.type) {
     case TEST:
       return {
         ...state,
-      }
-  
+      };
+
     default:
-      return state
+      return state;
   }
 }

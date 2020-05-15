@@ -1,0 +1,1 @@
+export const DATA_OF_CUSTOMER = "DATA_OF_CUSTOMER";

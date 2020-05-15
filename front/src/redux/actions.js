@@ -1,7 +1,7 @@
 import { TEST } from "./actionTypes";
 
-export function test(){
+export function test() {
   return {
-    type: TEST
-  }
+    type: TEST,
+  };
 }
