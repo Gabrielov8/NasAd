@@ -1,0 +1,11 @@
+.cont{
+  text-align: center;
+}
+
+.auth {
+  
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+  flex-direction: column;
+}
