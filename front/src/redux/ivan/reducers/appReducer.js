@@ -1,7 +1,7 @@
 import {
   SHOW_LOADER,
   HIDE_LOADER,
-} from '../ivan/types';
+} from '../types';
 
 const initialState = {
   loading: false,

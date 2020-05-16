@@ -3,3 +3,5 @@ export const CREATE_AUCTION = 'CREATE_AUCTION';
 export const EDIT_USER_INFO = 'EDIT_USER_INFO';
 export const SHOW_LOADER = 'SHOW_LOADER';
 export const HIDE_LOADER = 'HIDE_LOADER';
+export const GET_CURRENT_AUC = 'GET_CURRENT_AUC';
+export const GET_ALL_CURRENT_AUC = 'GET_ALL_CURRENT_AUC'

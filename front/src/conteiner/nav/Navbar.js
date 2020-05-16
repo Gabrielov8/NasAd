@@ -1,13 +1,16 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom'
-import { connect } from 'react-redux'
-import Login from '../auth/Login'
-import Register from '../auth/Register'
-import Logout from '../auth/Logout'
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import CurrentAuction from '../CurrentAuction';
+import CurrentUser from '../CurrentUser';
+import Login from '../auth/Login';
+import Register from '../auth/Register';
+import Logout from '../auth/Logout';
 
 class Navbar extends Component {
+
   render() {
-    console.log(this.props)
+
     return (
       <Router>
         {this.props.auth
@@ -16,7 +19,7 @@ class Navbar extends Component {
             <nav>
               <ul>
                 <li>
-                  <NavLink to="/homepage">homepage</NavLink>
+                  <NavLink to={`/homepage/${window.localStorage.getItem('id')}`}>homepage</NavLink>
                 </li>
                 <li>
                   <Logout />
@@ -24,9 +27,7 @@ class Navbar extends Component {
               </ul>
             </nav>
             <Switch>
-              <Route exact path={`/homepage/${window.localStorage.getItem('id')}`} >
-                <h1>Homepage</h1>
-              </Route>
+              <Route path="/homepage/:id" exact component={CurrentUser} />
             </Switch>
           </>
           :
@@ -46,7 +47,8 @@ class Navbar extends Component {
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          {/* <Route exact path="/logout" component={Logout} /> */}
+          <Route exact path="/currentauction/:userid/:auctionid" component={CurrentAuction} />
+
         </Switch>
 
 

@@ -4,11 +4,15 @@ import { withRouter } from 'react-router-dom';
 import UserInfo from '../components/CurrentUser/UserInfo';
 import CashBalance from '../components/CurrentUser/CashBalance';
 import EditUserInfo from '../components/CurrentUser/EditUserInfo';
+import NewTender from '../components/CurrentUser/newTender';
 import Button from '../components/generalComponents/button';
 import Spinner from '../components/generalComponents/spinner';
+import Tenders from '../components/CurrentUser/Tenders';
 import {
   getCurrentUser,
   editCurrentUser,
+  addAuction,
+  getAuctions,
 } from '../redux/ivan/actions/currentUserActions.js';
 import {
   showLoader,
@@ -19,13 +23,23 @@ class CurrentUser extends React.Component {
   constructor() {
     super();
     this.state = {
-      editInfo: false
+      editInfo: false,
+      addAuction: false,
     }
   }
-  componentDidMount() {
+
+  async componentDidMount() {
     this.props.showLoader();
     this.props.getCurrentUser(this.props.match.params.id);
+    this.props.getAuctions(this.props.match.params.id);
     this.props.hideLoader();
+  }
+
+  async сomponentDidUpdate(prevProps) {
+    if (this.props.user.user.auctions.length !== prevProps.user.user.auctions.length) {
+      console.log(222)
+      this.props.getAuctions(this.props.match.params.id);
+    }
   }
 
   onClickEditHandler = () => {
@@ -47,17 +61,39 @@ class CurrentUser extends React.Component {
     this.props.hideLoader();
   }
 
+  onClickNewAucHandler = () => {
+    this.setState({
+      addAuction: true,
+    })
+  }
+
+  onSubmitNewAucHandler = (event) => {
+    event.preventDefault();
+    const newAuc = Object.fromEntries(
+      new FormData(event.target),
+    );
+    this.props.addAuction(this.props.match.params.id, newAuc);
+    this.setState({
+      addAuction: false,
+    })
+  }
+
   render() {
+    const { user } = this.props.user;
+
     if (this.props.app.loading) {
       return <Spinner />
     }
+
     return (
       <>
-        <h1>UsersPage</h1>
         <div>
           {!this.state.editInfo &&
             <>
-              <UserInfo />
+              <UserInfo
+                name={user.login}
+                description={user.description}
+              />
               <Button
                 text="Отредактировать"
                 onClick={this.onClickEditHandler}
@@ -70,10 +106,24 @@ class CurrentUser extends React.Component {
               />
             </>}
         </div>
-        <CashBalance />
-        <Button
-          text="Создать аукцион"
+        <CashBalance
+          money={user.money}
         />
+        {!this.state.addAuction
+          ?
+          <Button
+            text="Создать аукцион"
+            onClick={this.onClickNewAucHandler}
+          />
+          :
+          <NewTender
+            onSubmit={this.onSubmitNewAucHandler}
+          />}
+
+        {this.props.user.user.auctions &&
+          <Tenders
+            tenders={this.props.user.user.tenders}
+          />}
       </>
     )
   }
@@ -93,4 +143,6 @@ export default connect(mapStatetoProps, {
   showLoader,
   hideLoader,
   editCurrentUser,
+  addAuction,
+  getAuctions,
 })(CurrentUser);
