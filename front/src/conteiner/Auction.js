@@ -12,7 +12,7 @@ import {createauction} from '../redux/actions'
     subject:'',
     subscribers:'',
     budget:'',
-    usercreate: ''
+    usercreate: '',
    }
 
   onClick = (event) => {
