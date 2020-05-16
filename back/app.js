@@ -12,8 +12,10 @@ const usersRouter = require('./routes/users');
 
 const currentUserRouter = require('./routes/currentuser');
 
-const authRouter = require('./routes/auth');
 
+
+const authRouter = require('./routes/auth')
+const advertiserRouter = require('./routes/advertiser')
 
 const app = express();
 
@@ -45,6 +47,7 @@ app.use('/users', usersRouter);
 app.use('/currentuser', currentUserRouter);
 
 app.use('/auth', authRouter);
+app.use('/adAuth', advertiserRouter);
 
 
 // catch 404 and forward to error handler

@@ -4,12 +4,13 @@ import ReactDOM from 'react-dom';
 // import App from './App';
 import { Provider } from 'react-redux'
 import store from './redux/store'
-import Navbar from './conteiner/nav/Navbar';
+// import Navbar from './conteiner/nav/Navbar';
+import Navbar1 from './conteiner/nav/Navbar1';
 
 
 ReactDOM.render(
   <Provider store={store}>
-    <Navbar />
+    <Navbar1 />
   </Provider>,
   document.getElementById('root')
 );

@@ -24,10 +24,20 @@ class Navbar extends Component {
                 <li>
                   <Logout />
                 </li>
+                <li>
+                  <NavLink to="/home">Home</NavLink>
+                </li>
               </ul>
             </nav>
             <Switch>
               <Route path="/homepage/:id" exact component={CurrentUser} />
+              <Route exact path={`/homepage/${window.localStorage.getItem('id')}`} >
+                <h1>Homepage</h1>
+              </Route>
+              <Route exact path="/home">
+                <h1>Home</h1>
+              </Route>
+
             </Switch>
           </>
           :
