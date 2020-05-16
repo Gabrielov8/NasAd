@@ -1,10 +1,11 @@
-import { AUTH, LOGOUT, ERR_MESSAGE } from "./auth-actionTypes"
+import { AUTH, LOGOUT, ERR_MESSAGE, SHOW_USER } from "./auth-actionTypes"
 
 const initialState = {
   isAuthenticated: !!window.localStorage.getItem('isAuthenticated') || false,
   errMessage: false,
   seccess: false,
-  id: ""
+  id: "",
+  blogger: true,
 }
 
 export default function (state = initialState, action) {
@@ -30,6 +31,12 @@ export default function (state = initialState, action) {
     return {
       ...state,
       errMessage: action.payload
+    }
+
+    case SHOW_USER: 
+    return {
+      ...state,
+      blogger: !state.blogger
     }
 
     default:
