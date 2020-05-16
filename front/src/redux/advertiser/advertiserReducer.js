@@ -1,9 +1,15 @@
-import { DATA_OF_CUSTOMER } from "../advertiser/actionTypes";
+import {
+  DATA_OF_CUSTOMER,
+  GET_DATA_MONITORING,
+} from "../advertiser/actionTypes";
 
 const initialState = {
-  subject: "",
-  nameBlogger: "",
-  cash: "",
+  // subject: "",
+  // nameBlogger: "",
+  // cash: "",
+  middleCount: "",
+  allBargaining: "",
+  masBargaining: "",
 };
 
 export default function advertiserReducer(state = initialState, action) {
@@ -14,6 +20,13 @@ export default function advertiserReducer(state = initialState, action) {
         subject: action.subject,
         nameBlogger: action.nameBlogger,
         cash: action.cash,
+      };
+    case GET_DATA_MONITORING:
+      return {
+        ...state,
+        middleCount: action.middleCount,
+        allBargaining: action.allBargaining,
+        masBargaining: action.masBargaining,
       };
     default:
       return state;

@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { asyncGetData } from '../../../redux/advertiser/actions'
 
 class BargainingOfCustomer extends Component {
 
   state = {
-    arr: [
-      { name: 555 },
-      { name: 'zfbsdb' },
-      { name: '5sdbsdbsb55' },
-    ],
     check: false,
     showButton: true,
   }
 
+  componentDidMount = () => {
+    this.props.asyncGetData()
+  }
 
+
+  // componentDidUpdate() {
+  // if (this.props.todos.todos.length !== prevProps.todos.todos.length) {
+  //    this.props.getTodos(); 
+  //   } 
+  // }
 
   showArrayBargaining = () => {
     this.setState({ check: true, showButton: false })
@@ -23,15 +29,18 @@ class BargainingOfCustomer extends Component {
   }
 
   render() {
+    // let { creator } = this.props.masBargaining
+    // console.log(this.props.masBargaining);
+    // console.log(creator);
 
-    let mas = this.state.arr.map(n => <div> {n.name} </div>)
+    // let mas = this.props.masBargaining.map(n => <div> {n} </div>)
 
     return (
       <div>
         <h1> Торги заказчика: </h1>
         <div> Дата и время окончания торгов </div>
 
-        <div> {this.state.check && mas} </div>
+        {/* <div> {this.state.check && mas} </div> */}
 
         {this.state.showButton && <button onClick={this.showArrayBargaining}> Посмотреть все предложения</button>}
         {this.state.check && <button onClick={this.closeArrayBargaining} > Закрыть </button>}
@@ -40,6 +49,15 @@ class BargainingOfCustomer extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    masBargaining: state.advertiserReducer.masBargaining,
+  }
+}
 
-export default BargainingOfCustomer;
+const mapDispatchToProps = {
+  asyncGetData,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BargainingOfCustomer);
 

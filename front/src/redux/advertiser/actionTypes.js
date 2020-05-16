@@ -1,1 +1,5 @@
 export const DATA_OF_CUSTOMER = "DATA_OF_CUSTOMER";
+
+export const GET_DATA_MONITORING = "GET_MIDDLE_COUNT";
+// export const GET_MIDDLE_COUNT = "GET_MIDDLE_COUNT";
+// export const ALL_BARGAINING = "ALL_BARGAINING";
