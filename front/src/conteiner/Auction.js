@@ -1,31 +1,35 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {createauction} from '../redux/actions'
+// import {loadedAuction} from '../redux/actions'
 
 
 
  class Auction extends Component {
 
    
-  //  state = {
-  //    auction:'1'
-  //  }
+   state = {
+    subject:'',
+    subscribers:'',
+    budget:'',
+    usercreate: ''
+   }
 
   onClick = (event) => {
-    const auction = [...this.state.auction]
-    auction.push(event.target.value)
-
-
+    
+   
     this.setState({
-      auction
+    [event.target.name]: event.target.value,
+    usercreate: this.props.stateuser.id
     })
     
-    console.log(this.state.auction);
+    console.log(this.state);
   
 }
 
-onClickBut = (event) =>{
-  this.props.createauction(event.target.value)
+onClickBut = () =>{
+  
+  this.props.createauction(this.state)
 
       }
 
@@ -38,31 +42,30 @@ onClickBut = (event) =>{
 
         <form name='ff'>
           <div>Какая у вас тематика объявления?  </div>
-          <input type="checkbox" name='one' value='Приложения для смартфонов' onChange={this.onClick}  />
+          <input type="checkbox" name='subject' value='Приложения для смартфонов' onChange={this.onClick}  />
           <label >Приложения для смартфонов</label>
           <div >
-            <input type="checkbox" name='2' value='Личный блог'onChange={this.onClick}  />
+            <input type="checkbox" name='subject' value='Личный блог'onChange={this.onClick}  />
             <label>Личный блог</label>
           </div>
           <div >
-            <input type="checkbox" name='3'onChange={this.onClick} value='Букмекерская контора' />
+            <input type="checkbox" name='subject'onChange={this.onClick} value='Букмекерская контора' />
             <label>Букмекерская контора</label>
           </div>t
           <div >
-            <input type="checkbox" name='4' value='Творчество' onChange={this.onClick}  />
+            <input type="checkbox" name='subject' value='Творчество' onChange={this.onClick}  />
             <label >Творчество</label>
           </div>
           <p>Какое минимальное кол-во подписчиков должны быть у блоггера?
            <br></br>
-            <input type='number' name='five' />
+            <input type='number' name='subscribers' onChange={this.onClick}/>
           </p>
           <div>Какой у вас бюджет? </div>
-          <input type='number' name='6'/>
-          <p>
-            <input type='text' onChange={this.onClickBut}  ></input>
-            <button onClick={this.onClickBut} >Cоздать аукцион</button>
-          </p>
+          <input type='number' name='budget' onChange={this.onClick}/>
+         
         </form>
+            <button onClick={this.onClickBut}>Cоздать аукцион</button>
+            {this.props.state.loaded ? <div> OK</div>: null}
 
       </div>
     )
@@ -71,12 +74,13 @@ onClickBut = (event) =>{
 
 const mapStateToProps = (state) => {
   return {
-    state: state.auctionReducer
+    state: state.auctionReducer,
+    stateuser: state.authReducer
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    createauction: (auction) => dispatch(createauction(auction))
+    createauction: (newauction) => dispatch(createauction(newauction))
   }
 }
 

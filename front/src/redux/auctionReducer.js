@@ -1,7 +1,9 @@
-import { CREATEAUCTION } from "./actionTypes"
+import { CREATEAUCTION,LOADEDAUCTION } from "./actionTypes"
+
 
 const initialState = {
   auction: '222',
+  loaded: false
 }
 
 export default function(state = initialState, action){
@@ -9,8 +11,14 @@ export default function(state = initialState, action){
     case CREATEAUCTION:
       return {
         ...state,
-        auction: action.auction
+        auction: action.payload
       }
+
+      case LOADEDAUCTION:
+        return {
+          ...state,
+          loaded: action.payload
+        }
 
     default:
       return state
