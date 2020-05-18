@@ -1,10 +1,10 @@
 import { TEST, LOADEDAUCTION, ALLAUCTION } from "./actionTypes";
 import { CREATEAUCTION } from "./actionTypes";
 
-export function test(){
+export function test() {
   return {
-    type: TEST
-  }
+    type: TEST,
+  };
 }
 
 export function createauction(newauction){

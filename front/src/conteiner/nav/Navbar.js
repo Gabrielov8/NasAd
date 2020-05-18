@@ -6,6 +6,7 @@ import CurrentUser from '../CurrentUser';
 import Login from '../auth/Login';
 import Register from '../auth/Register';
 import Logout from '../auth/Logout';
+import CabOrganization from '../../components/CabOrganization/CabOrganization'
 
 class Navbar extends Component {
 
@@ -43,14 +44,18 @@ class Navbar extends Component {
           :
           <>
             <ul>
+
               <li>
                 <NavLink to="/login">Login</NavLink>
               </li>
               <li>
                 <NavLink to="/register">Register</NavLink>
               </li>
+              <li>
+                <NavLink to="/org">ORG</NavLink>
+              </li>
             </ul>
-
+            <Route exact path='/org' component={CabOrganization} />
           </>
         }
 

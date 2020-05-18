@@ -15,6 +15,7 @@ const auctionRouter = require('./routes/auction')
 const advertiserRouter = require('./routes/advertiser')
 const tenderRouter = require('./routes/tender');
 const currentUserRouter = require('./routes/currentuser');
+const advertisersRouter = require('./routes/advertiser/advertiser')
 
 
 
@@ -47,6 +48,7 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/advertiser', advertisersRouter);
 
 app.use('/currentuser', currentUserRouter);
 app.use('/currenttender', tenderRouter);

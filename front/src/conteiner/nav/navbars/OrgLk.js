@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-do
 import LoginOrg from '../../authAdvertiser/LoginOrg'
 import RegisterOrg from '../../authAdvertiser/RegisterOrg'
 import Logout from '../../auth/Logout'
+import CabOrganization from '../../../components/CabOrganization/CabOrganization'
 import Auction from '../../Auction'
 
 class OrgLk extends Component {
@@ -21,6 +22,9 @@ class OrgLk extends Component {
               
             </li>
             <li>
+              <NavLink to="/advertister">Advertister</NavLink>
+            </li>
+            <li>
               <Logout />
             </li>
           </ul>
@@ -34,6 +38,7 @@ class OrgLk extends Component {
           <Route exact path="/loginOrg" component={LoginOrg} />
           <Route exact path="/createauction" component={Auction} />
           <Route exact path="/regOrg" component={RegisterOrg} />
+          <Route exact path="/advertister" component={CabOrganization} />
           <Route render={() => <h1>404</h1>} />
         </Switch>
 
