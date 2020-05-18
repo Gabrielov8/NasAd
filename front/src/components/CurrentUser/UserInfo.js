@@ -1,12 +1,17 @@
 import React from 'react';
 
-export default function UserInfo() {
+export default function UserInfo({ description, name }) {
+
   return (
     <>
       <div>
-        <h3>Информация о пользователе:</h3>
+        <h3>Привет, {name}!</h3>
         <div>
-          <p>Описание: рассматриваю предложения по рекламе в инстаграмм</p>
+          {description
+            ?
+            <p>{description}</p>
+            :
+            <p>Расскажите о себе</p>}
         </div>
       </div>
     </>

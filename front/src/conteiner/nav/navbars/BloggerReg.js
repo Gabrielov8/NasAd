@@ -40,6 +40,7 @@ class BloggerReg extends Component {
           {/* <Route exact path="/orgReg" component={} /> */}
           <Route exact path="/register" component={Register} />
           <Route render={() => <h1>404</h1>} />
+          
         </Switch>
       </Router >
     )
