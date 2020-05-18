@@ -8,60 +8,72 @@ import {
   addBetTender,
 } from '../redux/ivan/actions/currentTenderActions';
 
-// const ws = new WebSocket('ws://localhost:3001/echo');
-class CurrentTender extends React.Component {
-  ws = new WebSocket('ws://localhost:3001/echo');
-   componentDidMount() {
-    this.props.getCurrentTender(this.props.match.params.tenderid);
 
-    
+class CurrentTender extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      initiator: false
+    }
+    this.ws = new WebSocket('ws://localhost:3001/echo');
+  }
+
+  async componentDidMount() {
+    await this.props.getCurrentTender(this.props.match.params.tenderid);
+    if (this.props.tender.currentTender.initator === localStorage.getItem('id')) {
+      this.setState({
+        initiator: true
+      })
+
+    }
+
+
     this.ws.onopen = () => {
       console.log('Connection start');
     }
 
     this.ws.onmessage = (event) => {
-      console.log(5555);
       this.props.getCurrentTender(this.props.match.params.tenderid);
     }
-}
+  }
 
-onSubmitNewBetHandler = (event) => {
-  event.preventDefault();
-  console.log(this.ws)
-  const orgID = localStorage.getItem('id');
-  this.props.addBetTender(this.props.match.params.tenderid, orgID, event.target.bet.value, this.ws,);
-  event.target.bet.value = '';
-}
+  onSubmitNewBetHandler = (event) => {
+    event.preventDefault();
+    const orgID = localStorage.getItem('id');
+    this.props.addBetTender(this.props.match.params.tenderid, orgID, event.target.bet.value, this.ws);
+    event.target.bet.value = '';
+  }
 
-render() {
+  render() {
 
-  return (
-    <>
-      {
-        this.props.tender.currentTender &&
-        <div>
-          <h2>
-            {this.props.tender.currentTender.title}
-          </h2>
+    return (
+      <>
+        {
+          this.props.tender.currentTender &&
           <div>
-            <h4>
-              Ход торгов
+            <h2>
+              {this.props.tender.currentTender.title}
+            </h2>
+            <div>
+              <h4>
+                Ход торгов
               </h4>
-            {
-              this.props.tender.currentTender.bets.length &&
-              <Bets
-                bets={this.props.tender.currentTender.bets}
-              />
-            }
+              {
+                this.props.tender.currentTender.bets.length &&
+                <Bets
+                  bets={this.props.tender.currentTender.bets}
+                />
+              }
+            </div>
+            {!this.state.initiator &&
+              <Bet
+                onSubmit={this.onSubmitNewBetHandler}
+              />}
           </div>
-          <Bet
-            onSubmit={this.onSubmitNewBetHandler}
-          />
-        </div>
-      }
-    </>
-  )
-}
+        }
+      </>
+    )
+  }
 }
 
 const mapStatetoProps = (state) => {

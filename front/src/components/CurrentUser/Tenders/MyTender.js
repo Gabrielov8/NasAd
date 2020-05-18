@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-function Auction({
+function Tender({
   title, market, finishDate, minCost, startDate, step, match, aucId
 }) {
 
@@ -9,6 +9,7 @@ function Auction({
     <>
       <Link
         to={`currenttender/${match.params.id}/${aucId}`}
+        author="true"
       >
         <h4>{title}</h4>
       </Link>
@@ -22,4 +23,4 @@ function Auction({
 }
 
 
-export default withRouter(Auction);
+export default withRouter(Tender);
