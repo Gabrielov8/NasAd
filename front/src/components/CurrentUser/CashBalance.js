@@ -1,11 +1,11 @@
 import React from 'react';
 
-export default function CashBalance() {
+export default function CashBalance({ money }) {
   return (
     <>
       <div>
         <h3> У вас на счету:</h3>
-        <p>5 000 рублей</p>
+        <p>{money} рублей</p>
       </div>
     </>
   )
