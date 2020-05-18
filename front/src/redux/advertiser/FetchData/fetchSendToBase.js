@@ -44,3 +44,20 @@ export function sendIdOfBargainingToBase(id) {
     // const json = await response.json();
   };
 }
+
+export function findWinInAuction() {
+  let idOrganizer = localStorage.getItem("id");
+  return async () => {
+    let response = await fetch("/advertiser/findWinInAuction", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({idOrganizer}),
+    });
+    const json = await response.json();
+  };
+}
+
+

@@ -23,6 +23,13 @@ module.exports = router;
 
 router.post("/idBargaining", async (req, res) => {
   let { id } = req.body;
-  await DataAdvertiser.findByIdAndUpdate(id, {active: false})
+  await DataAdvertiser.findByIdAndUpdate(id, { active: false });
   res.end();
 });
+
+router.post("/findWinInAuction", async (req, res) => {
+  let { idOrganizer } = req.body;
+  let findWin = await NONE.find({ win: idOrganizer });
+  res.json({ findWin });
+});
+module.exports = router;

@@ -5,6 +5,7 @@ import BargainingOfCustomer from './BargainingOfCustomer/BargainingOfCustomer';
 import { connect } from 'react-redux'
 import { asyncGetDataFromBase } from '../../redux/advertiser/FetchData/fetchSendToBase'
 import { changeMiddleCount  } from '../../redux/advertiser/actions'
+import AnnouncementAboutWin from './AnnouncementAboutWin';
 class CabOrganization extends Component {
 
   state = {
@@ -32,6 +33,11 @@ class CabOrganization extends Component {
     return (
       <div>
         <img alt='' className={style.avatar} />
+
+    <div>
+      <AnnouncementAboutWin />
+    </div>
+
         <h2> Личная страница заказчика </h2>
         <h2> Информация о заказчике: </h2>
         <ul>

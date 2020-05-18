@@ -31,6 +31,8 @@ class Navbar extends Component {
             <OrgReg blogger={this.props.blogger} />
         }
 
+        <Link to='/advertiser'> Advertiser </Link>
+        <Route path='/advertiser' component={CabOrganization} />
       </>
       </BrowserRouter>
     )
