@@ -10,11 +10,14 @@ const Tender = require('./models/ivan/tenders');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const authRouter = require('./routes/auth')
+const auctionRouter = require('./routes/auction')
+const advertiserRouter = require('./routes/advertiser')
 const tenderRouter = require('./routes/tender');
 const currentUserRouter = require('./routes/currentuser');
-const authRouter = require('./routes/auth');
-const advertiserRouter = require('./routes/advertiser');
 const advertisersRouter = require('./routes/advertiser/advertiser')
+
+
 
 const app = express();
 const expressWs = require('express-ws')(app);
@@ -53,6 +56,7 @@ app.use('/currenttender', tenderRouter);
 app.use('/auth', authRouter);
 app.use('/adAuth', advertiserRouter);
 
+app.use('/auction', auctionRouter);
 app.ws('/echo', (ws, req) => {
   ws.on('message', async (msg) => {
     const bet = await JSON.parse(msg);

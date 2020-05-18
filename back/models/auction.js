@@ -1,10 +1,18 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model } = require('mongoose')
 
-const auctionSchema = new Schema({
-  subject: String,
-  subscribers: String,
-  budget: String,
-  usercreate: String,
-});
+const AuctionSchema = new Schema({
+  subject: {
+    type: String, required: true
+  },
+  subscribers: {
+    type: String, required: true
+  },
+  budget: {
+    type: String,  required: true
+  },
+  usercreate: {
+    type: String
+  }
+})
 
-module.exports = model("User", auctionSchema);
+module.exports = model('Auction', AuctionSchema)

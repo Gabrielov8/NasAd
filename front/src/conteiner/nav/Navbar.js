@@ -68,7 +68,7 @@ class Navbar extends Component {
             component={CurrentTender} />
 
         </Switch>
-
+<Auction/>
 
       </Router>
     )
