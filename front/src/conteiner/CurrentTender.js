@@ -7,6 +7,8 @@ import {
   getCurrentTender,
   addBetTender,
 } from '../redux/ivan/actions/currentTenderActions';
+import { deleteAuction } from '../redux/ivan/actions/currentUserActions.js';
+import Button from '../components/generalComponents/button';
 
 
 class CurrentTender extends React.Component {
@@ -43,6 +45,11 @@ class CurrentTender extends React.Component {
     event.target.bet.value = '';
   }
 
+  onClickDeleteHandler = () => {
+    this.props.deleteAuction(localStorage.getItem('id', this.props.match.params.tenderid))
+    window.location.replace(`/homepage/${localStorage.getItem('id')}`)
+  }
+
   render() {
 
     return (
@@ -64,10 +71,18 @@ class CurrentTender extends React.Component {
                 />
               }
             </div>
-            {!this.state.initiator &&
+
+            {!this.state.initiator
+              ?
               <Bet
                 onSubmit={this.onSubmitNewBetHandler}
+              />
+              :
+              <Button
+                text="Отменить"
+                onClick={this.onClickDeleteHandler}
               />}
+
           </div>
         }
       </>
@@ -86,4 +101,5 @@ const mapStatetoProps = (state) => {
 export default connect(mapStatetoProps, {
   getCurrentTender,
   addBetTender,
+  deleteAuction,
 })(withRouter(CurrentTender));

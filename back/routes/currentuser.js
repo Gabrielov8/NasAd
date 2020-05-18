@@ -10,6 +10,17 @@ router.get('/:id', async (req, res) => {
   res.json({ user });
 });
 
+router.delete('/:id/:tenderid', async (req, res) => {
+  let user = await User.findById(req.params.id);
+
+  for (let i = 0; i < user.tenders.length; i++) {
+    if (user.tenders[i]._id == req.params.tenderid) {
+      console.log(2222);
+    }
+  }
+  res.json({ user });
+});
+
 router.put('/:id', async (req, res) => {
   await User.findByIdAndUpdate(req.params.id, { description: req.body.userInfo.text });
   const user = await User.findById(req.params.id);
@@ -20,6 +31,7 @@ router.post('/newauction/:id', async (req, res) => {
   const {
     title, market, minCost, step, startDate, finishDate,
   } = req.body.newAuc;
+
   const tender = new Tender({
     title,
     market,

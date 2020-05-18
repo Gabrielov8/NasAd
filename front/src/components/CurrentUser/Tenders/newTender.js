@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../../generalComponents/button';
 
-export default function NewAuction({ onSubmit }) {
+export default function NewTender({ onSubmit }) {
   return (
     <>
       <div>

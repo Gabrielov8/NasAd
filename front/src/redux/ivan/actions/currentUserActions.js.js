@@ -76,3 +76,24 @@ export function addAuction(id, newAuc) {
     }
   }
 }
+
+export function deleteAuction(id, tenderID) {
+  return async function (dispatch) {
+    try {
+      const response = await fetch(`/currentuser/${id}/${tenderID}`, {
+        method: 'DELETE',
+      });
+
+      const { user } = await response.json();
+
+      dispatch({
+        type: CURRENT_USER,
+        payload: user,
+      });
+
+
+    } catch (e) {
+      console.log(e)
+    }
+  }
+}
