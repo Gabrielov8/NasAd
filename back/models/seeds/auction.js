@@ -6,7 +6,7 @@ mongoose.connect("mongodb://localhost:27017/NasAd", {
   useCreateIndex: true,
 });
 
-const Auction = require("../models/entry");
+const Auction = require("../../models/auction");
 
 const entries = [
   {
