@@ -3,6 +3,7 @@ import {
   GET_DATA_FROM_BASE,
   CHANGE_MIDDLE_COUNT,
   CHANGE_ACTIVE_BARGAINING,
+  ADD_TENDER_TO_STORE,
 } from "./actionTypes";
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   masBargaining: [],
   middleCount: 0,
   activeBargaining: 0,
+  tenders: "",
 };
 
 export default function (state = initialState, action) {
@@ -51,7 +53,15 @@ export default function (state = initialState, action) {
     case CHANGE_ACTIVE_BARGAINING:
       return {
         ...state,
-        activeBargaining: state.masBargaining.reduce((sum, el) => el.active && sum + 1, 0)
+        activeBargaining: state.masBargaining.reduce(
+          (sum, el) => el.active && sum + 1,
+          0
+        ),
+      };
+    case ADD_TENDER_TO_STORE:
+      return {
+        ...state,
+        tenders: action.tender,
       };
     default:
       return state;

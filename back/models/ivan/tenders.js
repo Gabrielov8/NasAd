@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
 const tenderSchema = new Schema({
   initator: {
@@ -19,4 +19,4 @@ const tenderSchema = new Schema({
   },
 });
 
-module.exports = model('Tender', tenderSchema);
+module.exports = model("Tender", tenderSchema);
