@@ -1,32 +1,57 @@
 import {
-  DATA_OF_CUSTOMER,
-  GET_DATA_MONITORING,
-} from "../advertiser/actionTypes";
+  REFRESH_DATA_TO_STORE,
+  GET_DATA_FROM_BASE,
+  CHANGE_MIDDLE_COUNT,
+  CHANGE_ACTIVE_BARGAINING,
+} from "./actionTypes";
 
 const initialState = {
-  // subject: "",
-  // nameBlogger: "",
-  // cash: "",
-  middleCount: "",
-  allBargaining: "",
-  masBargaining: "",
+  subject: "",
+  nameBlogger: "",
+  cash: "",
+  masBargaining: [],
+  middleCount: 0,
+  activeBargaining: 0,
 };
 
-export default function advertiserReducer(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
-    case DATA_OF_CUSTOMER:
+    case REFRESH_DATA_TO_STORE:
       return {
         ...state,
         subject: action.subject,
         nameBlogger: action.nameBlogger,
         cash: action.cash,
+        masBargaining: [
+          ...state.masBargaining,
+          {
+            subject: action.subject,
+            nameBlogger: action.nameBlogger,
+            cash: action.cash,
+            active: state.active,
+          },
+        ],
       };
-    case GET_DATA_MONITORING:
+    case GET_DATA_FROM_BASE:
       return {
         ...state,
-        middleCount: action.middleCount,
-        allBargaining: action.allBargaining,
-        masBargaining: action.masBargaining,
+        subject: state.subject,
+        nameBlogger: state.nameBlogger,
+        cash: state.cash,
+        masBargaining: action.arrayData.arrayData,
+      };
+    case CHANGE_MIDDLE_COUNT:
+      return {
+        ...state,
+        middleCount: (
+          state.masBargaining.reduce((sum, el) => sum + Number(el.cash), 0) /
+          state.masBargaining.length
+        ).toFixed(2),
+      };
+    case CHANGE_ACTIVE_BARGAINING:
+      return {
+        ...state,
+        activeBargaining: state.masBargaining.reduce((sum, el) => el.active && sum + 1, 0)
       };
     default:
       return state;

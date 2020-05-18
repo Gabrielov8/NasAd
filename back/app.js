@@ -9,7 +9,7 @@ const dbConnect = require('./models/db-connect')
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const advertiserRouter = require('./routes/advertiser/advertiser')
+const advertisersRouter = require('./routes/advertiser/advertiser')
 const authRouter = require('./routes/auth')
 const advertiserRouter = require('./routes/advertiser')
 
@@ -39,7 +39,7 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/advertiser', advertiserRouter);
+app.use('/advertiser', advertisersRouter);
 app.use('/auth', authRouter);
 app.use('/adAuth', advertiserRouter);
 

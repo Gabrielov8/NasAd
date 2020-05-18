@@ -2,26 +2,27 @@ const express = require("express");
 const router = express.Router();
 const DataAdvertiser = require("../../models/advertiser/dataAdvertiser");
 
-router.post("/", async (req, res, next) => {
-  const { subject, nameBlogger, cash } = req.body;
+router.post("/", async (req, res) => {
+  const { subject, nameBlogger, cash, creator } = req.body;
   await DataAdvertiser.create({
-    creator: "user",
+    creator: creator,
     subject: subject,
     nameBlogger: nameBlogger,
     cash: cash,
+    active: true,
   });
-  next();
+  res.json({ message: true });
 });
 
-router.get("/getData", async (req, res) => {
-  let data = await DataAdvertiser.find({});
-  console.log(data);
-  let middleCount =
-    data.reduce((sum, count) => sum + count.cash, 0) / data.length;
-  res.json({
-    middleCount: middleCount.toFixed(2),
-    allBargaining: data.length,
-    masBargaining: data,
-  });
+router.post("/getData", async (req, res) => {
+  let { creator } = req.body;
+  let arrayData = await DataAdvertiser.find({ creator: creator });
+  res.json({ arrayData: arrayData });
 });
 module.exports = router;
+
+router.post("/idBargaining", async (req, res) => {
+  let { id } = req.body;
+  await DataAdvertiser.findByIdAndUpdate(id, {active: false})
+  res.end();
+});

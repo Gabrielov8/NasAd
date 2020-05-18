@@ -1,31 +1,34 @@
-import { GET_DATA_MONITORING } from "./actionTypes";
+import {
+  REFRESH_DATA_TO_STORE,
+  GET_DATA_FROM_BASE,
+  CHANGE_MIDDLE_COUNT,
+  CHANGE_ACTIVE_BARGAINING,
+} from "./actionTypes";
 
-export function dataOfCustomerSendToBase(subject, nameBlogger, cash) {
-  return async () => {
-    let response = await fetch("/advertiser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ subject, nameBlogger, cash }),
-    });
-    // let json = await response.json('')
-  };
-}
-
-export function getData(middleCount, allBargaining, masBargaining) {
+export function saveDataToStore(subject, nameBlogger, cash) {
   return {
-    type: GET_DATA_MONITORING,
-    middleCount: middleCount,
-    allBargaining: allBargaining,
-    masBargaining: masBargaining,
+    type: REFRESH_DATA_TO_STORE,
+    subject: subject,
+    nameBlogger: nameBlogger,
+    cash: cash,
   };
 }
 
-export function asyncGetData() {
-  return async (dispatch) => {
-    let response = await fetch("/advertiser/getData");
-    let ddd = await response.json();
-    dispatch(getData(ddd.middleCount, ddd.allBargaining, ddd.masBargaining));
+export function pushArrayDataToStore(arrayData) {
+  return {
+    type: GET_DATA_FROM_BASE,
+    arrayData: arrayData,
+  };
+}
+
+export function changeMiddleCount() {
+  return {
+    type: CHANGE_MIDDLE_COUNT,
+  };
+}
+
+export function changeActiveBargaining() {
+  return {
+    type: CHANGE_ACTIVE_BARGAINING,
   };
 }

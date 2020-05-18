@@ -5,6 +5,7 @@ const dataAdvertiserSchema = new Schema({
   subject: String,
   nameBlogger: String,
   cash: Number,
+  active: Boolean
 });
 
-module.exports = model("dataAdvertiser", dataAdvertiserSchema);
+module.exports = model("Data_advertiser", dataAdvertiserSchema);
