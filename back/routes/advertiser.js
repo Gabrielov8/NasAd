@@ -1,4 +1,4 @@
-const Advertiser = require('../models/advertiser')
+const Advertiser = require('../models/advertiser/dataAdvertiser')
 const express = require('express');
 const bcrypt = require('bcrypt')
 

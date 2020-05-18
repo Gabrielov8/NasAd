@@ -1,4 +1,8 @@
-import { saveDataToStore, pushArrayDataToStore } from "../actions";
+import {
+  saveDataToStore,
+  pushArrayDataToStore,
+  addTenderToStore,
+} from "../actions";
 
 export function dataOfCustomerSendToBase(subject, nameBlogger, cash) {
   let creator = localStorage.getItem("id");
@@ -30,7 +34,6 @@ export function asyncGetDataFromBase(creator) {
   };
 }
 
-
 export function sendIdOfBargainingToBase(id) {
   return async () => {
     await fetch("/advertiser/idBargaining", {
@@ -39,25 +42,30 @@ export function sendIdOfBargainingToBase(id) {
         "Content-Type": "application/json",
       },
       credentials: "include",
-      body: JSON.stringify({ id}),
+      body: JSON.stringify({ id }),
     });
-    // const json = await response.json();
   };
 }
 
-export function findWinInAuction() {
-  let idOrganizer = localStorage.getItem("id");
-  return async () => {
-    let response = await fetch("/advertiser/findWinInAuction", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify({idOrganizer}),
-    });
-    const json = await response.json();
+export function getFromBaseOfTender() {
+  return async (dispatch) => {
+    let response = await fetch("/advertiser/getTender");
+    const { tender } = await response.json();
+    dispatch(addTenderToStore(tender));
   };
 }
 
-
+// export function findWinInAuction() {
+//   let idOrganizer = localStorage.getItem("id");
+//   return async () => {
+//     let response = await fetch("/advertiser/findWinInAuction", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       credentials: "include",
+//       body: JSON.stringify({idOrganizer}),
+//     });
+//     const json = await response.json();
+//   };
+// }

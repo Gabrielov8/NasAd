@@ -3,6 +3,7 @@ import {
   GET_DATA_FROM_BASE,
   CHANGE_MIDDLE_COUNT,
   CHANGE_ACTIVE_BARGAINING,
+  ADD_TENDER_TO_STORE
 } from "./actionTypes";
 
 export function saveDataToStore(subject, nameBlogger, cash) {
@@ -31,4 +32,11 @@ export function changeActiveBargaining() {
   return {
     type: CHANGE_ACTIVE_BARGAINING,
   };
+}
+
+export function addTenderToStore (tender) {
+  return {
+    type: ADD_TENDER_TO_STORE,
+    tender: tender,
+  }
 }

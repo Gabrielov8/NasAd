@@ -59,6 +59,8 @@ app.use('/adAuth', advertiserRouter);
 app.use('/auction', auctionRouter);
 app.ws('/echo', (ws, req) => {
   ws.on('message', async (msg) => {
+    console.log(msg, '<><>8');
+    
     const bet = await JSON.parse(msg);
     const tender = await Tender.findById(bet.tenderId);
     tender.bets.push({
