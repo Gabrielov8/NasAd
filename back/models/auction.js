@@ -12,7 +12,11 @@ const AuctionSchema = new Schema({
   },
   usercreate: {
     type: String
-  }
+  },
+  participant: {
+    type: Array
+  },
+
 })
 
 module.exports = model('Auction', AuctionSchema)

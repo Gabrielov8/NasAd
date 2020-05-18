@@ -11,6 +11,10 @@ onClick= () => {
   
 }
 
+onChage = () => {
+  
+}
+
   render() {
     return (
       <div>
@@ -26,7 +30,7 @@ onClick= () => {
           )
         })}
         </ul>
-        aaa
+        <button onClick={this.onChage} >Откликнуться на предложение</button>
       </div>
     )
   }
