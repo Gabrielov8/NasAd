@@ -1,13 +1,17 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom'
-import { connect } from 'react-redux'
-import Login from '../auth/Login'
-import Register from '../auth/Register'
-import Logout from '../auth/Logout'
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import CurrentTender from '../CurrentTender';
+import CurrentUser from '../CurrentUser';
+import Login from '../auth/Login';
+import Register from '../auth/Register';
+import Logout from '../auth/Logout';
+import CabOrganization from '../../components/CabOrganization/CabOrganization'
 
 class Navbar extends Component {
+
   render() {
-    console.log(this.props)
+
     return (
       <Router>
         {this.props.auth
@@ -16,7 +20,7 @@ class Navbar extends Component {
             <nav>
               <ul>
                 <li>
-                  <NavLink to="/homepage">homepage</NavLink>
+                  <NavLink to={`/homepage/${window.localStorage.getItem('id')}`}>homepage</NavLink>
                 </li>
                 <li>
                   <Logout />
@@ -27,6 +31,7 @@ class Navbar extends Component {
               </ul>
             </nav>
             <Switch>
+              <Route path="/homepage/:id" exact component={CurrentUser} />
               <Route exact path={`/homepage/${window.localStorage.getItem('id')}`} >
                 <h1>Homepage</h1>
               </Route>
@@ -39,23 +44,31 @@ class Navbar extends Component {
           :
           <>
             <ul>
+
               <li>
                 <NavLink to="/login">Login</NavLink>
               </li>
               <li>
                 <NavLink to="/register">Register</NavLink>
               </li>
+              <li>
+                <NavLink to="/org">ORG</NavLink>
+              </li>
             </ul>
-
+            <Route exact path='/org' component={CabOrganization} />
           </>
         }
 
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route
+            exact
+            path="/currenttender/:userid/:auctionid"
+            component={CurrentTender} />
 
         </Switch>
-
+<Auction/>
 
       </Router>
     )
