@@ -1,9 +1,9 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
 const tenderSchema = new Schema({
   initator: {
     type: Schema.Types.ObjectId,
-    ref: 'Tag',
+    ref: "Tag",
   },
   title: String,
   description: String,
@@ -19,4 +19,4 @@ const tenderSchema = new Schema({
   },
 });
 
-module.exports = model('Tender', tenderSchema);
+module.exports = model("Tender", tenderSchema);

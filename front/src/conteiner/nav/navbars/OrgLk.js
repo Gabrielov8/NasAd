@@ -5,6 +5,7 @@ import RegisterOrg from '../../authAdvertiser/RegisterOrg'
 import Logout from '../../auth/Logout'
 import CabOrganization from '../../../components/CabOrganization/CabOrganization'
 import Auction from '../../Auction'
+import CurrentTender from '../../CurrentTender'
 
 class OrgLk extends Component {
   render() {
@@ -39,7 +40,15 @@ class OrgLk extends Component {
           <Route exact path="/createauction" component={Auction} />
           <Route exact path="/regOrg" component={RegisterOrg} />
           <Route exact path="/advertister" component={CabOrganization} />
+
+          <Route
+            exact
+            path="/currenttender/:tenderid"
+            component={CurrentTender} />
+
           <Route render={() => <h1>404</h1>} />
+
+          
         </Switch>
 
         {/* {this.props.auth ? this.props.auth ? <p>asd</p> : null : null} */}

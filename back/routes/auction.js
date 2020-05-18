@@ -5,7 +5,7 @@ const Auction = require('../models/auction')
 router.post('/', async (req,res) =>{
   try{
     const {subject,subscribers,budget,usercreate} = req.body.newauction
-    console.log(req.body);
+    // console.log(req.body);
     
     const newAuction = await new Auction({
       subject,
@@ -28,9 +28,9 @@ router.post('/', async (req,res) =>{
 router.post('/allauction', async (req,res) =>{
   try{
    
-    console.log('BACK')
+    // console.log('BACK')
     const allAuction = await Auction.find({})
-console.log(allAuction,'777')
+// console.log(allAuction,'777')
 res.json({
   message: allAuction
 })

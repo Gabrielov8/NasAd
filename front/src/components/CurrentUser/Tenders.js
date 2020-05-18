@@ -3,6 +3,7 @@ import Tender from './Tender';
 
 
 export default function Tenders({ tenders }) {
+console.log(tenders, '<<<58585');
 
   return (
     <>
