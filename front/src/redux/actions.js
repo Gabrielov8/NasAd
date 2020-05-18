@@ -58,7 +58,7 @@ export function useraddauction(userid,auctionid){
     })
     // dispatch(createAuctionStore())
     const {message} = await responce.json()
-    console.log(message,'BBBB');
+    console.log(message,'BBBd-a');
     
     // console.log(result,'RESULT');
     if(message){
