@@ -9,7 +9,6 @@ function Tender({
     <>
       <Link
         to={`currenttender/${match.params.id}/${aucId}`}
-        author="true"
       >
         <h4>{title}</h4>
       </Link>
