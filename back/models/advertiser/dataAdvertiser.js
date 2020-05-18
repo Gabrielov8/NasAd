@@ -1,13 +1,14 @@
 const { Schema, model } = require('mongoose');
 
 const dataAdvertiserSchema = new Schema({
-  name: {
+  login: {
     type: String,
     required: true,
   },
   email: {
     type: String,
     required: true,
+    unique: true,
   },
   password: {
     type: String,

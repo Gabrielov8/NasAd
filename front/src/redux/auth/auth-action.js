@@ -1,8 +1,15 @@
-import { AUTH, LOGOUT, ERR_MESSAGE, SHOW_USER } from "./auth-actionTypes";
+import { AUTH, LOGOUT, ERR_MESSAGE, SHOW_USER, AUTH_ORG } from "./auth-actionTypes";
 
 export function auth(id){
   return {
     type: AUTH,
+    payload: id
+  }
+}
+
+export function auth_org(id){
+  return {
+    type: AUTH_ORG,
     payload: id
   }
 }
@@ -101,7 +108,7 @@ export function auth_login_ad(email, password){
       dispatch(show_err_message(err))
     }
     if(message){
-      dispatch(auth(advertiser))
+      dispatch(auth_org(advertiser))
     }
   }
 }
@@ -125,14 +132,14 @@ export function auth_register_ad(login, email, password){
       dispatch(show_err_message(err))
     }
     if(message){
-      dispatch(auth(advertiser))
+      dispatch(auth_org(advertiser))
     }
   }
 }
 
 export function logout_ad(){
   return async (dispatch) => {
-    const response = await fetch('/adAuth/logout')
+    const response = await fetch('/auth/logout')
     const { message } = await response.json()
     if(message){
       dispatch(logout())
