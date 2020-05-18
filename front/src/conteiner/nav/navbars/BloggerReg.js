@@ -15,7 +15,6 @@ class BloggerReg extends Component {
   render() {
     return (
       <Router>
-        {/* {this.props.blogger ? null : <Redirect to="/orgReg" /> } */}
         <Link to="/">
         <button onClick={this.clickHandler}>Для организаций</button>
         </Link>
@@ -37,7 +36,6 @@ class BloggerReg extends Component {
         <Switch>
           <Route exact path="/" render={() => <h1>Main page</h1>} />
           <Route exact path="/login" component={Login} />
-          {/* <Route exact path="/orgReg" component={} /> */}
           <Route exact path="/register" component={Register} />
           <Route render={() => <h1>404</h1>} />
           
