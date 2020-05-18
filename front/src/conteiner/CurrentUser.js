@@ -120,7 +120,7 @@ class CurrentUser extends React.Component {
             onSubmit={this.onSubmitNewAucHandler}
           />}
 
-        {this.props.user.user.auctions &&
+        {this.props.user.user.tenders &&
           <Tenders
             tenders={this.props.user.user.tenders}
           />}

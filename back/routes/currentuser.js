@@ -20,7 +20,7 @@ router.post('/newauction/:id', async (req, res) => {
   const {
     title, market, minCost, step, startDate, finishDate,
   } = req.body.newAuc;
-  const auction = new Tender({
+  const tender = new Tender({
     title,
     market,
     minCost,
@@ -30,16 +30,18 @@ router.post('/newauction/:id', async (req, res) => {
     initator: req.params.id,
   });
   const user = await User.findById(req.params.id);
-  user.tenders.push(auction);
+  user.tenders.push(tender);
   await user.save();
-  await auction.save();
+  await tender.save();
   res.json({ user });
 });
 
 router.get('/currentauctions/:id', async (req, res) => {
-  const auctions = await Tender.find({ status: true });
-  res.json({ auctions });
+  const tenders = await Tender.find({ status: true });
+  res.json({ tenders });
 });
+
+
 
 router.get('/allauctions/:id', async (req, res) => {
   const user = await User.findById(req.params.id);

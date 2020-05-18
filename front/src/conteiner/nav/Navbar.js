@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import CurrentAuction from '../CurrentAuction';
+import CurrentTender from '../CurrentTender';
 import CurrentUser from '../CurrentUser';
 import Login from '../auth/Login';
 import Register from '../auth/Register';
@@ -57,7 +57,10 @@ class Navbar extends Component {
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/currentauction/:userid/:auctionid" component={CurrentAuction} />
+          <Route
+            exact
+            path="/currenttender/:userid/:auctionid"
+            component={CurrentAuction} />
 
         </Switch>
 

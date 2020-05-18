@@ -2,7 +2,6 @@ import {
   CURRENT_USER,
   CREATE_AUCTION,
   EDIT_USER_INFO,
-  GET_ALL_CURRENT_AUC,
 } from '../types';
 
 const initialState = {

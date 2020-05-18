@@ -8,7 +8,7 @@ function Auction({
   return (
     <>
       <Link
-        to={`currentauction/${match.params.id}/${aucId}`}
+        to={`currenttender/${match.params.id}/${aucId}`}
       >
         <h4>{title}</h4>
       </Link>

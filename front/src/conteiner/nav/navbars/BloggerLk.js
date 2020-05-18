@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
+import CurrentUser from '../../CurrentUser';
+import CurrentTender from '../../CurrentTender';
 import Logout from '../../auth/Logout'
 import Login from '../../auth/Login'
 import Register from '../../auth/Register'
@@ -17,6 +19,10 @@ class BloggerLk extends Component {
             <li>
               <Logout />
             </li>
+            <li>
+              <NavLink to={`/homepage/${window.localStorage.getItem('id')}`}>BlogersPage</NavLink>
+            </li>
+
           </ul>
         </nav>
         <Switch>
@@ -26,6 +32,8 @@ class BloggerLk extends Component {
           </Route>
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route path="/homepage/:id" exact component={CurrentUser} />
+          <Route path="/homepage/currenttender/:userid/:tenderid" exact component={CurrentTender} />
           <Route render={() => <h1>404</h1>} />
         </Switch>
       </Router>

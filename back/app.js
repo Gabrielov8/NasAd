@@ -5,19 +5,20 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const MongoStore = require('connect-mongodb-session')(session);
 const logger = require('morgan');
-const dbConnect = require('./models/db-connect');
+
+const Tender = require('./models/ivan/tenders');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-
+const tenderRouter = require('./routes/tender');
 const currentUserRouter = require('./routes/currentuser');
-
-
-
-const authRouter = require('./routes/auth')
-const advertiserRouter = require('./routes/advertiser')
+const authRouter = require('./routes/auth');
+const advertiserRouter = require('./routes/advertiser');
 
 const app = express();
+const expressWs = require('express-ws')(app);
+const dbConnect = require('./models/db-connect');
+
 
 const store = new MongoStore({
   collection: 'sessions',
@@ -45,10 +46,26 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 app.use('/currentuser', currentUserRouter);
+app.use('/currenttender', tenderRouter);
 
 app.use('/auth', authRouter);
 app.use('/adAuth', advertiserRouter);
 
+app.ws('/echo', (ws, req) => {
+  ws.on('message', async (msg) => {
+    const bet = await JSON.parse(msg);
+    const tender = await Tender.findById(bet.tenderId);
+    tender.bets.push({
+      author: bet.orgId,
+      cost: bet.bet,
+      date: new Date().toLocaleTimeString(),
+    });
+    await tender.save();
+    const { clients } = expressWs.getWss();
+    console.log(clients);
+    clients.forEach(clientWS => clientWS.send(JSON.stringify(tender)));
+  });
+});
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -65,5 +82,7 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(3001);
 
 module.exports = app;
