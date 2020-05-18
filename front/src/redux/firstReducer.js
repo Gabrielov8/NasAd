@@ -1,7 +1,7 @@
 import { TEST } from "./actionTypes"
 
 const initialState = {
-  test: '',
+  test: ''
 }
 
 export default function(state = initialState, action){

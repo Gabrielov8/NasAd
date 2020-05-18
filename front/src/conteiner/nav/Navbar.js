@@ -60,10 +60,10 @@ class Navbar extends Component {
           <Route
             exact
             path="/currenttender/:userid/:auctionid"
-            component={CurrentAuction} />
+            component={CurrentTender} />
 
         </Switch>
-
+<Auction/>
 
       </Router>
     )
