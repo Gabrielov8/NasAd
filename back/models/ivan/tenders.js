@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 const tenderSchema = new Schema({
   initator: {
     type: Schema.Types.ObjectId,
-    ref: 'Tag',
+    ref: 'User',
   },
   title: String,
   description: String,
