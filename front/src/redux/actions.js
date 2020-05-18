@@ -1,4 +1,4 @@
-import { TEST, LOADEDAUCTION } from "./actionTypes";
+import { TEST, LOADEDAUCTION, ALLAUCTION } from "./actionTypes";
 import { CREATEAUCTION } from "./actionTypes";
 
 export function test(){
@@ -27,6 +27,27 @@ export function createauction(newauction){
 }
 }
 
+export function allauction(){
+  return async function(dispatch) { 
+    
+
+    const responce = await fetch ('/auction/allauction', {
+      method:'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({})
+    })
+    // dispatch(createAuctionStore())
+    const {message} = await responce.json()
+    console.log(message,'BBBB');
+    
+    // console.log(result,'RESULT');
+    if(message){
+      dispatch(loadedallAuction(message))
+    }
+}
+}
+
+
 export function createAuctionStore(url){
   return {
     type:CREATEAUCTION,
@@ -37,6 +58,13 @@ export function createAuctionStore(url){
 export function loadedAuction(result){
   return {
     type:LOADEDAUCTION,
+    payload: result
+  }
+}
+
+export function loadedallAuction(result){
+  return {
+    type:ALLAUCTION,
     payload: result
   }
 }

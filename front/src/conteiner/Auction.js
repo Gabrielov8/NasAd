@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {createauction} from '../redux/actions'
+import {createauction,allauction} from '../redux/actions'
+import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom'
+import Allauction from './nav/navbars/Allauction'
 // import {loadedAuction} from '../redux/actions'
 
 
@@ -32,12 +34,16 @@ onClickBut = () =>{
   this.props.createauction(this.state)
 
       }
+      onClickAllAuction =()=>{
+        this.props.allauction()
+      }
 
       
   render() {
     return (
-      <div>
+      <Router>
 
+<div>
         <h2>Заполните все поля и нажмите кнопку создать аукцион</h2>
 
         <form name='ff'>
@@ -67,7 +73,14 @@ onClickBut = () =>{
             <button onClick={this.onClickBut}>Cоздать аукцион</button>
             {this.props.state.loaded ? <div> OK</div>: null}
 
+<p>
+<NavLink onClick={this.onClickAllAuction} to="/allauction">allauction</NavLink>
+<Route exact path="/allauction" component={Allauction} />
+</p>
+
+<button onClick={this.onClickAllAuction} >Allauction</button>
       </div>
+</Router>
     )
   }
 }
@@ -80,7 +93,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    createauction: (newauction) => dispatch(createauction(newauction))
+    createauction: (newauction) => dispatch(createauction(newauction)),
+    allauction: () => dispatch(allauction())
   }
 }
 

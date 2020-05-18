@@ -24,4 +24,23 @@ router.post('/', async (req,res) =>{
   })
 })
 
+
+router.post('/allauction', async (req,res) =>{
+  try{
+   
+    console.log('BACK')
+    const allAuction = await Auction.find({})
+console.log(allAuction,'777')
+res.json({
+  message: allAuction
+})
+    
+  }
+  catch(e){
+    console.log(e);
+  }
+
+ 
+})
+
 module.exports = router;

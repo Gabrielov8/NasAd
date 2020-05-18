@@ -11,6 +11,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth')
 const auctionRouter = require('./routes/auction')
+const advertiserRouter = require('./routes/advertiser')
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.use(session({
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
+app.use('/adAuth', advertiserRouter);
 
 app.use('/auction', auctionRouter);
 

@@ -1,4 +1,4 @@
-import { AUTH, LOGOUT, ERR_MESSAGE } from "./auth-actionTypes";
+import { AUTH, LOGOUT, ERR_MESSAGE, SHOW_USER } from "./auth-actionTypes";
 
 export function auth(id){
   return {
@@ -17,6 +17,12 @@ export function show_err_message(err){
   return {
     type: ERR_MESSAGE,
     payload: err
+  }
+}
+
+export function show_user(){
+  return {
+    type: SHOW_USER,
   }
 }
 
@@ -76,3 +82,61 @@ export function auth_register(login, email, password){
     }
   }
 }
+
+export function auth_login_ad(email, password){
+  return async (dispatch) => {
+    const response = await fetch('/adAuth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify({
+        email,
+        password,
+      })
+    })
+    const { err, message, advertiser } = await response.json()
+    if (err) {
+      dispatch(show_err_message(err))
+    }
+    if(message){
+      dispatch(auth(advertiser))
+    }
+  }
+}
+
+export function auth_register_ad(login, email, password){
+  return async (dispatch) => {
+    const response = await fetch('/adAuth/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify({
+        login,
+        email,
+        password,
+      })
+    })
+    const { err, message, advertiser } = await response.json()
+    if (err) {
+      dispatch(show_err_message(err))
+    }
+    if(message){
+      dispatch(auth(advertiser))
+    }
+  }
+}
+
+export function logout_ad(){
+  return async (dispatch) => {
+    const response = await fetch('/adAuth/logout')
+    const { message } = await response.json()
+    if(message){
+      dispatch(logout())
+    }
+  }
+}
+
