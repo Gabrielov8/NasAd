@@ -19,6 +19,12 @@ const AuctionSchema = new Schema({
   winner: {
     type: String,
   },
+  bets: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
 });
 
 module.exports = model("Auction", AuctionSchema);

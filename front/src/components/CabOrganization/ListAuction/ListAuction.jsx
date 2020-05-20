@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import Tenders from '../../CurrentUser/Tenders';
+import Tenders from '../../CurrentUser/Tenders/MyTenders';
 import { getFromBaseOfTender } from '../../../redux/advertiser/FetchData/fetchSendToBase'
 import { connect } from 'react-redux';
 

@@ -17,6 +17,7 @@ import ListAuction from "../../../components/CabOrganization/ListAuction/ListAuc
 import SearchTender from "../../../components/CabOrganization/SearchTender";
 
 class OrgLk extends Component {
+  
   render() {
     return (
       <Router>
@@ -50,9 +51,8 @@ class OrgLk extends Component {
 
           <Route
             exact
-            path="/currenttender/:tenderid"
-            component={CurrentTender}
-          />
+            path="/currenttender/:userid/:tenderid"
+            component={CurrentTender} />
 
           <Route
             exact
