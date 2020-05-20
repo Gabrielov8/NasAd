@@ -3,10 +3,10 @@ import style from './CabOrganization.module.css'
 import FormAnnouncement from './FormAnnouncement/FormAnnouncement';
 import BargainingOfCustomer from './BargainingOfCustomer/BargainingOfCustomer';
 import { connect } from 'react-redux'
-import { asyncGetDataFromBase } from '../../redux/advertiser/FetchData/fetchSendToBase'
-import { changeMiddleCount } from '../../redux/advertiser/actions'
-import AnnouncementAboutWin from './AnnouncementAboutWin';
-import ListAuction from './ListAuction/ListAuction';
+import { asyncGetDataFromBase, findWinInAuction } from '../../redux/advertiser/FetchData/fetchSendToBase'
+import { changeMiddleCount, changeActiveBargaining } from '../../redux/advertiser/actions'
+import LinkToComponent from './LinkToComponent';
+
 class CabOrganization extends Component {
 
   state = {
@@ -16,12 +16,13 @@ class CabOrganization extends Component {
 
   componentDidMount = () => {
     this.props.asyncGetDataFromBase(localStorage.getItem('id'))
+    this.props.findWinInAuction()
   }
 
   componentDidUpdate = (PrevProps) => {
     if (this.props.masBargaining.length !== PrevProps.masBargaining.length) {
       this.props.changeMiddleCount()
-      // this.props.changeActiveBargaining()
+      this.props.changeActiveBargaining()
     }
   }
 
@@ -30,23 +31,27 @@ class CabOrganization extends Component {
   }
 
   render() {
-
     return (
       <div>
+
         <img alt='' className={style.avatar} />
 
-        <div>
-          <AnnouncementAboutWin />
-        </div>
-        <div>
-          <ListAuction />
+        <div className={style.search}>
+          <LinkToComponent name="Поиск по аукционам" path='search' />
+          <LinkToComponent name="Поиск по тендерам" path='SearchTender' />
+
+          {this.props.winAuctions.length == 0 ? <h3>Оповещения: нет новых <hr /> </h3>:
+            <LinkToComponent name="Оповещения: новых " path='winAuction' value={this.props.winAuctions.length} />
+          }
+
+          <LinkToComponent name="Список новых аукционов" path='ListAuction' />
         </div>
 
         <h2> Личная страница заказчика </h2>
         <h2> Информация о заказчике: </h2>
         <ul>
           <li> Всего торгов: {this.props.masBargaining.length}</li>
-          <li> Текущие торги: {this.props.masBargaining && this.props.activeBargaining} </li>
+          <li> Текущие торги: {this.props.masBargaining ? this.props.activeBargaining : 0} </li>
           <li> Средний ценник:  {this.props.middleCount === 'NaN' ? 0 : this.props.middleCount}</li>
         </ul>
 
@@ -63,14 +68,16 @@ const mapStateToProps = (state) => {
   return {
     masBargaining: state.advertiserReducer.masBargaining,
     middleCount: state.advertiserReducer.middleCount,
-    activeBargaining: state.advertiserReducer.activeBargaining
+    activeBargaining: state.advertiserReducer.activeBargaining,
+    winAuctions: state.advertiserReducer.winAuctions
   }
 }
 
 const mapDispatchToProps = {
   asyncGetDataFromBase,
   changeMiddleCount,
-  // changeActiveBargaining
+  changeActiveBargaining,
+  findWinInAuction
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CabOrganization);

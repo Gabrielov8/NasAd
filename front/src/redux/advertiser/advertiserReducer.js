@@ -4,6 +4,9 @@ import {
   CHANGE_MIDDLE_COUNT,
   CHANGE_ACTIVE_BARGAINING,
   ADD_TENDER_TO_STORE,
+  ADD_WIN_AUCTIONS,
+  ADD_SEARCH_AUCTION,
+  ADD_SEARCH_TENDER,
 } from "./actionTypes";
 
 const initialState = {
@@ -14,6 +17,9 @@ const initialState = {
   middleCount: 0,
   activeBargaining: 0,
   tenders: "",
+  winAuctions: "",
+  searchAuction: [],
+  searchTender: [],
 };
 
 export default function (state = initialState, action) {
@@ -62,6 +68,21 @@ export default function (state = initialState, action) {
       return {
         ...state,
         tenders: action.tender,
+      };
+    case ADD_WIN_AUCTIONS:
+      return {
+        ...state,
+        winAuctions: action.winAuctions.findWin,
+      };
+    case ADD_SEARCH_AUCTION:
+      return {
+        ...state,
+        searchAuction: action.searchAuction.find,
+      };
+    case ADD_SEARCH_TENDER:
+      return {
+        ...state,
+        searchTender: action.searchTender.findTenders,
       };
     default:
       return state;

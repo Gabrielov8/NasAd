@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { dataOfCustomerSendToBase } from "../../../redux/advertiser/FetchData/fetchSendToBase";
 import { connect } from "react-redux";
-// import { changeActiveBargaining } from '../../../redux/advertiser/actions'
+import { changeActiveBargaining } from '../../../redux/advertiser/actions'
 
 class FormAnnouncement extends Component {
   state = {
@@ -29,7 +29,7 @@ class FormAnnouncement extends Component {
       });
     }
 
-    // this.props.changeActiveBargaining()
+    this.props.changeActiveBargaining()
   };
 
   render() {
@@ -82,7 +82,7 @@ class FormAnnouncement extends Component {
 
 const mapDispatchToProps = {
   dataOfCustomerSendToBase,
-  // changeActiveBargaining
+  changeActiveBargaining
 };
 
 export default connect(null, mapDispatchToProps)(FormAnnouncement);

@@ -1,14 +1,17 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
 const AuctionSchema = new Schema({
   subject: {
-    type: String, required: true,
+    type: String,
+    required: true,
   },
   subscribers: {
-    type: String, required: true,
+    type: String,
+    required: true,
   },
   budget: {
-    type: String, required: true,
+    type: String,
+    required: true,
   },
   usercreate: {
     type: String
@@ -16,12 +19,15 @@ const AuctionSchema = new Schema({
   participant: {
     type: Array
   },
+  winner: {
+    type: String,
+  },
   bets: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
     },
   ],
 });
 
-module.exports = model('Auction', AuctionSchema);
+module.exports = model("Auction", AuctionSchema);
