@@ -1,15 +1,12 @@
 import React from 'react';
 import Tender from './Tender';
 
-
 export default function Tenders({ tenders }) {
-console.log(tenders, '<<<58585');
 
   return (
     <>
       {tenders.map(tender => {
         return <div key={tender._id}>
-
           <Tender
             aucId={tender._id}
             title={tender.title}

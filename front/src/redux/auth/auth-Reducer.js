@@ -4,7 +4,7 @@ const initialState = {
   isAuthenticated: !!window.localStorage.getItem('isAuthenticated') || false,
   errMessage: false,
   seccess: false,
-  id: "",
+  id: window.localStorage.getItem('id') || false,
   // blogger: !window.localStorage.getItem('blogger') || false,
   blogger: window.localStorage.getItem('blogger') === 'true',
   // org: !!window.localStorage.getItem('org') || false,

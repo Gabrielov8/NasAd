@@ -2,6 +2,9 @@ import {
   saveDataToStore,
   pushArrayDataToStore,
   addTenderToStore,
+  addWinAuctions,
+  addSearchAuction,
+  addSearchTender
 } from "../actions";
 
 export function dataOfCustomerSendToBase(subject, nameBlogger, cash) {
@@ -55,17 +58,49 @@ export function getFromBaseOfTender() {
   };
 }
 
-// export function findWinInAuction() {
-//   let idOrganizer = localStorage.getItem("id");
-//   return async () => {
-//     let response = await fetch("/advertiser/findWinInAuction", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       credentials: "include",
-//       body: JSON.stringify({idOrganizer}),
-//     });
-//     const json = await response.json();
-//   };
-// }
+export function findWinInAuction() {
+  let idOrganizer = localStorage.getItem("id");
+  return async (dispatch) => {
+    let response = await fetch("/advertiser/findWinInAuction", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({ idOrganizer }),
+    });
+    const findWin = await response.json();
+    dispatch(addWinAuctions(findWin));
+  };
+}
+
+export function asyncSearchAuction(subscribers, budget) {
+  return async (dispatch) => {
+    let response = await fetch("/advertiser/searchAuction", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({ subscribers, budget }),
+    });
+    let findWin = await response.json();
+    dispatch(addSearchAuction(findWin));
+  };
+}
+
+export function asyncSearchTender(market, minCost) {
+  return async (dispatch) => {
+    let response = await fetch("/advertiser/searchTender", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({ market, minCost }),
+    });
+    let findTenders = await response.json();
+    console.log(findTenders, "<<< base");
+    dispatch(addSearchTender(findTenders));
+  };
+}

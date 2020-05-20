@@ -6,6 +6,8 @@ router.post('/', async (req,res) =>{
   try{
     const {subject,subscribers,budget,usercreate} = req.body.newauction
     // console.log(req.body);
+    console.log(req.body, '<<< dsa');
+    
     
     const newAuction = await new Auction({
       subject,

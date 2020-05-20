@@ -6,3 +6,11 @@
   border: 2px solid blue;
   border-radius: 30%;
 }
+
+.search {
+  width: 240px;
+  border: 2px solid grey;
+  padding: 10px; 
+  margin: 15px;
+  border-radius: 20px;
+}

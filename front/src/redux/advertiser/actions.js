@@ -3,7 +3,10 @@ import {
   GET_DATA_FROM_BASE,
   CHANGE_MIDDLE_COUNT,
   CHANGE_ACTIVE_BARGAINING,
-  ADD_TENDER_TO_STORE
+  ADD_TENDER_TO_STORE,
+  ADD_WIN_AUCTIONS,
+  ADD_SEARCH_AUCTION,
+  ADD_SEARCH_TENDER
 } from "./actionTypes";
 
 export function saveDataToStore(subject, nameBlogger, cash) {
@@ -34,9 +37,30 @@ export function changeActiveBargaining() {
   };
 }
 
-export function addTenderToStore (tender) {
+export function addTenderToStore(tender) {
   return {
     type: ADD_TENDER_TO_STORE,
     tender: tender,
+  };
+}
+
+export function addWinAuctions(winAuctions) {
+  return {
+    type: ADD_WIN_AUCTIONS,
+    winAuctions: winAuctions,
+  };
+}
+
+export function addSearchAuction (searchAuction) {
+  return {
+    type: ADD_SEARCH_AUCTION,
+    searchAuction: searchAuction
+  }
+}
+
+export function addSearchTender (searchTender) {
+  return {
+    type: ADD_SEARCH_TENDER,
+    searchTender: searchTender
   }
 }

@@ -25,7 +25,7 @@ class ListAuction extends Component {
   render() {
     return (
       <div>
-      <NavLink to={`/homepage/${localStorage.getItem('id')}`}
+        <NavLink style={{ textDecoration: 'none' }} to={`/homepage/${localStorage.getItem('id')}`}
           onClick={this.onClickChangeCheck}
         >Список новых аукционов
         </NavLink>
