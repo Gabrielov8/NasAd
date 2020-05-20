@@ -14,7 +14,10 @@ const AuctionSchema = new Schema({
     required: true,
   },
   usercreate: {
-    type: String,
+    type: String
+  },
+  participant: {
+    type: Array
   },
   winner: {
     type: String,
