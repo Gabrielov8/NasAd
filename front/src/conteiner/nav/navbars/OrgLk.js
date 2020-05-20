@@ -8,6 +8,7 @@ import Auction from '../../Auction'
 import CurrentTender from '../../CurrentTender'
 
 class OrgLk extends Component {
+  
   render() {
     return (
       <Router>
@@ -43,7 +44,7 @@ class OrgLk extends Component {
 
           <Route
             exact
-            path="/currenttender/:tenderid"
+            path="/currenttender/:userid/:tenderid"
             component={CurrentTender} />
 
           <Route render={() => <h1>404</h1>} />

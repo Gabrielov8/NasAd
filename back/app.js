@@ -6,21 +6,23 @@ const cookieParser = require('cookie-parser');
 const MongoStore = require('connect-mongodb-session')(session);
 const logger = require('morgan');
 
+
 const Tender = require('./models/ivan/tenders');
+const Advertiser = require('./models/advertiser/dataAdvertiser');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const authRouter = require('./routes/auth')
-const auctionRouter = require('./routes/auction')
-const advertiserRouter = require('./routes/advertiser')
+const authRouter = require('./routes/auth');
+const auctionRouter = require('./routes/auction');
+const advertiserRouter = require('./routes/advertiser');
 const tenderRouter = require('./routes/tender');
 const currentUserRouter = require('./routes/currentuser');
-const advertisersRouter = require('./routes/advertiser/advertiser')
-
+const advertisersRouter = require('./routes/advertiser/advertiser');
 
 
 const app = express();
 const expressWs = require('express-ws')(app);
+
 const dbConnect = require('./models/db-connect');
 
 
@@ -57,21 +59,45 @@ app.use('/auth', authRouter);
 app.use('/adAuth', advertiserRouter);
 
 app.use('/auction', auctionRouter);
+
 app.ws('/echo', (ws, req) => {
   ws.on('message', async (msg) => {
-    console.log(msg, '<><>8');
-    
-    const bet = await JSON.parse(msg);
-    const tender = await Tender.findById(bet.tenderId);
-    tender.bets.push({
-      author: bet.orgId,
-      cost: bet.bet,
-      date: new Date().toLocaleTimeString(),
-    });
-    await tender.save();
     const { clients } = expressWs.getWss();
-    console.log(clients);
-    clients.forEach(clientWS => clientWS.send(JSON.stringify(tender)));
+    const bet = await JSON.parse(msg);
+
+    if (bet.currentDate) {
+      const tender = await (await Tender.findById(bet.id)).populate('data_advertisers');
+      console.log(tender);
+      const start = Date.parse(tender.startDate);
+      const finish = Date.parse(tender.finishDate);
+
+      if (start < bet.currentDate && bet.currentDate < finish) {
+        tender.state = 'Аукцион стартовал',
+          await tender.save();
+        // console.log(tender)
+        clients.forEach((clientWS) => clientWS.send(JSON.stringify(tender)));
+      } else if (bet.currentDate > finish) {
+        tender.state = 'Аукцион завершён';
+        const i = tender.bets.length - 1;
+        tender.winner.winnerID = tender.bets[i].author;
+        tender.winner.betWinner = tender.bets[i].cost;
+        tender.status = false,
+          await tender.save();
+        clients.forEach((clientWS) => clientWS.send(JSON.stringify(tender)));
+      }
+    } else {
+      const tender = await Tender.findById(bet.tenderId);
+      tender.nextBet = +bet.bet + tender.step;
+      tender.bets.push({
+        author: bet.orgId,
+        cost: bet.bet,
+      });
+      await tender.save();
+      const advertiser = await Advertiser.findById(bet.orgId);
+      advertiser.tenderBets.push({ tender: bet.tenderId, cost: bet.bet });
+      await advertiser.save();
+      clients.forEach((clientWS) => clientWS.send(JSON.stringify(tender)));
+    }
   });
 });
 

@@ -1,16 +1,16 @@
 import React from 'react';
-import Offer from './MyOffer';
+import MyOffer from './MyOffer';
 
 
-export default function Offers({ offers }) {
+export default function MyOffers({ auctions }) {
 
   return (
     <>
-      {offers.map(offer => {
-        return <div key={offer._id}>
+      {auctions.map(auction => {
+        return <div key={auction._id +1}>
 
-          <Offer
-
+          <MyOffer
+            auction={auction}
           />
         </div>
       })}

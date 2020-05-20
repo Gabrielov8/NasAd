@@ -15,7 +15,10 @@ class CurrentTender extends React.Component {
   constructor() {
     super();
     this.state = {
-      initiator: false
+      initiator: false,
+      cost: 0,
+      errorBet: '',
+      start: false,
     }
     this.ws = new WebSocket('ws://localhost:3001/echo');
   }
@@ -28,38 +31,67 @@ class CurrentTender extends React.Component {
         initiator: true
       })
     }
-
-    this.ws.onopen = () => {
-      console.log('Connection start');
+    if (this.props.tender.currentTender.state == 'Аукцион стартовал') {
+      this.setState({
+        start: true
+      })
     }
 
-    this.ws.onmessage = (event) => {
-      this.props.getCurrentTender(this.props.match.params.tenderid);
+    this.setState({
+      cost: this.props.tender.currentTender.nextBet
+    });
+
+
+    this.timerId = setInterval(() => {
+      const currentDate = Date.now();
+      this.ws.send(JSON.stringify({ currentDate, id: this.props.match.params.tenderid }))
+    }, 5000);
+
+    this.ws.onmessage = async (event) => {
+      await this.props.getCurrentTender(this.props.match.params.tenderid);
     }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerId);
+    this.ws.close();
   }
 
   onSubmitNewBetHandler = (event) => {
     event.preventDefault();
     const orgID = localStorage.getItem('id');
-    this.props.addBetTender(this.props.match.params.tenderid, orgID, event.target.bet.value, this.ws);
+    if (event.target.bet.value < this.props.tender.currentTender.nextBet) {
+      this.setState({
+        errorBet: `Ваша ставка не может быть меньше ${this.props.tender.currentTender.nextBet} рублей`,
+      })
+    } else {
+      this.props.addBetTender(this.props.match.params.tenderid, orgID, event.target.bet.value, this.ws);
+    }
     event.target.bet.value = '';
   }
 
   onClickDeleteHandler = () => {
-    this.props.deleteAuction(localStorage.getItem('id', this.props.match.params.tenderid))
-    window.location.replace(`/homepage/${localStorage.getItem('id')}`)
+    this.props.deleteAuction(localStorage.getItem('id'), this.props.match.params.tenderid);
+    window.location.replace(`/homepage/${localStorage.getItem('id')}`);
   }
 
   render() {
 
+
     return (
       <>
+        {this.state.errorBet &&
+          <p>{this.state.errorBet}</p>
+        }
         {
           this.props.tender.currentTender &&
           <div>
             <h2>
               {this.props.tender.currentTender.title}
             </h2>
+            <h3>
+              {this.props.tender.currentTender.state}
+            </h3>
             <div>
               <h4>
                 Ход торгов
@@ -72,17 +104,20 @@ class CurrentTender extends React.Component {
               }
             </div>
 
-            {!this.state.initiator
-              ?
-              <Bet
-                onSubmit={this.onSubmitNewBetHandler}
-              />
-              :
+            {this.state.initiator &&
               <Button
                 text="Отменить"
                 onClick={this.onClickDeleteHandler}
-              />}
-
+              />
+            }
+            {!this.state.initiator
+              &&
+              this.state.start
+              &&
+              <Bet
+                onSubmit={this.onSubmitNewBetHandler}
+              />
+            }
           </div>
         }
       </>

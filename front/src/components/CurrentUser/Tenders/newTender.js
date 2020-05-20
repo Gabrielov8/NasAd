@@ -10,25 +10,25 @@ export default function NewTender({ onSubmit }) {
           <input
             type="text"
             required={true}
-            defaultValue="Введите название аукциона"
+            placeholder="Введите название аукциона"
             name="title"
           />
           <input
             type="text"
             required={true}
-            defaultValue="Введите площадку"
+            placeholder="Введите площадку"
             name="market"
           />
           <input
             type="text"
             required={true}
-            defaultValue="Минимальная оплата"
+            placeholder="Минимальная оплата"
             name="minCost"
           />
           <input
             type="text"
             required={true}
-            defaultValue="Шаг"
+            placeholder="Шаг"
             name="step"
           />
           <input

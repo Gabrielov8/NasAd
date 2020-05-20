@@ -11,14 +11,14 @@ function Tender({
 
   return (
     <>
-      <Link to={`/currenttender/${aucId}`}>
+      <Link to={`/currenttender/${localStorage.getItem('id')}/${aucId}`}>
         <h4>{title}</h4>
       </Link>
       <p>Площадка: {market}</p>
       <p>Торги стартуют: {dateStart}</p>
       <p>Торги завершатся: {dateFinish}</p>
-      <p>Стартовая цена: {minCost}</p>
-      <p>Стартовая цена: {step}</p>
+      <p>Стартовая цена: {minCost} рублей</p>
+      <p>Шаг торгов: {step} рублей</p>
     </>
   );
 }

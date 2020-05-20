@@ -15,9 +15,11 @@ router.delete('/:id/:tenderid', async (req, res) => {
 
   for (let i = 0; i < user.tenders.length; i++) {
     if (user.tenders[i]._id == req.params.tenderid) {
-      console.log(2222);
+      user.tenders.splice(i, 1);
     }
   }
+  await user.save();
+  await Tender.findByIdAndDelete(req.params.tenderid);
   res.json({ user });
 });
 
@@ -37,6 +39,7 @@ router.post('/newauction/:id', async (req, res) => {
     market,
     minCost,
     step,
+    nextBet: +minCost + +step,
     startDate,
     finishDate,
     initator: req.params.id,

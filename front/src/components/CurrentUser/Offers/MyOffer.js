@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-function Auction() {
+function MyOffer({ auction }) {
 
   return (
     <>
-      <h2>My offer</h2>
+      <h2>{auction.subject}</h2>
+      <p>Минимальное количество подписчиков: {auction.subscribers}</p>
+      <p>Бюджет рекламной кампании: {auction.budget}</p>
     </>
   )
 }
 
 
-export default withRouter(Auction);
+export default withRouter(MyOffer);

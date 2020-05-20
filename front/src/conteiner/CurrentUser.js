@@ -6,7 +6,6 @@ import CashBalance from '../components/CurrentUser/User/CashBalance';
 import EditUserInfo from '../components/CurrentUser/User/EditUserInfo';
 import NewTender from '../components/CurrentUser/Tenders/newTender';
 import Button from '../components/generalComponents/button';
-// import Spinner from '../components/generalComponents/spinner';
 import MyTenders from '../components/CurrentUser/Tenders/MyTenders';
 import MyOffers from '../components/CurrentUser/Offers/MyOffers';
 import Offers from '../components/CurrentUser/Offers/Offers';
@@ -15,6 +14,8 @@ import {
   editCurrentUser,
   addAuction,
   getAuctions,
+  getAllOffers,
+  addNewBetOnOffer,
 } from '../redux/ivan/actions/currentUserActions.js';
 import {
   showLoader,
@@ -112,6 +113,18 @@ class CurrentUser extends React.Component {
       myoffers: false,
       allOffers: !this.state.allOffers,
     })
+    this.props.getAllOffers(this.props.match.params.id);
+  }
+
+  onClickNewBetOnOffer = (event) => {
+    this.props.addNewBetOnOffer(this.props.match.params.id, event.target.id);
+    this.setState({
+      editInfo: false,
+      addAuction: false,
+      mytenders: false,
+      myoffers: true,
+      allOffers: false,
+    })
   }
 
   render() {
@@ -173,16 +186,20 @@ class CurrentUser extends React.Component {
           />
         }
         {this.state.myoffers &&
-          this.props.user.user.offers &&
+          this.props.user.user.auctions &&
           <MyOffers
-            offers={this.props.user.user.offers}
+            auctions={this.props.user.user.auctions}
           />
         }
-        {this.state.getOffers &&
-          this.props.user.user.allOffers &&
-          <Offers
-            offers={this.props.user.user.allOffers}
-          />
+        {this.state.allOffers &&
+          this.props.user.offers &&
+          <>
+            <p>Здесь офферы</p>
+            <Offers
+              offers={this.props.user.offers}
+              onClick={this.onClickNewBetOnOffer}
+            />
+          </>
         }
       </>
     )
@@ -205,4 +222,6 @@ export default connect(mapStatetoProps, {
   editCurrentUser,
   addAuction,
   getAuctions,
+  getAllOffers,
+  addNewBetOnOffer,
 })(CurrentUser);
