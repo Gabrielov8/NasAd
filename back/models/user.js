@@ -12,6 +12,7 @@ const UserSchema = new Schema({
   },
   regDate: Date,
   tenders: Array,
+  auctions: Array,
   bets: Array,
   money: {
     type: Number,

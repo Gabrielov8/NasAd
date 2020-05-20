@@ -1,7 +1,7 @@
 import React from 'react';
-import Button from '../generalComponents/button';
+import Button from '../../generalComponents/button';
 
-export default function NewAuction({ onSubmit }) {
+export default function NewTender({ onSubmit }) {
   return (
     <>
       <div>
@@ -10,25 +10,25 @@ export default function NewAuction({ onSubmit }) {
           <input
             type="text"
             required={true}
-            defaultValue="Введите название аукциона"
+            placeholder="Введите название аукциона"
             name="title"
           />
           <input
             type="text"
             required={true}
-            defaultValue="Введите площадку"
+            placeholder="Введите площадку"
             name="market"
           />
           <input
             type="text"
             required={true}
-            defaultValue="Минимальная оплата"
+            placeholder="Минимальная оплата"
             name="minCost"
           />
           <input
             type="text"
             required={true}
-            defaultValue="Шаг"
+            placeholder="Шаг"
             name="step"
           />
           <input

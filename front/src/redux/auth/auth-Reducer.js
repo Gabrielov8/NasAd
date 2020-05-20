@@ -11,7 +11,7 @@ const initialState = {
 }
 
 export default function (state = initialState, action) {
-  console.log(window.localStorage.getItem('blogger'))
+
   switch (action.type) {
 
     case AUTH:

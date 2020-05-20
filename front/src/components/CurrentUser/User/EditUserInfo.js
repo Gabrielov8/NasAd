@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../generalComponents/button';
+import Button from '../../generalComponents/button';
 
 export default function UserInfo({ onSubmit }) {
   return (
