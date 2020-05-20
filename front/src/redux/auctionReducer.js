@@ -1,11 +1,12 @@
-import { CREATEAUCTION,LOADEDAUCTION, ALLAUCTION,USERINAUCTION  } from "./actionTypes"
+import { CREATEAUCTION,LOADEDAUCTION, ALLAUCTION,USERINAUCTION, USERSOCIAL  } from "./actionTypes"
 
 
 const initialState = {
   auction: '222',
   loaded: false,
   allauction: '',
-  userinauction: []
+  userinauction: [],
+  usersocial: []
 }
 
 export default function(state = initialState, action){
@@ -33,6 +34,12 @@ export default function(state = initialState, action){
               ...state,
               userinauction: action.payload
             }
+            
+            case USERSOCIAL:
+              return {
+                ...state,
+                usersocial: action.payload
+              }
     
   
 

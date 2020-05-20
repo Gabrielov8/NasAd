@@ -1,4 +1,4 @@
-import { TEST, LOADEDAUCTION, ALLAUCTION,USERINAUCTION } from "./actionTypes";
+import { TEST, LOADEDAUCTION, ALLAUCTION,USERINAUCTION,USERSOCIAL } from "./actionTypes";
 import { CREATEAUCTION } from "./actionTypes";
 
 export function test() {
@@ -62,9 +62,38 @@ export function useraddauction(userid,auctionid){
     
     // console.log(result,'RESULT');
     if(message){
-      dispatch(loadedallAuction(message))
+      dispatch(userInAuction(message))
     }
 }
+}
+
+
+export function parcer(userid,inst){
+  return async function(dispatch) { 
+    
+
+    const responce = await fetch ('/auction/parcer', {
+      method:'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({userid,inst})
+    })
+    // dispatch(createAuctionStore())
+    const {message} = await responce.json()
+    console.log(message,'BBBd-a');
+    
+    // console.log(result,'RESULT');
+    if(message){
+      dispatch(usersociaL(message))
+    }
+}
+}
+
+
+export function usersociaL(url){
+  return {
+    type:USERSOCIAL,
+    payload: url
+  }
 }
 
 
