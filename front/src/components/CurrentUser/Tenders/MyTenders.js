@@ -1,8 +1,9 @@
 import React from 'react';
-import Tender from './Tender';
+import Tender from './MyTender';
 
 
 export default function Tenders({ tenders }) {
+
 
   return (
     <>

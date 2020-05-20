@@ -5,6 +5,7 @@ export default function Button({
   onClick,
   type,
   onSubmit,
+  id,
 }) {
   return (
     <>
@@ -12,6 +13,7 @@ export default function Button({
         type={type}
         onClick={onClick}
         onSubmit={onSubmit}
+        id={id}
       >{text}
       </button>
     </>

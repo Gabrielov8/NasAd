@@ -4,7 +4,9 @@ import FormAnnouncement from './FormAnnouncement/FormAnnouncement';
 import BargainingOfCustomer from './BargainingOfCustomer/BargainingOfCustomer';
 import { connect } from 'react-redux'
 import { asyncGetDataFromBase } from '../../redux/advertiser/FetchData/fetchSendToBase'
-import { changeMiddleCount  } from '../../redux/advertiser/actions'
+import { changeMiddleCount } from '../../redux/advertiser/actions'
+import AnnouncementAboutWin from './AnnouncementAboutWin';
+import ListAuction from './ListAuction/ListAuction';
 class CabOrganization extends Component {
 
   state = {
@@ -32,6 +34,14 @@ class CabOrganization extends Component {
     return (
       <div>
         <img alt='' className={style.avatar} />
+
+        <div>
+          <AnnouncementAboutWin />
+        </div>
+        <div>
+          <ListAuction />
+        </div>
+
         <h2> Личная страница заказчика </h2>
         <h2> Информация о заказчике: </h2>
         <ul>

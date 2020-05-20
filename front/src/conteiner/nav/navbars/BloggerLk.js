@@ -43,7 +43,7 @@ class BloggerLk extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route path="/homepage/:id" exact component={CurrentUser} />
-          <Route path="/homepage/currenttender/:userid/:tenderid" exact component={CurrentTender} />
+          <Route path="/currenttender/:userid/:tenderid" exact component={CurrentTender} />
           <Route render={() => <h1>404</h1>} />
         </Switch>
       </Router>

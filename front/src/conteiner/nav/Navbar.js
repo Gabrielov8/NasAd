@@ -62,13 +62,16 @@ class Navbar extends Component {
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/homepage/:id" component={Tenders} />
+
           <Route
             exact
             path="/currenttender/:userid/:auctionid"
             component={CurrentTender} />
 
+
         </Switch>
-<Auction/>
+{/* <Auction/> */}
 
       </Router>
     )

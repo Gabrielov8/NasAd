@@ -9,7 +9,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 class Navbar extends Component {
   render() {
-    console.log(this.props)
+
     return (
       <BrowserRouter>
       <>
