@@ -23,9 +23,6 @@ class LoginAd extends Component {
     event.preventDefault()
     const { email, password } = this.state
     this.props.auth_login_ad(email, password)
-    this.setState({
-      modal: false,
-    })
   }
   render() {
     return (

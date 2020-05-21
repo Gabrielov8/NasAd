@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, NavLink, Switch, Link } from 'react-router-dom'
-import Login from '../../auth/Login'
-import Register from '../../auth/Register'
+import { BrowserRouter as Router, NavLink, Link } from 'react-router-dom'
 import { show_user } from '../../../redux/auth/auth-action'
 import { connect } from 'react-redux'
-import BloggerLog from '../../../page/pages/BloggerLog'
+import classes from '../../../css/bloggerLog.module.css'
 
 
 class BloggerReg extends Component {
@@ -16,7 +14,7 @@ class BloggerReg extends Component {
   render() {
     return (
       <Router>
-        <nav>
+        <nav className={classes['nav-blogger']}>
           <h1>NasAd</h1>
           <ul>
             <li>
