@@ -4,12 +4,13 @@ import { Link, withRouter } from 'react-router-dom';
 import classes from './MyTender.module.css';
 import '../../../css/inputStyle.css'
 function Tender({
-  title, market, finishDate, minCost, startDate, step, match, aucId,creator
+  title, market, finishDate, minCost, startDate, step, onClick, aucId, creator
 }) {
   moment.locale('ru');
   const dateStart = moment(startDate).format('llll');
   const dateFinish = moment(finishDate).format('llll');
 
+  console.log(onClick)
   return (
     <>
       {/* <Link to={`/currenttender/${localStorage.getItem('id')}/${aucId}`}>
