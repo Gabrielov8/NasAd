@@ -7,7 +7,7 @@ export default function MainPageOrg() {
     <div className="main-page-org">
       <div className="dashboard-info-org">
         <h3>Dashboard</h3>
-        <p>21 Мая Четверг</p>
+        <p>22 Мая Пятница</p>
       </div>
 
       <div className="welcome-org">

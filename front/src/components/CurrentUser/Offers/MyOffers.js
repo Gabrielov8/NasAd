@@ -8,7 +8,7 @@ export default function MyOffers({ auctions }) {
     <>
   
       {auctions.map(auction => {
-        return <div key={auction._id +1}>
+        return <div className='my-offer' key={auction._id +1}>
 
           <MyOffer
             auction={auction}

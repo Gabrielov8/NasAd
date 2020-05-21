@@ -55,7 +55,7 @@ class LogoutOrg extends React.Component {
           <p>{this.props.org.org.login}</p>
           <span>Самый лучший рекламодатель!</span>
         </div>
-
+      <div className="title-ad">
         {!this.state.editInfo &&
           <>
             <OrgInfo
@@ -66,6 +66,7 @@ class LogoutOrg extends React.Component {
               onClick={this.onClickEditHandler}
             />
           </>}
+          </div>
         {this.state.editInfo &&
           <>
             <EditOrgInfo
