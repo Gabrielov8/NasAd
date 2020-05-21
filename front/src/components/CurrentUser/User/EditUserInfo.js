@@ -5,10 +5,10 @@ export default function UserInfo({ onSubmit }) {
   return (
     <>
       <div>
-        <h3>Информация о пользователе:</h3>
+        <h3>Расскажите о том, какую рекламу готовы размещать!</h3>
         <form onSubmit={onSubmit}>
           <input
-            defaultValue="Обновите информацию"
+            placeholder="Обновите информацию"
             name="text"
           />
           <Button

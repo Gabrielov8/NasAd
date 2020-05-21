@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function Bets({ bets }) {
+console.log(bets);
 
   return (
     <div>
