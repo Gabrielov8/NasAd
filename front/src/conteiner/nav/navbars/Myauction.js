@@ -25,6 +25,8 @@ this.props.myauctionfetch(this.props.stateuser.id)
     })
   }
 
+  
+
   render() {
     return (
       <div>
@@ -35,9 +37,7 @@ this.props.myauctionfetch(this.props.stateuser.id)
        {this.props.state.myauction?  <div>{this.props.state.myauction && this.props.state.myauction.map((auction)=> {
          return (
            <div> 
-             <h3>
-
-             </h3>
+                 {auction.blogerin.length >0 ? 
            <ul>
              <li>
                {auction.subject}
@@ -59,6 +59,7 @@ this.props.myauctionfetch(this.props.stateuser.id)
          )
         })}
         </ul>
+        :null }
         
         </div>
          )
