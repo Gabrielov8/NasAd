@@ -1,4 +1,5 @@
 import React from 'react'
+import CabOrganization from '../CabOrganization/CabOrganization'
 import Auction from '../../conteiner/Auction'
 
 export default function MainPageOrg() {

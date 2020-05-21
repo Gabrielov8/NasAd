@@ -4,7 +4,8 @@ import {
   addTenderToStore,
   addWinAuctions,
   addSearchAuction,
-  addSearchTender
+  addSearchTender,
+  searchAllAuction
 } from "../actions";
 
 export function dataOfCustomerSendToBase(subject, nameBlogger, cash) {
@@ -100,7 +101,14 @@ export function asyncSearchTender(market, minCost) {
       body: JSON.stringify({ market, minCost }),
     });
     let findTenders = await response.json();
-    console.log(findTenders, "<<< base");
     dispatch(addSearchTender(findTenders));
+  };
+}
+
+export function asyncSearchAllAuction() {
+  return async (dispatch) => {
+    let response = await fetch("/advertiser/searchAllAuction")
+    let findAll = await response.json();
+    dispatch(searchAllAuction(findAll));
   };
 }

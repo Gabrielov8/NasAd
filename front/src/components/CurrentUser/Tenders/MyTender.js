@@ -4,19 +4,26 @@ import { Link, withRouter } from 'react-router-dom';
 import classes from './MyTender.module.css';
 import '../../../css/inputStyle.css'
 function Tender({
-  title, market, finishDate, minCost, startDate, step, match, aucId
+  title, market, finishDate, minCost, startDate, step, match, aucId,creator
 }) {
   moment.locale('ru');
   const dateStart = moment(startDate).format('llll');
   const dateFinish = moment(finishDate).format('llll');
 
   return (
+    <>
+      {/* <Link to={`/currenttender/${localStorage.getItem('id')}/${aucId}`}>
+        <h4>{title}</h4>
+      </Link>
+      <p>Площадка: {market}</p>
+      <p>Торги стартуют: {dateStart}</p>
+      <p>Торги завершатся: {dateFinish}</p>
+      <p>Стартовая цена: {minCost} рублей</p>
+      <p>Шаг торгов: {step} рублей</p>
+      <p>creator: {creator.login} </p> */}
+    
 
-    // <div className={classes["tender-container"]}>
-    // <div className={classes["row"]}>
-    // <div className={classes["column"]}>
-    // <div className={classes["card"]}>
-    // < className={classes["card-content"]}>
+
 
     <div className="my-auction">
       <Link to={`/currenttender/${localStorage.getItem('id')}/${aucId}`}>
@@ -29,12 +36,8 @@ function Tender({
       <p className={classes.paragraph}>Шаг торгов: {step} рублей</p>
     </div>
 
+</>
 
-    // </div>
-    // </div>
-    // </div>
-    // </div>
-    // </div>
 
   );
 }

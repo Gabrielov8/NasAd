@@ -6,16 +6,18 @@ const AuctionSchema = new Schema({
     required: true,
   },
   subscribers: {
-    type: String,
+    type: Number,
     required: true,
   },
   budget: {
-    type: String,
+    type: Number,
     required: true,
   },
-  usercreate: {
-    type: String
-  },
+  usercreate:
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Data_advertiser",
+    },
   participant: {
     type: Array
   },

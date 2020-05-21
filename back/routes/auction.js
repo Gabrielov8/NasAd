@@ -9,6 +9,7 @@ router.post('/', async (req, res) => {
     const {
       subject, subscribers, budget, usercreate,
     } = req.body.newauction;
+
     // console.log(req.body);
 
     const newAuction = await new Auction({
