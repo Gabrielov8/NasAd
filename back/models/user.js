@@ -22,7 +22,9 @@ const UserSchema = new Schema({
     type: String,
     default: ''
   },
-  social: Array
+  social: Array,
+  social: Array,
+  auctionsWin: Array
 });
 
 module.exports = model('User', UserSchema);

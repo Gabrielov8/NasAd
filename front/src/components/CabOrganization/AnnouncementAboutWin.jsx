@@ -11,11 +11,11 @@ class AnnouncementAboutWin extends Component {
   render() {
     let winner = this.props.winAuctions && this.props.winAuctions.map(w =>
       <div style={{ border: "2px solid grey", padding: 10, width: 300, margin: 10 }}>
-        <h2>Вы выиграли в аукционе:</h2>
+        <h2>Вы выиграли в тендере:</h2>
         <hr />
-        <p>У блогера: {w._id}</p>
-        <p>Тема: {w.subject}</p>
-        <p>Сумма: {w.budget}</p>
+        <p>У блогера: {w.winner.winnerID.login}</p>
+        <p>Тема: {w.title}</p>
+        <p>Сумма: {w.winner.betWinner}</p>
       </div>)
 
     return (

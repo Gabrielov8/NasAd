@@ -31,7 +31,7 @@ const tenderSchema = new Schema({
     default: 'Ещё не стартовал',
   },
   winner: {
-    winnerID: {
+    winnerID:  {
       type: Schema.Types.ObjectId,
       ref: 'Data_advertiser',
     },

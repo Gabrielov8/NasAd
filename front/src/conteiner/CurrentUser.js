@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter, NavLink } from 'react-router-dom';
+import { withRouter, NavLink, Switch, Router } from 'react-router-dom';
 import UserInfo from '../components/CurrentUser/User/UserInfo';
 import CashBalance from '../components/CurrentUser/User/CashBalance';
 import EditUserInfo from '../components/CurrentUser/User/EditUserInfo';
@@ -9,6 +9,7 @@ import Button from '../components/generalComponents/button';
 import MyTenders from '../components/CurrentUser/Tenders/MyTenders';
 import MyOffers from '../components/CurrentUser/Offers/MyOffers';
 import Offers from '../components/CurrentUser/Offers/Offers';
+
 import {
   getCurrentUser,
   editCurrentUser,
@@ -21,6 +22,7 @@ import {
   showLoader,
   hideLoader,
 } from '../redux/ivan/actions/appActions';
+import Auctionuserwin from './nav/navbars/Auctionuserwin.JS';
 
 class CurrentUser extends React.Component {
   constructor() {
@@ -151,9 +153,9 @@ class CurrentUser extends React.Component {
               />
             </>}
         </div>
-        <CashBalance
+        {/* <CashBalance
           money={user.money}
-        />
+        /> */}
         {!this.state.addAuction
           ?
           <Button
@@ -164,10 +166,13 @@ class CurrentUser extends React.Component {
           <NewTender
             onSubmit={this.onSubmitNewAucHandler}
           />}
-        <NavLink to={`/homepage/${localStorage.id}`}
+        {/* <NavLink to={`/homepage/${localStorage.id}`}
           onClick={this.onClickMyTendersHandler}
         >Мои аукционы
+        
           </NavLink>
+
+          
 
         <NavLink to={`/homepage/${localStorage.id}`}
           onClick={this.onClickMyOffersHandler}
@@ -177,7 +182,7 @@ class CurrentUser extends React.Component {
         <NavLink to={`/homepage/${localStorage.id}`}
           onClick={this.onClickAllOffersHandler}
         >Просмотреть запросы предложений
-          </NavLink>
+          </NavLink> */}
 
         {this.state.mytenders &&
           this.props.user.user.tenders &&

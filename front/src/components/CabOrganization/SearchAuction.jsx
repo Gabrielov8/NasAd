@@ -18,7 +18,7 @@ class Search extends Component {
           <p><b>Тема:</b>  {m.subject}</p>
           <p><b>Подписчиков:</b>  {m.subscribers}</p>
           <p><b>Бюджет:</b> {m.budget}</p>
-          <p><b>Блогер:</b> ???{m.usercreate}</p>
+          <p><b>Блогер:</b> {m.usercreate.login}</p>
           
         </div>) : "нет данных"
 

@@ -1,4 +1,4 @@
-import { CREATEAUCTION,LOADEDAUCTION, ALLAUCTION,USERINAUCTION, USERSOCIAL  } from "./actionTypes"
+import { CREATEAUCTION,LOADEDAUCTION, ALLAUCTION,USERINAUCTION, USERSOCIAL,MYAUCTION  } from "./actionTypes"
 
 
 const initialState = {
@@ -6,7 +6,8 @@ const initialState = {
   loaded: false,
   allauction: '',
   userinauction: [],
-  usersocial: []
+  usersocial: [],
+  myauction: []
 }
 
 export default function(state = initialState, action){
@@ -40,6 +41,13 @@ export default function(state = initialState, action){
                 ...state,
                 usersocial: action.payload
               }
+
+              case MYAUCTION:
+                return {
+                  ...state,
+                  myauction: action.payload
+                }
+      
     
   
 

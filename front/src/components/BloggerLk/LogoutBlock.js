@@ -7,6 +7,8 @@ import {
 import UserInfo from '../CurrentUser/User/UserInfo';
 import EditUserInfo from '../CurrentUser/User/EditUserInfo';
 import Button from '../generalComponents/button';
+import Logout from '../../conteiner/auth/Logout';
+
 
 class LogoutBlock extends React.Component {
 
@@ -43,7 +45,8 @@ class LogoutBlock extends React.Component {
     return (
       <div className="foto-block" >
         <div className="logout">
-          <h3>Logout</h3>
+          <Logout />
+          {/* <h3>Logout</h3> */}
           <i className="fas fa-sign-out-alt"></i>
         </div>
 
@@ -78,6 +81,8 @@ class LogoutBlock extends React.Component {
             <li>Вконтакте</li>
           </ul>
         </div>
+
+        
       </div>
     )
   }

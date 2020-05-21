@@ -15,7 +15,6 @@ export default class BloggerPageLk extends Component {
           <MainPage />
           <LogoutBlock />
         </div>
-
         <Switch>
           <Route
             exact
