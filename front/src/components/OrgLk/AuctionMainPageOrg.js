@@ -19,7 +19,7 @@ export default function MainPageOrg() {
 
       <div className="info-block-org">
         <div className="first-org">
-          {/* <Auction/> */}
+          <Auction/>
         </div>
         <div className="second-org">
         </div>

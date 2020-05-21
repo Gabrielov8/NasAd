@@ -48,10 +48,13 @@ class OrgLk extends Component {
 
         <ul>
           <li>
-            <NavLink to="/homepage">homepage</NavLink>
+            <NavLink to="/">homepage</NavLink>
           </li>
           <li>
-            <NavLink to="/createauction">createauction</NavLink>
+            <NavLink  to="/createauction">createauction</NavLink>
+          </li>
+          <li>
+            <NavLink to="/myauction">myauction</NavLink>
           </li>
           <li>
             <NavLink to="/advertister">Advertister</NavLink>
