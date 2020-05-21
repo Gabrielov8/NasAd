@@ -17,20 +17,14 @@ export default class BloggerPageLk extends Component {
           <MainPage />
           <LogoutBlock />
         </div>
-        
-
-        <BloggerLk />
+        {/* <BloggerLk /> */}
         <Switch>
           <Route
             exact
             path="/"
             render={() => <h1>Main page</h1>}
           />
-          <Route
-            exact
-            path="/homepage"
-            component={CurrentUser}
-          />
+
           <Route
             exact
             path="/currenttender/:userid/:tenderid"

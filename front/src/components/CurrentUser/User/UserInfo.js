@@ -1,21 +1,21 @@
-import React from 'react';
-import classes from './UserInfo.module.css';
-import { Link } from 'react-router-dom';
+// import React from 'react';
+// import classes from './UserInfo.module.css';
+// import { Link } from 'react-router-dom';
 
-export default function UserInfo({ description, name }) {
+// export default function UserInfo({ description, name }) {
 
 
-  return (
-    <>
+//   return (
+//     <>
       {
-      <h2>OOO</h2>
+      // <h2>OOO</h2>
       /* <div className={classes["container"]}>
         <div className={classes["main-card"]}>
           <div className={classes["cover-photo"]}></div>
           {/* <div className={classes["photo"]}>
             <img className={classes["img"]} src="https://avatars.mds.yandex.net/get-pdb/1524137/df203427-a2a7-4bcd-b7bd-c8bc4d0270f3/s1200?webp=false" alt="" />
           </div> */}
-          <div className={classes["content"]}>
+          {/* <div className={classes["content"]}>
             <h2 className={classes["name"]}>{name}</h2>
             <h3 className={classes["fullstack"]}>Блоггер <br /> YouTube, Instagramm, Facebook, Вконтакте</h3>
             <h3 className={classes["email"]}>
@@ -46,7 +46,7 @@ export default function UserInfo({ description, name }) {
             </ul>
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   )
-}
+} */}
