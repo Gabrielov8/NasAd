@@ -3,28 +3,26 @@ import classes from './auth.module.css'
 import { Redirect, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { auth_login } from '../../redux/auth/auth-action'
-// import clas from '../../css/bloggerLog.module.css';
+
 class Login extends Component {
   state = {
     email: '',
     password: '',
     modal: true,
-    // err: false,
-    // message: false
   }
+
   changeHandler = ({ target }) => {
     this.setState({
       [target.name]: target.value
     })
   }
+
   submitHandler = async (event) => {
     event.preventDefault()
     const { email, password } = this.state
     this.props.auth_login(email, password)
-    this.setState({
-      modal: false,
-    })
   }
+
   render() {
     return (
       <React.Fragment>

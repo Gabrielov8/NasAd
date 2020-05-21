@@ -36,7 +36,7 @@ class CurrentUser extends React.Component {
 
   async componentDidMount() {
     this.props.showLoader();
-    this.props.getCurrentUser(this.props.match.params.id);
+    this.props.getCurrentUser(localStorage.getItem('id'));
     this.props.hideLoader();
   }
 

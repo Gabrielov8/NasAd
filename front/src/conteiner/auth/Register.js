@@ -20,35 +20,11 @@ class Register extends Component {
     event.preventDefault()
     const { login, email, password } = this.state
     this.props.auth_register(login, email, password)
-    // const response = await fetch('/auth/register', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   credentials: 'include',
-    //   body: JSON.stringify({
-    //     login,
-    //     password,
-    //     email,
-    //   })
-    // })
-    // const { err, message } = await response.json()
-    // console.log(err)
-    // if (err) {
-    //   this.setState({
-    //     err: err
-    //   })
-    // }
-    // if (message) {
-    //   this.setState({
-    //     message: true
-    //   })
-    // }
   }
 
 
   render() {
-    console.log(this.props)
+
     return (
       <div className={classes.cont}>
         {this.props.auth ? <Redirect to="/homepage" /> : null}

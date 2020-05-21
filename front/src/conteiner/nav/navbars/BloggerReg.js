@@ -15,7 +15,7 @@ class BloggerReg extends Component {
 
   render() {
     return (
-      <Router>
+      <>
         <nav>
           <h1>NasAd</h1>
           <ul>
@@ -32,7 +32,7 @@ class BloggerReg extends Component {
             </li>
           </ul>
         </nav>
-      </Router >
+      </>
     )
   }
 }
