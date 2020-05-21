@@ -67,6 +67,8 @@ export default class OrgPageLK extends Component {
             path="/SearchAllAuction/:searchId"
             component={ListAuctions}
           />
+           <Route
+            exact
             path="/createauction"
             component={Auctionfull}
           />

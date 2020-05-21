@@ -6,15 +6,15 @@ import Logout from "../../auth/Logout";
 import CabOrganization from "../../../components/CabOrganization/CabOrganization";
 import Auction from "../../Auction";
 import CurrentTender from "../../CurrentTender";
-import Search from "../../../components/CabOrganization/SearchAuction";
+// import Search from "../../../components/CabOrganization/SearchAuction";
 import AnnouncementAboutWin from "../../../components/CabOrganization/AnnouncementAboutWin";
 import ListAuctions from "../../../components/CabOrganization/List/ListAuctions";
 import SearchTender from "../../../components/CabOrganization/SearchTender";
 import ListTenders from "../../../components/CabOrganization/List/ListTenders";
 
 import Tenders from "../../../components/CurrentUser/Tenders/MyTenders";
-import Search from "../../../components/CabOrganization/Search";
-import ListAuction from "../../../components/CabOrganization/ListAuction/ListAuction";
+// import Search from "../../../components/CabOrganization/Search";
+// import ListAuction from "../../../components/CabOrganization/ListAuction/ListAuction";
 import Myauction from "./Myauction";
 
 
@@ -97,7 +97,7 @@ class OrgLk extends Component {
         </Switch> */}
      
   
-        // <nav>
+        {/* // <nav>
         //   <h2>Advertister</h2>
         //   <ul>
         //     <li>
@@ -118,7 +118,7 @@ class OrgLk extends Component {
         //       <Logout />
         //     </li>
         //   </ul>
-        // </nav>
+        // </nav> */}
 
        
 
