@@ -7,7 +7,7 @@ import {
 import UserInfo from '../CurrentUser/User/UserInfo';
 import EditUserInfo from '../CurrentUser/User/EditUserInfo'
 import Button from '../generalComponents/button';
-import Logout from '../../conteiner/auth/Logout';
+import Logout from '../../conteiner/auth/Logout'
 
 
 class LogoutBlock extends React.Component {
@@ -25,7 +25,7 @@ class LogoutBlock extends React.Component {
 
   onClickEditHandler = () => {
     this.setState({
-      editInfo: true,
+      editInfo: true, 
     })
   }
 
