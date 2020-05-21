@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default function UserInfo({ description }) {
-  
+export default function OrgInfo({ description }) {
+
   return (
     <>
 
@@ -10,7 +10,7 @@ export default function UserInfo({ description }) {
           ?
           <p>{description}</p>
           :
-          <p>Расскажите о себе</p>}
+          <p>Расскажите о том, что хотите рекламировать</p>}
       </div>
 
     </>
