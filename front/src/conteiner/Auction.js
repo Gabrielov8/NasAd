@@ -74,7 +74,7 @@ class Auction extends Component {
           {this.props.state.loaded ? <div>Аукцион создан!</div> : null}
 
           {/* <p>
-            <NavLink onClick={this.onClickAllAuction} to="/allauction">allauction</NavLink>
+            <NavLink onClk={this.onClickAllAuction} to="/allauction">allauction</NavLink>
             <Route exact path="/allauction" component={Allauction} />
           </p> */}
 
