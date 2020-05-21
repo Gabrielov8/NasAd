@@ -5,6 +5,7 @@ export default function Tenders({ tenders }) {
 
   return (
     <>
+      <h3>Ваши аукционы:</h3>
       {tenders.map(tender => {
         return <div key={tender._id}>
           <Tender

@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import {
-  BrowserRouter as Router,
-  Route,
   NavLink,
-  Switch,
 } from "react-router-dom";
-import LoginOrg from "../../authAdvertiser/LoginOrg";
-import RegisterOrg from "../../authAdvertiser/RegisterOrg";
 import Logout from "../../auth/Logout";
 import CabOrganization from "../../../components/CabOrganization/CabOrganization";
 import Auction from "../../Auction";
@@ -17,6 +12,7 @@ import ListAuctions from "../../../components/CabOrganization/List/ListAuctions"
 import SearchTender from "../../../components/CabOrganization/SearchTender";
 import ListTenders from "../../../components/CabOrganization/List/ListTenders";
 import Tenders from "../../../components/CurrentUser/Tenders/MyTenders";
+
 
 class OrgLk extends Component {
 
@@ -96,6 +92,17 @@ class OrgLk extends Component {
         </Switch>
 
       </Router>
+        <ul>
+          <li>
+            <NavLink to="/homepage">homepage</NavLink>
+          </li>
+          <li>
+            <NavLink to="/createauction">createauction</NavLink>
+          </li>
+          <li>
+            <NavLink to="/advertister">Advertister</NavLink>
+          </li>
+        </ul>
     );
   }
 }
