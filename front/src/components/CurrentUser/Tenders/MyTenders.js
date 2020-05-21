@@ -15,6 +15,7 @@ export default function Tenders({ tenders }) {
             minCost={tender.minCost}
             startDate={tender.startDate}
             step={tender.step}
+            creator={tender.initator}
           />
         </div>
       })}

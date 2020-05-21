@@ -3,7 +3,7 @@ import moment from 'moment-with-locales-es6';
 import { Link, withRouter } from 'react-router-dom';
 
 function Tender({
-  title, market, finishDate, minCost, startDate, step, match, aucId
+  title, market, finishDate, minCost, startDate, step, match, aucId,creator
 }) {
   moment.locale('ru');
   const dateStart = moment(startDate).format('llll');
@@ -19,6 +19,7 @@ function Tender({
       <p>Торги завершатся: {dateFinish}</p>
       <p>Стартовая цена: {minCost} рублей</p>
       <p>Шаг торгов: {step} рублей</p>
+      <p>creator: {creator.login} </p>
     </>
   );
 }

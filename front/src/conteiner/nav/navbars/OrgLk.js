@@ -11,13 +11,15 @@ import Logout from "../../auth/Logout";
 import CabOrganization from "../../../components/CabOrganization/CabOrganization";
 import Auction from "../../Auction";
 import CurrentTender from "../../CurrentTender";
-import Search from "../../../components/CabOrganization/Search";
+import Search from "../../../components/CabOrganization/SearchAuction";
 import AnnouncementAboutWin from "../../../components/CabOrganization/AnnouncementAboutWin";
-import ListAuction from "../../../components/CabOrganization/ListAuction/ListAuction";
+import ListAuctions from "../../../components/CabOrganization/List/ListAuctions";
 import SearchTender from "../../../components/CabOrganization/SearchTender";
+import ListTenders from "../../../components/CabOrganization/List/ListTenders";
+import Tenders from "../../../components/CurrentUser/Tenders/MyTenders";
 
 class OrgLk extends Component {
-  
+
   render() {
     return (
       <Router>
@@ -69,7 +71,7 @@ class OrgLk extends Component {
           <Route
             exact
             path="/ListAuction/:searchId"
-            component={ListAuction}
+            component={ListTenders}
           />
 
           <Route
@@ -78,10 +80,21 @@ class OrgLk extends Component {
             component={SearchTender}
           />
 
+          <Route
+            exact
+            path="/SearchAllAuction/:searchId"
+            component={ListAuctions}
+          />
+
+          <Route
+            exact
+            path="/Tenders/:searchId"
+            render={() => <Tenders tenders={this.props.tenders} /> }
+          />
+
           <Route render={() => <h1>404</h1>} />
         </Switch>
 
-        {/* {this.props.auth ? this.props.auth ? <p>asd</p> : null : null} */}
       </Router>
     );
   }

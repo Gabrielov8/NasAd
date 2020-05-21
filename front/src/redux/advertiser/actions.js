@@ -6,7 +6,8 @@ import {
   ADD_TENDER_TO_STORE,
   ADD_WIN_AUCTIONS,
   ADD_SEARCH_AUCTION,
-  ADD_SEARCH_TENDER
+  ADD_SEARCH_TENDER,
+  SEARCH_ALL_AUCTION
 } from "./actionTypes";
 
 export function saveDataToStore(subject, nameBlogger, cash) {
@@ -64,3 +65,12 @@ export function addSearchTender (searchTender) {
     searchTender: searchTender
   }
 }
+
+export function searchAllAuction (allAuction) {
+  return {
+    type: SEARCH_ALL_AUCTION,
+    allAuction: allAuction
+  }
+}
+
+

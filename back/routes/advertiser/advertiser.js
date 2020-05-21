@@ -6,13 +6,16 @@ const Auction = require("../../models/auction");
 
 router.post("/", async (req, res) => {
   const { subject, nameBlogger, cash, creator } = req.body;
-  await DataAdvertiser.findByIdAndUpdate({ _id: creator} ,{
-    creator: creator,
-    subject: subject,
-    nameBlogger: nameBlogger,
-    cash: cash,
-    active: true,
-  });
+  await DataAdvertiser.findByIdAndUpdate(
+    { _id: creator },
+    {
+      creator: creator,
+      subject: subject,
+      nameBlogger: nameBlogger,
+      cash: cash,
+      active: true,
+    }
+  );
   res.json({ message: true });
 });
 
@@ -29,27 +32,42 @@ router.post("/idBargaining", async (req, res) => {
 });
 
 router.get("/getTender", async (req, res) => {
-  const tender = await Tender.find();
+  const tender = await Tender.find().populate("initator");
   res.json({ tender });
 });
 
 router.post("/findWinInAuction", async (req, res) => {
   let { idOrganizer } = req.body;
-  let findWin = await Auction.find({ winner: idOrganizer });
+console.log(idOrganizer , 'id');
+
+  let findWin = await Tender.find({'winner.winnerID': idOrganizer })
+  .populate('winner.winnerID');
+  console.log(findWin, "win>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+
   res.json({ findWin });
 });
 
 router.post("/searchAuction", async (req, res) => {
   let { subscribers, budget } = req.body;
-  let find = await Auction.find({ subscribers: subscribers, budget: budget });
+  let find = await Auction.find({
+    subscribers: { $gte: Number(subscribers) },
+    budget: { $gte: Number(budget) },
+  }).populate("usercreate");
   res.json({ find });
 });
 
 router.post("/searchTender", async (req, res) => {
   let { market, minCost } = req.body;
-  let findTenders = await Tender.find({ market: market, minCost: minCost });
-  // let ans = findTenders.filter
+  let findTenders = await Tender.find({
+    market: market,
+    minCost: { $gte: Number(minCost) },
+  }).populate("initator");
   res.json({ findTenders });
+});
+
+router.get("/searchAllAuction", async (req, res) => {
+  let findAll = await Auction.find().populate("usercreate");
+  res.json({ findAll });
 });
 
 module.exports = router;

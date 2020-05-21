@@ -44,7 +44,11 @@ class CabOrganization extends Component {
             <LinkToComponent name="Оповещения: новых " path='winAuction' value={this.props.winAuctions.length} />
           }
 
-          <LinkToComponent name="Список новых аукционов" path='ListAuction' />
+          <LinkToComponent name="Список новых тендеров" path='ListAuction' />
+          {/* <LinkToComponent name="Список новых тендеров" path='Tenders' /> */}
+
+          <LinkToComponent name="Список новых аукционов" path='SearchAllAuction' />
+
         </div>
 
         <h2> Личная страница заказчика </h2>
