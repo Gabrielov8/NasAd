@@ -8,7 +8,7 @@ export default function UserInfo({ onSubmit }) {
         <h3>Информация о пользователе:</h3>
         <form onSubmit={onSubmit}>
           <input
-            defaultValue="Обновите информацию"
+            placeholder="Обновите информацию"
             name="text"
           />
           <Button

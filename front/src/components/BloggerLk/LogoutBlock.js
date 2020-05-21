@@ -4,7 +4,7 @@ import {
   getCurrentUser,
   editCurrentUser,
 } from '../../redux/ivan/actions/currentUserActions.js';
-import UserInfo from '../CurrentUser/User/UserInfo.js';
+import UserInfo from '../CurrentUser/User/UserInfo';
 
 class LogoutBlock extends React.Component {
 
