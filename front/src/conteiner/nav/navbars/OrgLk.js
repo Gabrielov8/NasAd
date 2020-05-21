@@ -15,12 +15,14 @@ import Search from "../../../components/CabOrganization/Search";
 import AnnouncementAboutWin from "../../../components/CabOrganization/AnnouncementAboutWin";
 import ListAuction from "../../../components/CabOrganization/ListAuction/ListAuction";
 import SearchTender from "../../../components/CabOrganization/SearchTender";
+import Myauction from "./Myauction";
 
 class OrgLk extends Component {
   
   render() {
     return (
       <Router>
+  
         <nav>
           <h2>Advertister</h2>
           <ul>
@@ -33,6 +35,11 @@ class OrgLk extends Component {
             <li>
               <NavLink to="/advertister">Advertister</NavLink>
             </li>
+            <li>
+              <NavLink to="/myauction">MyAuction</NavLink>
+            </li>
+
+
             <li>
               <Logout />
             </li>
@@ -48,6 +55,7 @@ class OrgLk extends Component {
           <Route exact path="/createauction" component={Auction} />
           <Route exact path="/regOrg" component={RegisterOrg} />
           <Route exact path="/advertister" component={CabOrganization} />
+          <Route exact path="/myauction" component={Myauction} />
 
           <Route
             exact
