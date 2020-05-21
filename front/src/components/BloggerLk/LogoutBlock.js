@@ -5,11 +5,38 @@ import {
   editCurrentUser,
 } from '../../redux/ivan/actions/currentUserActions.js';
 import UserInfo from '../CurrentUser/User/UserInfo';
+import EditUserInfo from '../CurrentUser/User/EditUserInfo';
+import Button from '../generalComponents/button';
 
 class LogoutBlock extends React.Component {
 
+  constructor() {
+    super();
+    this.state = {
+      editInfo: false,
+    }
+  }
+
   componentDidMount() {
     this.props.getCurrentUser();
+  }
+
+  onClickEditHandler = () => {
+    this.setState({
+      editInfo: true,
+    })
+  }
+
+  onSubmitEditHandler = (event) => {
+    event.preventDefault();
+
+    this.setState({
+      editInfo: false,
+    });
+    const userInfo = Object.fromEntries(
+      new FormData(event.target),
+    );
+    this.props.editCurrentUser(localStorage.getItem('id'), userInfo);
   }
 
   render() {
@@ -26,7 +53,24 @@ class LogoutBlock extends React.Component {
           <p>{this.props.user.user.login}</p>
           <span>Blogger</span>
         </div>
-        <UserInfo />
+        <div>
+          {!this.state.editInfo &&
+            <>
+              <UserInfo
+                description={this.props.user.user.description}
+              />
+              <Button
+                text="Отредактировать"
+                onClick={this.onClickEditHandler}
+              />
+            </>}
+          {this.state.editInfo &&
+            <>
+              <EditUserInfo
+                onSubmit={this.onSubmitEditHandler}
+              />
+            </>}
+        </div>
         <div className="social">
           <p>Мои социальныe сети</p>
           <ul>
