@@ -1,43 +1,58 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom';
-import Logout from '../../auth/Logout'
-
+import { connect } from 'react-redux';
+import {
+  addAuctionForm,
+  changeShowTenders
+} from '../../../redux/ivan/actions/mainPageActions';
 class BloggerLk extends Component {
+
+  onClickAddAuctionHandler = (event) => {
+    event.preventDefault()
+    this.props.addAuctionForm();
+  }
+
+  onClickChangeTenders = (event) => {
+    event.preventDefault()
+    this.props.changeShowTenders();
+  }
+
   render() {
     return (
       <ul>
         <li>
-          <NavLink to="/homepage">homepage</NavLink>
+          <NavLink
+            to="/homepage"
+          >homepage
+           </NavLink>
         </li>
         <li>
-          <NavLink to={`/homepage/${localStorage.id}`}
-            onClick={this.onClickMyTendersHandler}
-          >Мои аукционы
+          <NavLink
+            to={`/homepage/${window.localStorage.getItem('id')}`}
+            onClick={this.onClickAddAuctionHandler}
+          >Объявить аукцион
           </NavLink>
         </li>
         <li>
-          <NavLink to={`/homepage/${localStorage.id}`}
-            onClick={this.onClickMyOffersHandler}
-          >Мои предложения
+          <NavLink
+            to='/allauction'
+            onClick={this.onClickChangeTenders}
+          >Просмотреть все запросы предложений
           </NavLink>
-        </li>
-        <li>
-          <NavLink to={`/homepage/${localStorage.id}`}
-            onClick={this.onClickAllOffersHandler}
-          >Просмотреть запросы предложений
-            </NavLink>
         </li>
       </ul>
-
-
-
-
-
-
-
     )
   }
 }
 
+const mapStatetoProps = (state) => {
+  return {
+    user: state.user,
+    app: state.app
+  }
+}
 
-export default BloggerLk
+export default connect(mapStatetoProps, {
+  addAuctionForm,
+  changeShowTenders
+})(BloggerLk);
