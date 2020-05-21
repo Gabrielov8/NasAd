@@ -38,7 +38,7 @@ class CurrentUser extends React.Component {
 
   async componentDidMount() {
     this.props.showLoader();
-    this.props.getCurrentUser(this.props.match.params.id);
+    this.props.getCurrentUser(localStorage.getItem('id'));
     this.props.hideLoader();
   }
 
@@ -153,9 +153,9 @@ class CurrentUser extends React.Component {
               />
             </>}
         </div>
-        <CashBalance
+        {/* <CashBalance
           money={user.money}
-        />
+        /> */}
         {!this.state.addAuction
           ?
           <Button
@@ -166,7 +166,7 @@ class CurrentUser extends React.Component {
           <NewTender
             onSubmit={this.onSubmitNewAucHandler}
           />}
-        <NavLink to={`/homepage/${localStorage.id}`}
+        {/* <NavLink to={`/homepage/${localStorage.id}`}
           onClick={this.onClickMyTendersHandler}
         >Мои аукционы
         
@@ -182,7 +182,7 @@ class CurrentUser extends React.Component {
         <NavLink to={`/homepage/${localStorage.id}`}
           onClick={this.onClickAllOffersHandler}
         >Просмотреть запросы предложений
-          </NavLink>
+          </NavLink> */}
 
         {this.state.mytenders &&
           this.props.user.user.tenders &&

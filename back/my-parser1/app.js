@@ -1,12 +1,7 @@
 const puppeteer = require('puppeteer');
 
-
-
-  // const vk = 
   const parcerVk = async (url)=> {
-    const browser = await puppeteer.launch({
-      headless: false
-    });
+    const browser = await puppeteer.launch();
     const sleep = (ms) => new Promise((res) => {
       setTimeout(res, ms);
     })
@@ -62,34 +57,8 @@ const puppeteer = require('puppeteer');
       }
       return add
     })
-    // console.log(stat)
-    // console.log(stat.length)
-    ///////////////////////////////////////////
-
-
-    // await page.screenshot({ path: 'example.png' });
     await browser.close();
     return result, stat
   }
 
   module.exports = parcerVk
-
-// module.exports = vk
-
-// const autoScroll = async (page) => {
-//   await page.evaluate(async () => {
-//     await new Promise((resolve, reject) => {
-//       let totalHeight = 0
-//       let distance = 100
-//       let timer = setInterval(() => {
-//         let scrollHeight = document.body.scrollHeight
-//         window.scrollBy(0, distance)
-//         totalHeight += distance
-//         if(totalHeight >= scrollHeight){
-//           clearInterval(timer)
-//           resolve()
-//         }
-//       }, 100)
-//     })
-//   })
-// }
