@@ -22,6 +22,11 @@ body {
   text-align: center;
 }
 
+/* .menu-org .active {
+  color: #F9A826;
+  text-decoration: underline;
+} */
+
 .menu-org h1 {
   color: #F9A826
 }
