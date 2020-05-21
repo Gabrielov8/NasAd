@@ -30,6 +30,7 @@ const AuctionSchema = new Schema({
       ref: "User",
     },
   ],
+  blogerin: []
 });
 
 module.exports = model("Auction", AuctionSchema);

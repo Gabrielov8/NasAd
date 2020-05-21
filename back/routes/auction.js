@@ -62,7 +62,12 @@ router.post('/newbet', async (req, res) => {
   try {
     const auction = await Auction.findById(req.body.auctionID);
     const user = await User.findById(req.body.userID);
+    console.log(user, '22');
+    
     auction.bets.push(req.body.userID);
+    
+      auction.blogerin.push({userlogin:user.login, social: user.social, userid: user._id})
+    
     user.auctions.push(auction);
     await auction.save();
     await user.save();
@@ -175,9 +180,52 @@ router.post('/parcer', async (req,res) =>{
   catch(e){
     console.log(e);
   }
+})
 
+
+router.post('/myauction', async (req,res) =>{
+  try{
+    const auct = await Auction.find({usercreate:req.body.userid})
+    
+    res.json({
+      message: auct
+    })
+  
+   
+  }
+  catch(e){
+    console.log(e);
+  }
 
  
 })
+
+router.post('/selectbloger', async (req,res) =>{
+  try{
+    console.log(req.body,'tigran');
+
+    const user = await User.findById(req.body.userid)
+    const auction = await Auction.findById(req.body.auctionid)
+    auction.winner = req.body.userid
+    await auction.save()
+    await user.save()
+    
+    // res.json({
+    //   message: auct
+    // })
+  
+   
+  }
+  catch(e){
+    console.log(e);
+  }
+
+ 
+})
+
+
+
+
+
 
 module.exports = router;

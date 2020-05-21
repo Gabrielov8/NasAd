@@ -16,31 +16,29 @@ import ListAuctions from "../../components/CabOrganization/List/ListAuctions";
 import Tenders from "../../components/CurrentUser/Tenders/MyTenders";
 import SearchAuction from "../../components/CabOrganization/SearchAuction";
 
+import AuctionManePageOrg from '../../components/OrgLk/AuctionMainPageOrg'
+import Auctionfull from '../pages/fullcomponent/Auctionfull'
+import '../../css/orglk.css'
+import Homepagefull from './fullcomponent/Homepagefull';
+import MyAuctionfull from './fullcomponent/MyAuctionfull'
+
 export default class OrgPageLK extends Component {
   render() {
     return (
       <>
-        <div className="content-lk-blog-org">
+        {/* <div className="content-lk-blog-org">
           <MenuOrg />
           <MainPageOrg />
           <LogoutOrg />
-        </div>
+          
+        </div> */}
 
         {/* <OrgLk /> */}
         <Switch>
-          <Route exact path="/createauction" component={Auction} />
-          <Route exact path="/advertister" component={CabOrganization} />
-
-          <Route
+        <Route
             exact
-            path="/SearchTender/:searchId"
-            component={SearchTender}
-          />
-
-          <Route
-            exact
-            path="/currenttender/:userid/:tenderid"
-            component={CurrentTender}
+            path="/"
+            component={Homepagefull}
           />
 
           <Route
@@ -69,6 +67,15 @@ export default class OrgPageLK extends Component {
             path="/SearchAllAuction/:searchId"
             component={ListAuctions}
           />
+            path="/createauction"
+            component={Auctionfull}
+          />
+          <Route
+            exact
+            path="/myauction"
+            component={MyAuctionfull}
+          />
+
 
           <Route
             exact

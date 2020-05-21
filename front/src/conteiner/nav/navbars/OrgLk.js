@@ -11,7 +11,11 @@ import AnnouncementAboutWin from "../../../components/CabOrganization/Announceme
 import ListAuctions from "../../../components/CabOrganization/List/ListAuctions";
 import SearchTender from "../../../components/CabOrganization/SearchTender";
 import ListTenders from "../../../components/CabOrganization/List/ListTenders";
+
 import Tenders from "../../../components/CurrentUser/Tenders/MyTenders";
+import Search from "../../../components/CabOrganization/Search";
+import ListAuction from "../../../components/CabOrganization/ListAuction/ListAuction";
+import Myauction from "./Myauction";
 
 
 class OrgLk extends Component {
@@ -91,18 +95,51 @@ class OrgLk extends Component {
 
           <Route render={() => <h1>404</h1>} />
         </Switch> */}
+     
+  
+        // <nav>
+        //   <h2>Advertister</h2>
+        //   <ul>
+        //     <li>
+        //       <NavLink to="/homepage">homepage</NavLink>
+        //     </li>
+        //     <li>
+        //       <NavLink to="/createauction">createauction</NavLink>
+        //     </li>
+        //     <li>
+        //       <NavLink to="/advertister">Advertister</NavLink>
+        //     </li>
+        //     <li>
+        //       <NavLink to="/myauction">MyAuction</NavLink>
+        //     </li>
+
+
+        //     <li>
+        //       <Logout />
+        //     </li>
+        //   </ul>
+        // </nav>
+
+       
+
+       
+
         <ul>
           <li>
-            <NavLink to="/homepage">homepage</NavLink>
+            <NavLink to="/">homepage</NavLink>
           </li>
           <li>
-            <NavLink to="/createauction">createauction</NavLink>
+            <NavLink  to="/createauction">createauction</NavLink>
+          </li>
+          <li>
+            <NavLink to="/myauction">myauction</NavLink>
           </li>
           <li>
             <NavLink to="/advertister">Advertister</NavLink>
           </li>
         </ul>
         </>
+       
     );
   }
 }

@@ -1,6 +1,5 @@
 import React from 'react'
-import CabOrganization from '../CabOrganization/CabOrganization'
-import Auction from '../../conteiner/Auction'
+import Myauction from '../../conteiner/nav/navbars/Myauction'
 
 export default function MainPageOrg() {
   return (
@@ -20,8 +19,7 @@ export default function MainPageOrg() {
 
       <div className="info-block-org">
         <div className="first-org">
-          <CabOrganization />
-          {/* <Auction/> */}
+          <Myauction/>
         </div>
         <div className="second-org">
         </div>
@@ -29,3 +27,4 @@ export default function MainPageOrg() {
     </div>
   )
 }
+
