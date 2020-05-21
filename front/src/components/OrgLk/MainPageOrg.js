@@ -1,4 +1,5 @@
 import React from 'react'
+import CabOrganization from '../CabOrganization/CabOrganization'
 
 export default function MainPageOrg() {
   return (
@@ -18,6 +19,7 @@ export default function MainPageOrg() {
 
       <div className="info-block-org">
         <div className="first-org">
+          <CabOrganization />
         </div>
         <div className="second-org">
         </div>

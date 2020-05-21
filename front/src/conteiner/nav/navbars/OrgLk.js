@@ -18,26 +18,27 @@ class OrgLk extends Component {
 
   render() {
     return (
-      <Router>
-        <nav>
-          <h2>Advertister</h2>
-          <ul>
-            <li>
-              <NavLink to="/homepage">homepage</NavLink>
-            </li>
-            <li>
-              <NavLink to="/createauction">createauction</NavLink>
-            </li>
-            <li>
-              <NavLink to="/advertister">Advertister</NavLink>
-            </li>
-            <li>
-              <Logout />
-            </li>
-          </ul>
-        </nav>
+      <>
+      {/* // <Router>
+      //   <nav>
+      //     <h2>Advertister</h2>
+      //     <ul>
+      //       <li>
+      //         <NavLink to="/homepage">homepage</NavLink>
+      //       </li>
+      //       <li>
+      //         <NavLink to="/createauction">createauction</NavLink>
+      //       </li>
+      //       <li>
+      //         <NavLink to="/advertister">Advertister</NavLink>
+      //       </li>
+      //       <li>
+      //         <Logout />
+      //       </li>
+      //     </ul>
+      //   </nav> */}
 
-        <Switch>
+        {/* <Switch>
           <Route exact path="/" render={() => <h1>Личный кабинет</h1>} />
           <Route exact path="/homepage">
             <h1>Homepage</h1>
@@ -89,9 +90,7 @@ class OrgLk extends Component {
           />
 
           <Route render={() => <h1>404</h1>} />
-        </Switch>
-
-      </Router>
+        </Switch> */}
         <ul>
           <li>
             <NavLink to="/homepage">homepage</NavLink>
@@ -103,6 +102,7 @@ class OrgLk extends Component {
             <NavLink to="/advertister">Advertister</NavLink>
           </li>
         </ul>
+        </>
     );
   }
 }

@@ -20,7 +20,7 @@ function Tender({
       <p>Стартовая цена: {minCost} рублей</p>
       <p>Шаг торгов: {step} рублей</p>
       <p>creator: {creator.login} </p>
-    </>
+    
 
     <div className={classes["tender-container"]}>
       <div className={classes["row"]}>
@@ -40,7 +40,7 @@ function Tender({
         </div>
       </div>
     </div>
-
+    </>
   );
 }
 

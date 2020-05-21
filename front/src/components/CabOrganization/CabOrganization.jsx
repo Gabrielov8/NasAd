@@ -4,7 +4,7 @@ import FormAnnouncement from './FormAnnouncement/FormAnnouncement';
 import BargainingOfCustomer from './BargainingOfCustomer/BargainingOfCustomer';
 import { connect } from 'react-redux'
 import { asyncGetDataFromBase, findWinInAuction } from '../../redux/advertiser/FetchData/fetchSendToBase'
-import { changeMiddleCount, changeActiveBargaining } from '../../redux/advertiser/actions'
+import { changeMiddleCount, changeActiveBargaining, changeCheck } from '../../redux/advertiser/actions'
 import LinkToComponent from './LinkToComponent';
 
 class CabOrganization extends Component {
@@ -30,11 +30,18 @@ class CabOrganization extends Component {
     this.setState({ check: true, showButton: false })
   }
 
+  // qwerty = (event) => {
+  //   event.preventDefault()
+  //   this.props.changeCheck(true)
+  // }
+
   render() {
     return (
       <div>
 
-        <img alt='' className={style.avatar} />
+        {/* <a href='' onClick={this.qwerty}> Поиск по аукционам </a> */}
+
+        {/* <img alt='' className={style.avatar} /> */}
 
         <div className={style.search}>
           <LinkToComponent name="Поиск по аукционам" path='search' />
@@ -51,18 +58,18 @@ class CabOrganization extends Component {
 
         </div>
 
-        <h2> Личная страница заказчика </h2>
+        {/* <h2> Личная страница заказчика </h2>
         <h2> Информация о заказчике: </h2>
         <ul>
           <li> Всего торгов: {this.props.masBargaining.length}</li>
           <li> Текущие торги: {this.props.masBargaining ? this.props.activeBargaining : 0} </li>
           <li> Средний ценник:  {this.props.middleCount === 'NaN' ? 0 : this.props.middleCount}</li>
-        </ul>
-
+        </ul> */}
+{/* 
         {this.state.check && <FormAnnouncement />}
-        {this.state.showButton && <button onClick={this.showForm}> Создать новое рекламное объявление </button>}
-        <hr />
-        <BargainingOfCustomer />
+        {this.state.showButton && <button onClick={this.showForm}> Создать новое рекламное объявление </button>} */}
+        {/* <hr /> */}
+        {/* <BargainingOfCustomer /> */}
       </div>
     );
   }
@@ -73,7 +80,9 @@ const mapStateToProps = (state) => {
     masBargaining: state.advertiserReducer.masBargaining,
     middleCount: state.advertiserReducer.middleCount,
     activeBargaining: state.advertiserReducer.activeBargaining,
-    winAuctions: state.advertiserReducer.winAuctions
+    winAuctions: state.advertiserReducer.winAuctions,
+    // changeCheck: state.advertiserReducer.changeCheck,
+    
   }
 }
 
@@ -81,7 +90,8 @@ const mapDispatchToProps = {
   asyncGetDataFromBase,
   changeMiddleCount,
   changeActiveBargaining,
-  findWinInAuction
+  findWinInAuction,
+  // changeCheck
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CabOrganization);

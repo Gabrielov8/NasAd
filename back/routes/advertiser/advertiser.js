@@ -38,12 +38,8 @@ router.get("/getTender", async (req, res) => {
 
 router.post("/findWinInAuction", async (req, res) => {
   let { idOrganizer } = req.body;
-console.log(idOrganizer , 'id');
-
   let findWin = await Tender.find({'winner.winnerID': idOrganizer })
   .populate('winner.winnerID');
-  console.log(findWin, "win>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-
   res.json({ findWin });
 });
 
