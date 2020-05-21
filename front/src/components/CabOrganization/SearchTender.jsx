@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class Search extends Component {
 
   state = {
-    arrMarkets: ["instagram", "vk", "facebook", "twitter", "ok", "telegram"]
+    arrMarkets: ["vk"]
   }
 
   onSubmitForm = (event) => {
@@ -16,11 +16,14 @@ class Search extends Component {
 
   render() {
     let arr = this.props.searchTender.length !== 0 ?
-      this.props.searchAuction.map(t =>
+      this.props.searchTender.map(t =>
         <div>
           <hr />
-          <p><b>Тема:</b>  {t.market}</p>
-          <p><b>Описание:</b>  {t.minCost}</p>
+          <p><b>Заголовок:</b>  {t.title}</p>
+          <p><b>Соц.сеть:</b>  {t.market}</p>
+          <p><b>Мин.сумма</b>  {t.minCost}</p>
+          <p><b>Шаг</b>  {t.step}</p>
+          <p><b>creator:</b>  {t.initator.login}</p>
         </div>) : "нет данных";
 
     return (

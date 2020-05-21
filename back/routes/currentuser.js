@@ -19,7 +19,7 @@ router.delete('/:id/:tenderid', async (req, res) => {
     }
   }
   await user.save();
-  await Tender.findByIdAndDelete(req.params.tenderid);
+  await Tender.findByIdAndDelete(req.params.tenderid)
   res.json({ user });
 });
 

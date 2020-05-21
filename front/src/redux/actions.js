@@ -1,4 +1,4 @@
-import { TEST, LOADEDAUCTION, ALLAUCTION,USERINAUCTION,USERSOCIAL } from "./actionTypes";
+import { TEST, LOADEDAUCTION, ALLAUCTION,USERINAUCTION,USERSOCIAL,MYAUCTION } from "./actionTypes";
 import { CREATEAUCTION } from "./actionTypes";
 
 export function test() {
@@ -87,6 +87,59 @@ export function parcer(userid,inst){
     }
 }
 }
+
+export function myauctionfetch(userid){
+  return async function(dispatch) { 
+    
+
+    const responce = await fetch ('/auction/myauction', {
+      method:'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({userid})
+    })
+    // dispatch(createAuctionStore())
+    const {message} = await responce.json()
+    // console.log(message[4].blogerin,'BBBd-a');
+    
+    // console.log(result,'RESULT');
+    if(message){
+      dispatch(myauction(message))
+    }
+}
+}
+
+
+export function selectbloger(userid,auctionid){
+  return async function(dispatch) { 
+    
+
+    const responce = await fetch ('/auction/selectbloger', {
+      method:'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({userid,auctionid})
+    })
+    // dispatch(createAuctionStore())
+    const {message} = await responce.json()
+    // console.log(message[4].blogerin,'BBBd-a');
+    
+    // console.log(result,'RESULT');
+    if(message){
+      dispatch(myauction(message))
+    }
+}
+}
+
+
+
+
+
+export function myauction(url){
+  return {
+    type:MYAUCTION,
+    payload: url
+  }
+}
+
 
 
 export function usersociaL(url){
