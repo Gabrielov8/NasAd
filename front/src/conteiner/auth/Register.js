@@ -20,6 +20,7 @@ class Register extends Component {
     this.props.auth_register(login, email, password)
   }
   render() {
+
     return (
       <React.Fragment>
         {this.state.modal &&

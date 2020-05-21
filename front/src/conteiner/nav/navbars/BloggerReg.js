@@ -13,7 +13,7 @@ class BloggerReg extends Component {
 
   render() {
     return (
-      <Router>
+
         <nav className={classes['nav-blogger']}>
           <h1>NasAd</h1>
           <ul>
@@ -30,7 +30,7 @@ class BloggerReg extends Component {
             </li>
           </ul>
         </nav>
-      </Router >
+ 
     )
   }
 }
