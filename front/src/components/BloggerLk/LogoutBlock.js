@@ -20,7 +20,7 @@ export default function LogoutBlock() {
         <div className="social">
           <p>Мои социальныe сети</p>
           <ul>
-            <li>Инстаграм</li>
+            <li>Инстаграм </li>
             <li>Вконтакте</li>
           </ul>
         </div>
