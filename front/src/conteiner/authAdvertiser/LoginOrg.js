@@ -31,7 +31,7 @@ class LoginAd extends Component {
           &&
           <div
             className={classes['modal-blog']}>
-            {this.props.auth ? <Redirect to="/homepage" /> : null}
+            {this.props.auth ? <Redirect to="/" /> : null}
             {this.props.err ? <p>{this.props.err}</p> : null}
             <div
               className={classes['modal-body-blog']}>
