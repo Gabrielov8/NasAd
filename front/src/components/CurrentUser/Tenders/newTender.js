@@ -1,12 +1,12 @@
 import React from 'react';
 import Button from '../../generalComponents/button';
-import classes from './newTender.module.css';
+// // import classes from './newTender.module.css';
 
 export default function NewTender({ onSubmit }) {
   return (
     <>
       <h3>Создать новый аукцион:</h3>
-      <form
+      {/* <form
         className={classes["form-style-9"]}
         onSubmit={onSubmit}
       >
@@ -66,7 +66,7 @@ export default function NewTender({ onSubmit }) {
         </ul>
       </form>
       <div>
-      </div>
+      </div> */}
     </>
   )
 }
