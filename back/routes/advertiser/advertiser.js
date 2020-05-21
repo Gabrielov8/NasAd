@@ -38,8 +38,8 @@ router.get("/getTender", async (req, res) => {
 
 router.post("/findWinInAuction", async (req, res) => {
   let { idOrganizer } = req.body;
-  let findWin = await Tender.find({'winner.winnerID': idOrganizer })
-  .populate('winner.winnerID');
+  let findWin = await Tender.find({ 'winner.winnerID': idOrganizer })
+    .populate('winner.winnerID');
   res.json({ findWin });
 });
 
@@ -64,6 +64,18 @@ router.post("/searchTender", async (req, res) => {
 router.get("/searchAllAuction", async (req, res) => {
   let findAll = await Auction.find().populate("usercreate");
   res.json({ findAll });
+});
+
+router.get('/:id', async (req, res) => {
+  const org = await DataAdvertiser.findById(req.params.id);
+  res.json({ org });
+});
+
+router.patch('/:id', async (req, res) => {
+  const org = await DataAdvertiser.findById(req.params.id);
+  org.description = req.body.orgInfo.text;
+  await org.save();
+  res.json({ org });
 });
 
 module.exports = router;

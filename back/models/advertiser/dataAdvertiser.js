@@ -20,6 +20,10 @@ const dataAdvertiserSchema = new Schema({
   nameBlogger: String,
   cash: Number,
   active: Boolean,
+  description: {
+    type: String,
+    default: '',
+  },
 });
 
 module.exports = model("Data_advertiser", dataAdvertiserSchema);
