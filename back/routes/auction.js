@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
     const {
       subject, subscribers, budget, usercreate,
     } = req.body.newauction;
-    // console.log(req.body);
+
 
     const newAuction = await new Auction({
       subject,
@@ -20,7 +20,6 @@ router.post('/', async (req, res) => {
   } catch (e) {
     console.log(e);
   }
-  // console.log(req.body);
   res.json({
     message: true,
   });
@@ -156,7 +155,6 @@ router.post('/parcer', async (req,res) =>{
     
 
     const middlesoc = middlesocial()
-    console.log(middlesoc )
 
     user.social.push(middlesoc)
     await user.save()
@@ -165,10 +163,7 @@ router.post('/parcer', async (req,res) =>{
     res.json({
       message: user.social
     })
-  
-     
-    // auct.participant.push(req.body.userid)
-    //  await auct.save()
+
    
   }
   catch(e){

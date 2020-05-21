@@ -1,7 +1,7 @@
 import React from 'react';
 import Tender from './MyTender';
 
-export default function Tenders({ tenders }) {
+export default function Tenders({ tenders, onClick }) {
 
   return (
     <>
@@ -17,6 +17,7 @@ export default function Tenders({ tenders }) {
               minCost={tender.minCost}
               startDate={tender.startDate}
               step={tender.step}
+              onClick={onClick}
             />
           </div>
         </>

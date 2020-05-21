@@ -3,20 +3,23 @@ import moment from 'moment-with-locales-es6';
 import { Link, withRouter } from 'react-router-dom';
 import classes from './MyTender.module.css';
 function Tender({
-  title, market, finishDate, minCost, startDate, step, match, aucId
+  title, market, finishDate, minCost, startDate, step, onClick, aucId
 }) {
   moment.locale('ru');
   const dateStart = moment(startDate).format('llll');
   const dateFinish = moment(finishDate).format('llll');
 
+  console.log(onClick)
   return (
-
     <div className={classes["tender-container"]}>
       <div className={classes["row"]}>
         <div className={classes["column"]}>
           <div className={classes["card"]}>
             <div className={classes["card-content"]}>
-              <Link to={`/currenttender/${localStorage.getItem('id')}/${aucId}`}>
+              <Link 
+              to={`/currenttender/${localStorage.getItem('id')}/${aucId}`}
+              onClick={onClick}
+              >
                 <h4>{title}</h4>
               </Link>
               <p className={classes.paragraph}>Площадка: {market}</p>
