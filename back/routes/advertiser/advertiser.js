@@ -66,6 +66,12 @@ router.get("/searchAllAuction", async (req, res) => {
   res.json({ findAll });
 });
 
+
+router.post("/findStatistic", async (req, res) => {
+  let { idCreator } = req.body;
+  let findStatistic = await Auction.find({ usercreate: idCreator })
+  res.json({ findStatistic });
+  
 router.get('/:id', async (req, res) => {
   const org = await DataAdvertiser.findById(req.params.id);
   res.json({ org });
@@ -79,3 +85,4 @@ router.patch('/:id', async (req, res) => {
 });
 
 module.exports = router;
+
