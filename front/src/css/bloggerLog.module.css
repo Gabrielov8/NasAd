@@ -20,11 +20,11 @@
   min-height: 600px;
 }
 
-nav ul li a, footer a{
+.nav-blogger ul li a, footer a{
   color: white;
 }
 
-nav{
+.nav-blogger{
   height: 10vh;
   width: 80%;
   display: flex;
@@ -32,21 +32,21 @@ nav{
   align-items: center;
 }
 
-nav ul {
+.nav-blogger ul {
   width: 50%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-nav ul li, a{
+.nav-blogger ul li, a{
   text-decoration: none;
   list-style: none;
   position: relative;
   
 }
 
-nav a:before , .info a::before{
+.nav-blogger a:before , .info a::before{
   content: '';
    position: absolute;
    width: 100%;
@@ -59,11 +59,11 @@ nav a:before , .info a::before{
    transform-origin: left;
 }
 
-nav a:hover:before, .info a:hover:before {
+.nav-blogger a:hover:before, .info a:hover:before {
   transform: scale(1);
 }
 
-nav ul button {
+.nav-blogger ul button {
   border: 1px solid white;
   border-radius: 20px;
   padding: 5px;
@@ -71,7 +71,7 @@ nav ul button {
   background-color: inherit;
   color: white;
 }
-nav ul button:hover{
+.nav-blogger ul button:hover{
   background-color: white;
   color: black;
   cursor: pointer;

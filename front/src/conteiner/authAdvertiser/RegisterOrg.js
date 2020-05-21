@@ -19,9 +19,6 @@ class RegisterAd extends Component {
     event.preventDefault()
     const { login, email, password } = this.state
     this.props.auth_register_ad(login, email, password)
-    this.setState({
-      modal: false,
-    })
   }
   render() {
     return (
