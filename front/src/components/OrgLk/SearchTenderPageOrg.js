@@ -1,5 +1,6 @@
 import React from 'react'
-import Auction from '../../conteiner/Auction'
+import SearchTender from '../CabOrganization/SearchTender'
+import ListTenders from '../CabOrganization/List/ListTenders'
 
 export default function MainPageOrg() {
   return (
@@ -19,7 +20,8 @@ export default function MainPageOrg() {
 
       <div className="info-block-org">
         <div className="first-org">
-        <Auction/>
+          <SearchTender />
+          {/* <ListTenders /> */}
         </div>
         <div className="second-org">
         </div>

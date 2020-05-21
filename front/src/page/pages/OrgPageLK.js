@@ -21,6 +21,9 @@ import Auctionfull from '../pages/fullcomponent/Auctionfull'
 import '../../css/orglk.css'
 import Homepagefull from './fullcomponent/Homepagefull';
 import MyAuctionfull from './fullcomponent/MyAuctionfull'
+import SearchAuctionFull from "./fullcomponent/SearchAuctionFull";
+import SearchTenderFull from "./fullcomponent/SearchTenderFull";
+import WinTenderFull from "./fullcomponent/WinTenderFull";
 
 export default class OrgPageLK extends Component {
   render() {
@@ -41,7 +44,7 @@ export default class OrgPageLK extends Component {
             component={Homepagefull}
           />
 
-          <Route
+          {/* <Route
             exact
             path="/winAuction/:searchId"
             component={AnnouncementAboutWin}
@@ -54,9 +57,9 @@ export default class OrgPageLK extends Component {
             // Search
           />
 
-          <Route exact path="/ListAuction/:searchId" component={ListTenders} />
+          <Route exact path="/ListAuction/:searchId" component={ListTenders} /> */}
 
-          <Route
+          {/* <Route
             exact
             path="/SearchTender/:searchId"
             component={SearchTender}
@@ -66,7 +69,7 @@ export default class OrgPageLK extends Component {
             exact
             path="/SearchAllAuction/:searchId"
             component={ListAuctions}
-          />
+          /> */}
            <Route
             exact
             path="/createauction"
@@ -78,12 +81,30 @@ export default class OrgPageLK extends Component {
             component={MyAuctionfull}
           />
 
+          <Route
+            exact
+            path="/searchAuction"
+            component={SearchAuctionFull}
+          />
 
           <Route
             exact
+            path="/searchTender"
+            component={SearchTenderFull}
+          />
+
+          <Route
+            exact
+            path="/winTender"
+            component={WinTenderFull}
+          />
+
+
+          {/* <Route
+            exact
             path="/Tenders/:searchId"
             render={() => <Tenders tenders={this.props.tenders} />}
-          />
+          /> */}
         </Switch>
       </>
     );
