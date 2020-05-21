@@ -24,10 +24,11 @@ class Search extends Component {
           <p><b>Мин.сумма</b>  {t.minCost}</p>
           <p><b>Шаг</b>  {t.step}</p>
           <p><b>creator:</b>  {t.initator.login}</p>
-        </div>) : "нет данных";
+        </div>) : null;
 
     return (
       <div>
+       <h3>Поиск тендеров</h3>  <br />
         <form onSubmit={this.onSubmitForm} style={{ display: 'table-caption' }}>
           Соц.сеть:
           <select name='select' onSelect={() => this.onSelect}>

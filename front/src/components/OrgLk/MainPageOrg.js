@@ -1,6 +1,7 @@
 import React from 'react'
 import CabOrganization from '../CabOrganization/CabOrganization'
 import Auction from '../../conteiner/Auction'
+import Statistic from '../CabOrganization/Statistic'
 
 export default function MainPageOrg() {
   return (
@@ -20,6 +21,7 @@ export default function MainPageOrg() {
 
       <div className="info-block-org">
         <div className="first-org">
+        <Statistic />
         </div>
         <div className="second-org">
           

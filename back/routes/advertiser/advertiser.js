@@ -66,4 +66,11 @@ router.get("/searchAllAuction", async (req, res) => {
   res.json({ findAll });
 });
 
+router.post("/findStatistic", async (req, res) => {
+  let { idCreator } = req.body;
+  let findStatistic = await Auction.find({ usercreate: idCreator })
+  res.json({ findStatistic });
+});
+
 module.exports = router;
+

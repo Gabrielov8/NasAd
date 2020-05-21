@@ -20,10 +20,11 @@ class Search extends Component {
           <p><b>Бюджет:</b> {m.budget}</p>
           <p><b>Блогер:</b> {m.usercreate.login}</p>
           
-        </div>) : "нет данных"
+        </div>) : null
 
     return (
       <div>
+       <h3>Поиск аукционов</h3> <br />
         <form onSubmit={this.onSubmitForm} style={{display: 'table-caption'}}>
           <input required type="text" name="subscribers" placeholder="сколько подписчиков" />
           <input required type="text" name="budget" placeholder="бюджет" />
