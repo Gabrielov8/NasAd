@@ -4,5 +4,6 @@ export const LOADEDAUCTION = 'LOADEDAUCTION '
 export const ALLAUCTION = 'ALLAUCTION '
 export const USERINAUCTION = 'USERINAUCTION '
 export const USERSOCIAL = 'USERSOCIAL '
+export const MYAUCTION = 'MYAUCTION '
 
 
