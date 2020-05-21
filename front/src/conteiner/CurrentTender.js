@@ -26,7 +26,7 @@ class CurrentTender extends React.Component {
   async componentDidMount() {
     await this.props.getCurrentTender(this.props.match.params.tenderid);
 
-    if (this.props.tender.currentTender.initator === localStorage.getItem('id')) {
+    if (this.props.tender.currentTender.initator == localStorage.getItem('id')) {
       this.setState({
         initiator: true
       })

@@ -126,25 +126,25 @@ class OrgLk extends Component {
 
         <ul>
           <li>
-            <NavLink to="/">homepage</NavLink>
+            <NavLink to="/">Домашняя страница</NavLink>
           </li>
           <li>
-            <NavLink  to="/createauction">createauction</NavLink>
+            <NavLink  to="/createauction">Создать аукцион</NavLink>
           </li>
           <li>
-            <NavLink to="/myauction">myauction</NavLink>
+            <NavLink to="/myauction">Мои аукционы</NavLink>
           </li>
           {/* <li>
             <NavLink to="/advertister">Advertister</NavLink>
           </li> */}
           <li>
-            <NavLink to="/searchAuction">SearchAuction</NavLink>
+            <NavLink to="/searchAuction">Поиск аукционнов</NavLink>
           </li>
           <li>
-            <NavLink to="/searchTender">SearchTender</NavLink>
+            <NavLink to="/searchTender">Поиск тендеров</NavLink>
           </li>
           <li>
-            <NavLink to="/winTender">WinTender</NavLink>
+            <NavLink to="/winTender">Оповещения</NavLink>
           </li>
         </ul>
         </>

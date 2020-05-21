@@ -1,10 +1,49 @@
-import React from 'react'
-import Logout from '../../conteiner/auth/Logout'
-import CashBalance from '../CurrentUser/User/CashBalance'
+import React from 'react';
+import { connect } from 'react-redux';
+import {
+  getCurrentUser,
+  editCurrentUser,
+} from '../../redux/ivan/actions/currentUserActions.js';
+import UserInfo from '../CurrentUser/User/UserInfo';
+import EditUserInfo from '../CurrentUser/User/EditUserInfo'
+import Button from '../generalComponents/button';
+import Logout from '../../conteiner/auth/Logout';
 
-export default function LogoutBlock() {
-  return (
-      <div className="foto-block">
+
+class LogoutBlock extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      editInfo: false,
+    }
+  }
+
+  componentDidMount() {
+    this.props.getCurrentUser();
+  }
+
+  onClickEditHandler = () => {
+    this.setState({
+      editInfo: true,
+    })
+  }
+
+  onSubmitEditHandler = (event) => {
+    event.preventDefault();
+
+    this.setState({
+      editInfo: false,
+    });
+    const userInfo = Object.fromEntries(
+      new FormData(event.target),
+    );
+    this.props.editCurrentUser(localStorage.getItem('id'), userInfo);
+  }
+
+  render() {
+    return (
+      <div className="foto-block" >
         <div className="logout">
           <Logout />
           {/* <h3>Logout</h3> */}
@@ -13,10 +52,28 @@ export default function LogoutBlock() {
 
         <div className="foto">
           <img src="/imgBloggerLk/profile.svg" alt="" />
-          <p>Max Gabrielov</p>
-          <span>blogger</span>  
-        </div>
 
+          <p>{this.props.user.user.login}</p>
+          <span>Blogger</span>
+        </div>
+        <div>
+          {!this.state.editInfo &&
+            <>
+              <UserInfo
+                description={this.props.user.user.description}
+              />
+              <Button
+                text="Отредактировать"
+                onClick={this.onClickEditHandler}
+              />
+            </>}
+          {this.state.editInfo &&
+            <>
+              <EditUserInfo
+                onSubmit={this.onSubmitEditHandler}
+              />
+            </>}
+        </div>
         <div className="social">
           <p>Мои социальныe сети</p>
           <ul>
@@ -27,6 +84,17 @@ export default function LogoutBlock() {
 
         
       </div>
-
-  )
+    )
+  }
 }
+
+const mapStatetoProps = (state) => {
+  return {
+    user: state.user,
+  }
+}
+
+export default connect(mapStatetoProps, {
+  getCurrentUser,
+  editCurrentUser,
+})(LogoutBlock);

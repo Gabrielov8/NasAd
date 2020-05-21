@@ -1,11 +1,11 @@
 import React from 'react';
-import Button from '../../generalComponents/button';
+import Button from '../generalComponents/button';
 
-export default function UserInfo({ onSubmit }) {
+export default function OrgInfo({ onSubmit }) {
   return (
     <>
       <div>
-        <h3>Расскажите о том, какую рекламу готовы размещать!</h3>
+        <h3>Расскажите о том, что хотите рекламировать!</h3>
         <form onSubmit={onSubmit}>
           <input
             placeholder="Обновите информацию"

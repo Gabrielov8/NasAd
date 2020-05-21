@@ -3,8 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
   addAuctionForm,
-  changeShowTenders
+  changeShowTenders,
+  showHome,
 } from '../../../redux/ivan/actions/mainPageActions';
+
 class BloggerLk extends Component {
 
   onClickAddAuctionHandler = (event) => {
@@ -17,12 +19,18 @@ class BloggerLk extends Component {
     this.props.changeShowTenders();
   }
 
+  onClickHomepageHandler =(event) => {
+    event.preventDefault()
+    this.props.showHome();
+  }
+
   render() {
     return (
       <ul>
         <li>
           <NavLink
             to="/homepage"
+            onClick={this.onClickHomepageHandler}
           >homepage
            </NavLink>
         </li>
@@ -54,5 +62,6 @@ const mapStatetoProps = (state) => {
 
 export default connect(mapStatetoProps, {
   addAuctionForm,
-  changeShowTenders
+  changeShowTenders,
+  showHome,
 })(BloggerLk);

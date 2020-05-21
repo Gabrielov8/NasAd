@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Route } from 'react-router-dom';
+import moment from 'moment-with-locales-es6';
 import MyTenders from '../CurrentUser/Tenders/MyTenders';
 import MyOffers from '../CurrentUser/Offers/MyOffers';
 import Offers from '../CurrentUser/Offers/Offers';
@@ -14,8 +15,10 @@ import {
   getMyOffers,
   addNewBetOnOffer,
 } from '../../redux/ivan/actions/currentUserActions.js';
+import { showCurrentTender } from '../../redux/ivan/actions/mainPageActions';
+import CurrentTender from '../../conteiner/CurrentTender';
 
-
+moment.locale('ru');
 class MainPage extends React.Component {
 
   async componentDidMount() {
@@ -44,63 +47,81 @@ class MainPage extends React.Component {
     window.location.reload();
   }
 
+  onClickGetCurrentTender = () => {
+
+    this.props.showCurrentTender();
+  }
+
   render() {
 
     return (
       <div className="main-page" >
         <div className="dashboard-info">
           <h3>Dashboard</h3>
-          <p>21 Мая Четверг</p>
+          <p>{moment().format('dddd')}   {moment().format('MMMM Do YYYY')}</p>
         </div>
 
         <div className="welcome">
           <div className="text">
-            <h3>Welcome back Max!</h3>
-            <p>Здесь написан какой-то текст</p>
+            <h3>Welcome back {this.props.user.user.login}</h3>
+            <p>Рекламодатели уже заждались тебя маленький негодник!</p>
           </div>
           <img src="/imgBloggerLk/vhod.svg" alt="" />
         </div>
 
-        <div className="info-block">
-          <div className="first">
-            {this.props.main &&
-              this.props.main.myTenders &&
-              this.props.user.user.tenders &&
-              <MyTenders
-                tenders={this.props.user.user.tenders}
-              />
-            }
-            {this.props.main &&
-              this.props.main.addForm &&
-              <NewTender
-                onSubmit={this.onSubmitNewAucHandler}
-              />
-            }
-          </div>
-          <div className="second">
-            {this.props.main &&
-              this.props.main.MyOffers &&
-              this.props.user.user.auctions &&
-              <>
-                <h3>Ваши заявки:</h3>
-                <MyOffers
-                  auctions={this.props.user.user.auctions}
+        {this.props.main.auction
+          ?
+          <div className="info-block">
+            <div className="first">
+              {this.props.main &&
+                this.props.main.myTenders &&
+                this.props.user.user.tenders &&
+                <MyTenders
+                  tenders={this.props.user.user.tenders}
+                  onClick={this.onClickGetCurrentTender}
                 />
-              </>
-            }
-            {this.props.main &&
-              this.props.main.offers &&
-              this.props.user.offers &&
-              <>
-                <h3>Доступны для подачи заявок:</h3>
-                <Offers
-                  offers={this.props.user.offers}
-                  onClick={this.onClickNewBetOnOffer}
+              }
+              {this.props.main &&
+                this.props.main.addForm &&
+                <NewTender
+                  onSubmit={this.onSubmitNewAucHandler}
                 />
-              </>
-            }
+              }
+            </div>
+            <div className="second">
+              {this.props.main &&
+                this.props.main.MyOffers &&
+                this.props.user.user.auctions &&
+                <>
+                  <h3>Ваши заявки:</h3>
+                  <MyOffers
+                    auctions={this.props.user.user.auctions}
+                  />
+                </>
+              }
+              {this.props.main &&
+                this.props.main.offers &&
+                this.props.user.offers &&
+                <>
+                  <h3>Доступны для подачи заявок:</h3>
+                  <Offers
+                    offers={this.props.user.offers}
+                    onClick={this.onClickNewBetOnOffer}
+                  />
+                </>
+              }
+            </div>
           </div>
-        </div>
+          :
+          <div className="info-block">
+            <div className="first">
+              <Route
+                exact
+                path="/currenttender/:userid/:tenderid"
+                component={CurrentTender} />
+            </div>
+          </div>
+        }
       </div>
     )
   }
@@ -124,4 +145,5 @@ export default connect(mapStatetoProps, {
   getAllOffers,
   getMyOffers,
   addNewBetOnOffer,
+  showCurrentTender,
 })(MainPage);
