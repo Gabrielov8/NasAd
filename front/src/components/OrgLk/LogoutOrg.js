@@ -1,31 +1,27 @@
 import React from 'react'
 import Logout from '../../conteiner/auth/Logout'
-import CashBalance from '../CurrentUser/User/CashBalance'
 
-export default function LogoutBlock() {
+export default function LogoutOrg() {
   return (
-      <div className="foto-block">
-        <div className="logout">
+      <div className="foto-block-org">
+        <div className="logout-org">
           <Logout />
-          {/* <h3>Logout</h3> */}
           <i className="fas fa-sign-out-alt"></i>
         </div>
 
-        <div className="foto">
+        <div className="foto-org">
           <img src="/imgBloggerLk/profile.svg" alt="" />
           <p>Max Gabrielov</p>
           <span>blogger</span>  
         </div>
 
-        <div className="social">
+        <div className="social-org">
           <p>Мои социальныe сети</p>
           <ul>
             <li>Инстаграм</li>
             <li>Вконтакте</li>
           </ul>
         </div>
-
-        
       </div>
 
   )

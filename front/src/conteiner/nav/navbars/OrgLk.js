@@ -9,8 +9,6 @@ class OrgLk extends Component {
 
   render() {
     return (
-      <nav>
-        <h2>Advertister</h2>
         <ul>
           <li>
             <NavLink to="/homepage">homepage</NavLink>
@@ -21,11 +19,7 @@ class OrgLk extends Component {
           <li>
             <NavLink to="/advertister">Advertister</NavLink>
           </li>
-          <li>
-            <Logout />
-          </li>
         </ul>
-      </nav>
     );
   }
 }
