@@ -13,7 +13,7 @@ export default function MainPage() {
           <h3>Welcome back Max!</h3>
           <p>Здесь написан какой-то текст</p>
         </div>
-        <img src="./undraw_shared_workspace_hwky.svg" alt="" />
+        <img src="/imgBloggerLk/vhod.svg" alt="" />
       </div>
 
       <div className="info-block">

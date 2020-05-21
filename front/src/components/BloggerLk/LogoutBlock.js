@@ -9,7 +9,7 @@ export default function LogoutBlock() {
         </div>
 
         <div className="foto">
-          <img src="./undraw_profile_pic_ic5t.svg" alt="" />
+          <img src="/imgBloggerLk/profile.svg" alt="" />
           <p>Max Gabrielov</p>
           <span>blogger</span>  
         </div>

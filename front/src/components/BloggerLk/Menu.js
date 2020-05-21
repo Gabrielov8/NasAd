@@ -7,7 +7,7 @@ export default function Menu() {
       <h1>NasAd</h1>
       <BloggerLk />
       <div class="react">
-        <img src="./undraw_react_y7wq.svg" alt="" />
+        <img src="/imgBloggerLk/react.svg" alt="" />
       </div>
     </div>
   )
