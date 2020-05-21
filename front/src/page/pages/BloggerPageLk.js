@@ -6,7 +6,8 @@ import BloggerLk from '../../conteiner/nav/navbars/BloggerLk'
 import Menu from '../../components/BloggerLk/Menu';
 import MainPage from '../../components/BloggerLk/MainPage';
 import LogoutBlock from '../../components/BloggerLk/LogoutBlock';
-import '../../css/bloggerLk.css'
+import '../../css/bloggerLk.css';
+
 export default class BloggerPageLk extends Component {
   render() {
     return (

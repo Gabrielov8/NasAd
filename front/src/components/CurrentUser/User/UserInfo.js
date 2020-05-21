@@ -7,7 +7,9 @@ export default function UserInfo({ description, name }) {
 
   return (
     <>
-      <div className={classes["container"]}>
+      {
+      <h2>OOO</h2>
+      /* <div className={classes["container"]}>
         <div className={classes["main-card"]}>
           <div className={classes["cover-photo"]}></div>
           <div className={classes["photo"]}>
@@ -44,7 +46,7 @@ export default function UserInfo({ description, name }) {
             </ul>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   )
 }
