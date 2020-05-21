@@ -57,10 +57,10 @@ class Auction extends Component {
             <div >
               <input type="checkbox" name='subject' onChange={this.onClick} value='Букмекерская контора' />
               <label>Букмекерская контора</label>
-            </div>t
+            </div>
           <div >
-              <input type="checkbox" name='subject' value='Творчество' onChange={this.onClick} />
-              <label >Творчество</label>
+              <input type="checkbox" name='subject' value='Личный бренд' onChange={this.onClick} />
+              <label >Личный бренд</label>
             </div>
             <p>Какое минимальное кол-во подписчиков должны быть у блоггера?
            <br></br>
@@ -71,14 +71,14 @@ class Auction extends Component {
 
           </form>
           <button onClick={this.onClickBut}>Cоздать аукцион</button>
-          {this.props.state.loaded ? <div> OK</div> : null}
+          {this.props.state.loaded ? <div>Аукцион создан!</div> : null}
 
-          <p>
-            <NavLink onClick={this.onClickAllAuction} to="/allauction">allauction</NavLink>
+          {/* <p>
+            <NavLink onClk={this.onClickAllAuction} to="/allauction">allauction</NavLink>
             <Route exact path="/allauction" component={Allauction} />
-          </p>
+          </p> */}
 
-          <button onClick={this.onClickAllAuction} >Allauction</button>
+          {/* <button onClick={this.onClickAllAuction} >Allauction</button> */}
         </div>
       </Router>
     )
