@@ -24,7 +24,7 @@ class BloggerReg extends Component {
               <NavLink to="/register">Register</NavLink>
             </li>
             <li>
-              <Link to="/">
+              <Link to="/" className={classes['blogger-a-none']}>
                 <button onClick={this.clickHandler}>Для организаций</button>
               </Link>
             </li>

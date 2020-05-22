@@ -98,6 +98,9 @@
 
 .first-org-searchList input {
   margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 2px;
 }
 
 .btn-searchTender {
@@ -138,6 +141,51 @@
   text-align: center;
   justify-content: space-around;
 }
+
+.my-first-org-auction-parcer{
+  width: 100%;
+  border-radius: 20px;
+  background-color: rgba(149, 200, 247, 0.295);;
+  height: 80%;
+  padding: 40px;
+  display: flex;
+  /* flex-direction: column; */
+  text-align: center;
+  justify-content: space-around;
+}
+
+.my-first-org-auction-parcer h2{
+  margin-bottom: 10px;
+}
+.form-parser{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.input-parser{
+  width: 30%;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 3px;
+}
+
+.btn-parser{
+  width: 20%;
+  margin: 5px auto;
+  border-radius: 20px;
+  height: 20px;
+  transition-duration: 0.5s;
+  outline: none;
+}
+
+.btn-parser:hover{
+  border: 0.5px solid; 
+  background-color: rgba(249, 168, 38, 0.671);
+  color: black;
+}
  
- 
- 
+ .my-first-org-auction-parcer ul {
+   list-style: none;
+ }

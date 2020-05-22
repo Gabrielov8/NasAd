@@ -6,7 +6,7 @@ export default function MainPageOrg() {
   return (
     <div className="main-page-org">
       <div className="dashboard-info-org">
-        <h3>Dashboard</h3>
+        <h3>Поиск аукционов</h3>
         <p>22 Мая Пятница</p>
       </div>
 
