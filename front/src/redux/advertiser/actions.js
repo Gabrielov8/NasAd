@@ -8,7 +8,8 @@ import {
   ADD_SEARCH_AUCTION,
   ADD_SEARCH_TENDER,
   SEARCH_ALL_AUCTION,
-  CHANGE_CHECK
+  CHANGE_CHECK,
+  FIND_STATISTIC
 } from "./actionTypes";
 
 export function saveDataToStore(subject, nameBlogger, cash) {
@@ -78,6 +79,12 @@ export function changeCheck (changeCheck) {
   return {
     type: CHANGE_CHECK,
     changeCheck: changeCheck
+  }
+}
+export function findStatistic (findStatistic) {
+  return {
+    type: FIND_STATISTIC,
+    findStatistic: findStatistic
   }
 }
 

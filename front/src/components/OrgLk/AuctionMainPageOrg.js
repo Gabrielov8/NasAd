@@ -1,12 +1,12 @@
 import React from 'react'
 import Auction from '../../conteiner/Auction'
-
+import '../../css/makeauction.css'
 export default function MainPageOrg() {
   return (
     <div className="main-page-org">
       <div className="dashboard-info-org">
         <h3>Dashboard</h3>
-        <p>21 Мая Четверг</p>
+        <p>22 Мая Пятница</p>
       </div>
 
       <div className="welcome-org">
@@ -18,11 +18,10 @@ export default function MainPageOrg() {
       </div>
 
       <div className="info-block-org">
-        <div className="first-org">
-        <Auction/>
+        <div className="first-org-auction">
+          <Auction />
         </div>
-        <div className="second-org">
-        </div>
+
       </div>
     </div>
   )

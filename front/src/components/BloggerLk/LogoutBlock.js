@@ -56,7 +56,7 @@ class LogoutBlock extends React.Component {
           <p>{this.props.user.user.login}</p>
           <span>Blogger</span>
         </div>
-        <div>
+        <div className="title-ad">
           {!this.state.editInfo &&
             <>
               <UserInfo

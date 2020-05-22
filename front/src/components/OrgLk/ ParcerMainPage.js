@@ -1,11 +1,14 @@
 import React from 'react'
-import AnnouncementAboutWin from '../CabOrganization/AnnouncementAboutWin'
+import Myauction from '../../conteiner/nav/navbars/Myauction'
+import '../../css/myauctionMainpage.css'
+import Parcer from '../../conteiner/nav/navbars/Parcer'
+
 
 export default function MainPageOrg() {
   return (
     <div className="main-page-org">
       <div className="dashboard-info-org">
-        <h3>Dashboard</h3>
+        <h3>Мои аукционы</h3>
         <p>22 Мая Пятница</p>
       </div>
 
@@ -18,12 +21,11 @@ export default function MainPageOrg() {
       </div>
 
       <div className="info-block-org">
-        <div className="first-org">
-          <AnnouncementAboutWin />
-        </div>
-        <div className="second-org">
+        <div className="my-first-org-auction">
+          <Parcer/>
         </div>
       </div>
     </div>
   )
 }
+

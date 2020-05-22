@@ -22,22 +22,24 @@ function Tender({
       <p>Стартовая цена: {minCost} рублей</p>
       <p>Шаг торгов: {step} рублей</p>
       <p>creator: {creator.login} </p> */}
-    
 
 
 
-    <div className="my-auction">
-      <Link to={`/currenttender/${localStorage.getItem('id')}/${aucId}`}>
-        <h3>{title}</h3>
-      </Link>
-      <p className={classes.paragraph}>Площадка: {market}</p>
-      <p className={classes.paragraph}>Торги стартуют: {dateStart}</p>
-      <p className={classes.paragraph}>Торги завершатся: {dateFinish}</p>
-      <p className={classes.paragraph}>Стартовая цена: {minCost} рублей</p>
-      <p className={classes.paragraph}>Шаг торгов: {step} рублей</p>
-    </div>
 
-</>
+      <div className="my-auction">
+        <Link
+          onClick={onClick}
+          to={`/currenttender/${aucId}`}>
+          <h3>{title}</h3>
+        </Link>
+        <p className={classes.paragraph}>Площадка: {market}</p>
+        <p className={classes.paragraph}>Торги стартуют: {dateStart}</p>
+        <p className={classes.paragraph}>Торги завершатся: {dateFinish}</p>
+        <p className={classes.paragraph}>Стартовая цена: {minCost} рублей</p>
+        <p className={classes.paragraph}>Шаг торгов: {step} рублей</p>
+      </div>
+
+    </>
 
 
   );

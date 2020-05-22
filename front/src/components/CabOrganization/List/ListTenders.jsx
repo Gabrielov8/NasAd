@@ -10,6 +10,8 @@ class ListAuction extends Component {
   }
 
   render() {
+    console.log(this.props,"<<<<");
+    
     return (
       <div>
         {this.props.tenders && <Tenders tenders={this.props.tenders} />}

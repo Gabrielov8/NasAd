@@ -5,7 +5,8 @@ import {
   addWinAuctions,
   addSearchAuction,
   addSearchTender,
-  searchAllAuction
+  searchAllAuction,
+  findStatistic
 } from "../actions";
 
 export function dataOfCustomerSendToBase(subject, nameBlogger, cash) {
@@ -55,6 +56,7 @@ export function getFromBaseOfTender() {
   return async (dispatch) => {
     let response = await fetch("/advertiser/getTender");
     const { tender } = await response.json();
+  
     dispatch(addTenderToStore(tender));
   };
 }
@@ -110,5 +112,22 @@ export function asyncSearchAllAuction() {
     let response = await fetch("/advertiser/searchAllAuction")
     let findAll = await response.json();
     dispatch(searchAllAuction(findAll));
+  };
+}
+
+
+export function asyncFindStatistic() {
+  let idCreator = localStorage.getItem("id");
+  return async (dispatch) => {
+    let response = await fetch("/advertiser/findStatistic", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({ idCreator }),
+    });
+    const findStatic = await response.json();
+    dispatch(findStatistic(findStatic));
   };
 }

@@ -24,7 +24,8 @@ class CurrentTender extends React.Component {
   }
 
   async componentDidMount() {
-    await this.props.getCurrentTender(this.props.match.params.tenderid);
+    
+    await this.props.getCurrentTender(this.props.match.params.tenderID);
 
     if (this.props.tender.currentTender.initator == localStorage.getItem('id')) {
       this.setState({
@@ -44,11 +45,11 @@ class CurrentTender extends React.Component {
 
     this.timerId = setInterval(() => {
       const currentDate = Date.now();
-      this.ws.send(JSON.stringify({ currentDate, id: this.props.match.params.tenderid }))
+      this.ws.send(JSON.stringify({ currentDate, id: this.props.match.params.tenderID }))
     }, 5000);
 
     this.ws.onmessage = async (event) => {
-      await this.props.getCurrentTender(this.props.match.params.tenderid);
+      await this.props.getCurrentTender(this.props.match.params.tenderID);
     }
   }
 
@@ -65,7 +66,7 @@ class CurrentTender extends React.Component {
         errorBet: `Ваша ставка не может быть меньше ${this.props.tender.currentTender.nextBet} рублей`,
       })
     } else {
-      this.props.addBetTender(this.props.match.params.tenderid, orgID, event.target.bet.value, this.ws);
+      this.props.addBetTender(this.props.match.params.tenderID, orgID, event.target.bet.value, this.ws);
     }
     event.target.bet.value = '';
   }
@@ -85,7 +86,7 @@ class CurrentTender extends React.Component {
         }
         {
           this.props.tender.currentTender &&
-          <div>
+          <div className="torg">
             <h2>
               {this.props.tender.currentTender.title}
             </h2>
@@ -101,8 +102,8 @@ class CurrentTender extends React.Component {
                 <Bets
                   bets={this.props.tender.currentTender.bets}
                 />
-              }
-            </div>
+              }<span>р</span>
+            </div> 
 
             {this.state.initiator &&
               <Button
