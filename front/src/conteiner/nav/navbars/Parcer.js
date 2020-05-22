@@ -23,9 +23,9 @@ import {parcer} from '../../../redux/actions'
     return (
       <div>
         <h2>Вставьте ссылку на группу ВК и я вам покажу ее статистику</h2>
-        <from>
-          <input type='text' onChange={this.onChange} />
-          <input type='submit' onClick={this.onClick.bind(this,this.state.inputvalue)} />
+        <from className='form-parser'>
+          <input className="input-parser" type='text' onChange={this.onChange} />
+          <input className='btn-parser' type='submit' onClick={this.onClick.bind(this,this.state.inputvalue)} />
 
         </from>
         {this.props.state.usersocial ? <div> {this.props.state.usersocial && this.props.state.usersocial.map((social) => {

@@ -46,6 +46,11 @@
   
 }
 
+.blogger-a-none{
+  position: static;
+}
+
+
 .nav-blogger a:before , .info a::before{
   content: '';
    position: absolute;

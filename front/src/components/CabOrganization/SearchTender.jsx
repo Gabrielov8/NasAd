@@ -35,7 +35,7 @@ class Search extends Component {
             {this.state.arrMarkets.map(m => <option>{m}</option>)}
           </select>
           <input required type="text" name="minCost" placeholder="мин.значение" />
-          <input type="submit" value='Найти' />
+          <input  className="btn-searchTender" type="submit" value='Найти' />
         </form>
         {arr}
       </div>

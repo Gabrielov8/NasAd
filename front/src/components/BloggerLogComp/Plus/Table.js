@@ -6,7 +6,7 @@ export default function Table() {
       <div className={classes["table-header"]}>
         <span>Преимущества</span>
         <h2>Ты получишь</h2>
-        <p>Какой-то текст</p>
+        <p></p>
       </div>
     </div>
   )

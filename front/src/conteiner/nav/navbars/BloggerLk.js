@@ -40,7 +40,7 @@ class BloggerLk extends Component {
           <NavLink
             to="/homepage"
             onClick={this.onClickHomepageHandler}
-          >homepage
+          >Домашняя страница
            </NavLink>
         </li>
         <li>
@@ -55,14 +55,6 @@ class BloggerLk extends Component {
             to='/allauction'
             onClick={this.onClickChangeTenders}
           >Просмотреть все запросы предложений
-          </NavLink>
-        </li>
-        <li>
-          <Route exact path='/socialadd' component={Parcerfull} ></Route>
-
-          <NavLink
-            to='/socialadd'
-          > Добавить социальные сети 
           </NavLink>
         </li>
       </ul>

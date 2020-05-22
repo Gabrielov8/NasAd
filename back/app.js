@@ -66,13 +66,7 @@ app.ws('/echo', (ws, req) => {
     const bet = await JSON.parse(msg);
 
     if (bet.currentDate) {
-      // const tender = await Tender.findById(bet.id).populate({
-      //   path: 'bets',
-      //   populate: {
-      //     path: 'authtor',
-      //     model: 'Data_advertiser'
-      //   }
-      // })
+
       const tender = await Tender.findById(bet.id).populate('bets.authtor')
       // console.log(tender, '<<<<<<<');
       const start = Date.parse(tender.startDate);

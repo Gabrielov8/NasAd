@@ -13,8 +13,8 @@ export default function MainPageOrg() {
 
       <div className="welcome-org">
         <div className="text-org">
-          <h3>Welcome back Max!</h3>
-          <p>Здесь написан какой-то текст</p>
+          <h3>Welcome!</h3>
+          <p>Здесь Вы можете выбрать победителя аукциона</p>
         </div>
         <img src="/imgBloggerLk/vhod.svg" alt="" />
       </div>
