@@ -93,9 +93,9 @@ router.post('/userinauction', async (req,res) =>{
 router.post('/parcer', async (req,res) =>{
   try{
    
-    console.log('BACK', req.body)
-    const user = await User.findById(req.body.userid)
-    console.log(user, req.body)
+    // console.log('BACK', req.body)
+    // const user = await User.findById(req.body.userid)
+    // console.log(user,'777777777777777')
 
     function proverk(){
       for (let index = 0; index < user.social.length; index++) {
@@ -107,8 +107,8 @@ router.post('/parcer', async (req,res) =>{
       return true
    }
 
-   const proverka = proverk()
-    if (proverka) {
+  //  const proverka = proverk()
+    // if (proverka) {
     const result = await parcerVk(req.body.inst)
     console.log(result);
     
@@ -159,17 +159,20 @@ router.post('/parcer', async (req,res) =>{
     
 
     const middlesoc = middlesocial()
+const user = {social:[]}
+console.log(middlesoc, '5555');
+
 
     user.social.push(middlesoc)
-    await user.save()
-    }
-
+    // await user.save()
     res.json({
       message: user.social
     })
+    }
+
 
    
-  }
+  
   catch(e){
     console.log(e);
   }

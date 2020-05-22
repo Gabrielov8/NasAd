@@ -5,9 +5,9 @@ import {
   editCurrentUser,
 } from '../../redux/ivan/actions/currentUserActions.js';
 import UserInfo from '../CurrentUser/User/UserInfo';
-import EditUserInfo from '../CurrentUser/User/EditUserInfo';
+import EditUserInfo from '../CurrentUser/User/EditUserInfo'
 import Button from '../generalComponents/button';
-import Logout from '../../conteiner/auth/Logout';
+import Logout from '../../conteiner/auth/Logout'
 
 
 class LogoutBlock extends React.Component {
@@ -25,7 +25,7 @@ class LogoutBlock extends React.Component {
 
   onClickEditHandler = () => {
     this.setState({
-      editInfo: true,
+      editInfo: true, 
     })
   }
 
@@ -74,10 +74,14 @@ class LogoutBlock extends React.Component {
               />
             </>}
         </div>
+        <div>
+          
+
+        </div>
         <div className="social">
           <p>Мои социальныe сети</p>
           <ul>
-            <li>Инстаграм</li>
+            <li>Инстаграм </li>
             <li>Вконтакте</li>
           </ul>
         </div>

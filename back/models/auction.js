@@ -21,6 +21,9 @@ const AuctionSchema = new Schema({
   participant: {
     type: Array
   },
+  socail: {
+    type: Array
+  },
   winner: {
     type: String,
   },
