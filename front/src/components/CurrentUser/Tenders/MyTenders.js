@@ -6,7 +6,7 @@ export default function Tenders({ tenders, onClick }) {
   return (
     <>
       <h3>Ваши аукционы:</h3>
-      {tenders.map(tender => {
+      {tenders && tenders.map(tender => {
         return <>
           <div key={tender._id}>
             <Tender
