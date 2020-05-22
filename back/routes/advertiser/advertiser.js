@@ -124,7 +124,7 @@ router.get("/getTender", async (req, res) => {
 router.post("/findWinInAuction", async (req, res) => {
   let { idOrganizer } = req.body;
   let findWin = await Tender.find({ 'winner.winnerID': idOrganizer })
-    .populate('winner.winnerID');
+    .populate('initator');
   res.json({ findWin });
 });
 router.post("/searchAuction", async (req, res) => {

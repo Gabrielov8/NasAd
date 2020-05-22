@@ -1,47 +1,47 @@
 import React, { Component } from "react";
-import {
-  NavLink,
-} from "react-router-dom";
-import Logout from "../../auth/Logout";
-import CabOrganization from "../../../components/CabOrganization/CabOrganization";
-import Auction from "../../Auction";
-import CurrentTender from "../../CurrentTender";
+import { NavLink } from "react-router-dom";
+import { findWinInAuction } from "../../../redux/advertiser/FetchData/fetchSendToBase";
+import { connect } from "react-redux";
+import { addWinAuctions } from "../../../redux/advertiser/actions";
+// import Logout from "../../auth/Logout";
+// import CabOrganization from "../../../components/CabOrganization/CabOrganization";
+// import Auction from "../../Auction";
+// import CurrentTender from "../../CurrentTender";
 // import Search from "../../../components/CabOrganization/SearchAuction";
-import AnnouncementAboutWin from "../../../components/CabOrganization/AnnouncementAboutWin";
-import ListAuctions from "../../../components/CabOrganization/List/ListAuctions";
-import SearchTender from "../../../components/CabOrganization/SearchTender";
-import ListTenders from "../../../components/CabOrganization/List/ListTenders";
+// import AnnouncementAboutWin from "../../../components/CabOrganization/AnnouncementAboutWin";
+// import ListAuctions from "../../../components/CabOrganization/List/ListAuctions";
+// import SearchTender from "../../../components/CabOrganization/SearchTender";
+// import ListTenders from "../../../components/CabOrganization/List/ListTenders";
 
-import Tenders from "../../../components/CurrentUser/Tenders/MyTenders";
+// import Tenders from "../../../components/CurrentUser/Tenders/MyTenders";
 // import Search from "../../../components/CabOrganization/Search";
 // import ListAuction from "../../../components/CabOrganization/ListAuction/ListAuction";
-import Myauction from "./Myauction";
-
+// import Myauction from "./Myauction";
 
 class OrgLk extends Component {
+  componentDidMount = () => {
+    this.props.findWinInAuction();
+    this.time = setInterval(() => {
+      this.props.findWinInAuction();
+    }, 3000);
+  };
+
+  componentWillUnmount() {
+    clearInterval(this.time);
+  }
+
+  // componentDidUpdate (prevProps) {
+  //   if (this.props.winAuctions.length != 0)  {
+  //   if (prevProps.winAuctions.length !== this.props.winAuctions.length) {
+  //     this.props.addWinAuctions(this.props.winAuctions.length)
+  //     this.props.findWinInAuction()
+  //   }
+  // }
+  // }
 
   render() {
     return (
       <>
-      {/* // <Router>
-      //   <nav>
-      //     <h2>Advertister</h2>
-      //     <ul>
-      //       <li>
-      //         <NavLink to="/homepage">homepage</NavLink>
-      //       </li>
-      //       <li>
-      //         <NavLink to="/createauction">createauction</NavLink>
-      //       </li>
-      //       <li>
-      //         <NavLink to="/advertister">Advertister</NavLink>
-      //       </li>
-      //       <li>
-      //         <Logout />
-      //       </li>
-      //     </ul>
-      //   </nav> */}
-
         {/* <Switch>
           <Route exact path="/" render={() => <h1>Личный кабинет</h1>} />
           <Route exact path="/homepage">
@@ -95,66 +95,59 @@ class OrgLk extends Component {
 
           <Route render={() => <h1>404</h1>} />
         </Switch> */}
-     
-  
-        {/* // <nav>
-        //   <h2>Advertister</h2>
-        //   <ul>
-        //     <li>
-        //       <NavLink to="/homepage">homepage</NavLink>
-        //     </li>
-        //     <li>
-        //       <NavLink to="/createauction">createauction</NavLink>
-        //     </li>
-        //     <li>
-        //       <NavLink to="/advertister">Advertister</NavLink>
-        //     </li>
-        //     <li>
-        //       <NavLink to="/myauction">MyAuction</NavLink>
-        //     </li>
-
-
-        //     <li>
-        //       <Logout />
-        //     </li>
-        //   </ul>
-        // </nav> */}
-
-       
-
-       
 
         <ul>
           <li>
             <NavLink to="/">Домашняя страница</NavLink>
           </li>
           <li>
-            <NavLink  to="/createauction">Создать аукцион</NavLink>
+            <NavLink to="/createauction">Создать аукцион</NavLink>
           </li>
           <li>
             <NavLink to="/myauction">Мои аукционы</NavLink>
           </li>
+
+
           <li>
             <NavLink to="/parcer">Парсер</NavLink>
           </li>
           {/* <li>
             <NavLink to="/advertister">Advertister</NavLink>
           </li> */}
+
           <li>
-            <NavLink to="/searchAuction">Поиск аукционнов</NavLink>
+            <NavLink to="/searchAuction">Поиск аукционов</NavLink>
           </li>
           <li>
             <NavLink to="/searchTender">Поиск тендеров</NavLink>
           </li>
           <li>
-            <NavLink to="/winTender">Оповещения</NavLink>
+            <div>
+              <NavLink to="/winTender">
+                Оповещения &nbsp;
+                <b style={{ color: "red", fontSize: 17 }}>
+                  {this.props.winAuctions.length == 0
+                    ? 0
+                    : this.props.winAuctions.length}
+                </b>
+              </NavLink>
+            </div>
           </li>
-          
         </ul>
-        </>
-       
+      </>
     );
   }
 }
 
-export default OrgLk;
+const mapStateToProps = (state) => {
+  return {
+    winAuctions: state.advertiserReducer.winAuctions,
+  };
+};
+
+const mapDispatchToProps = {
+  findWinInAuction,
+  addWinAuctions,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(OrgLk);
