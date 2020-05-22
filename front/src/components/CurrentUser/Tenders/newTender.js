@@ -22,13 +22,19 @@ export default function NewTender({ onSubmit }) {
             // className={classes["field-style field-split align-left"]}
             />
 
-          <input
+
+           <select name="market">
+             <option value='vk'>
+               vk
+             </option>
+           </select>
+          {/* <input
             type="text"
             required={true}
             placeholder="Введите площадку"
             name="market"
           // className={classes["field-style field-split align-right"]}
-          />
+          /> */}
 
 
 

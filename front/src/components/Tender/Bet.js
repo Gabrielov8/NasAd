@@ -14,7 +14,7 @@ export default function Bet({ onSubmit }) {
       />
       <Button
         type="submit"
-        text="Сделать ставку"
+        text="Ставка"
       />
     </form>
   )

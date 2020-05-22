@@ -13,7 +13,7 @@ class AnnouncementAboutWin extends Component {
       <div style={{ border: "2px solid grey", padding: 10, width: 300, margin: 10 }}>
         <h2>Вы выиграли в тендере:</h2>
         <hr />
-        <p>У блогера: {w.winner.winnerID.login}</p>
+        <p>У блогера: {w.initator.login}</p>
         <p>Тема: {w.title}</p>
         <p>Сумма: {w.winner.betWinner}</p>
       </div>) : "нет оповещений"

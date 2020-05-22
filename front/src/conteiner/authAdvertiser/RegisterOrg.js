@@ -29,7 +29,7 @@ class RegisterAd extends Component {
             className={classes['modal-blog']}>
             {this.props.auth
               ?
-              <Redirect to="/homepage"
+              <Redirect to="/"
               />
               :
               null}
