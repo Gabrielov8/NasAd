@@ -245,3 +245,10 @@ body {
   margin: 15px;
 }
 
+.stavka{
+  margin: 10px 30px;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 10px;
+}
+
