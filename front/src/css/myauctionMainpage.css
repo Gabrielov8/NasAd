@@ -1,0 +1,89 @@
+ 
+ .my-first-org-auction {
+   width: 100%;
+   border-radius: 20px;
+   background-color: rgba(149, 200, 247, 0.295);;
+   height: 80%;
+   padding: 40px;
+   display: flex;
+   flex-direction: column;
+ }
+
+ .statistic-org{
+  width: 100%;
+  border-radius: 20px;
+  background-color: rgba(149, 200, 247, 0.295);;
+  height: 80%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-around;
+ }
+
+ .statistic-org h2 {
+   color: #31074d;
+ }
+
+ .btn-stat{
+    margin-top: 10px;
+    width: 20%;
+    border-radius: 20px;
+    height: 20px;
+    transition-duration: 0.5s;
+    outline: none;
+ }
+ .btn-stat:hover{
+  border: 0.5px solid; 
+  background-color: rgba(249, 168, 38, 0.671);
+  color: black;
+ }
+
+ .my-auction-content {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+
+ .my-auction-content h3 {
+   padding: 10px;
+ }
+
+ .my-auction-content ul{
+   margin: 15px;
+ }
+
+ .btn1{
+  width: 60%;
+  margin: 15px auto;
+  border-radius: 20px;
+  height: 20px;
+  padding: 3px;
+  transition-duration: 0.5s;
+  outline: none;
+}
+
+.btn1:hover {
+  border: 0.5px solid; 
+  background-color: rgba(249, 168, 38, 0.671);
+  color: black;
+}
+
+.btn2{
+  width: 15%;
+  margin: 15px auto;
+  border-radius: 20px;
+  height: 20px;
+  transition-duration: 0.5s;
+  outline: none;
+}
+
+.btn2:hover {
+  border: 0.5px solid; 
+  background-color: rgba(249, 168, 38, 0.671);
+  color: black;
+}
+ 
+ 
+ 
+ 

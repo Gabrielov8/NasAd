@@ -3,6 +3,13 @@ import {
   GET_DATA_FROM_BASE,
   CHANGE_MIDDLE_COUNT,
   CHANGE_ACTIVE_BARGAINING,
+  ADD_TENDER_TO_STORE,
+  ADD_WIN_AUCTIONS,
+  ADD_SEARCH_AUCTION,
+  ADD_SEARCH_TENDER,
+  SEARCH_ALL_AUCTION,
+  CHANGE_CHECK,
+  FIND_STATISTIC
 } from "./actionTypes";
 
 const initialState = {
@@ -12,6 +19,13 @@ const initialState = {
   masBargaining: [],
   middleCount: 0,
   activeBargaining: 0,
+  tenders: "",
+  winAuctions: "",
+  searchAuction: [],
+  searchTender: [],
+  allAuction:[],
+  changeCheck: true,
+  findStatistic:[]
 };
 
 export default function (state = initialState, action) {
@@ -51,7 +65,45 @@ export default function (state = initialState, action) {
     case CHANGE_ACTIVE_BARGAINING:
       return {
         ...state,
-        activeBargaining: state.masBargaining.reduce((sum, el) => el.active && sum + 1, 0)
+        activeBargaining: state.masBargaining.reduce(
+          (sum, el) => el.active && sum + 1,
+          0
+        ),
+      };
+    case ADD_TENDER_TO_STORE:
+      return {
+        ...state,
+        tenders: action.tender,
+      };
+    case ADD_WIN_AUCTIONS:
+      return {
+        ...state,
+        winAuctions: action.winAuctions.findWin,
+      };
+    case ADD_SEARCH_AUCTION:
+      return {
+        ...state,
+        searchAuction: action.searchAuction.find,
+      };
+    case ADD_SEARCH_TENDER:
+      return {
+        ...state,
+        searchTender: action.searchTender.findTenders,
+      };
+    case SEARCH_ALL_AUCTION:
+      return {
+        ...state,
+        allAuction: action.allAuction.findAll,
+      };
+    case CHANGE_CHECK:
+      return {
+        ...state,
+        changeCheck: action.changeCheck,
+      };
+    case FIND_STATISTIC:
+      return {
+        ...state,
+        findStatistic: action.findStatistic.findStatistic,
       };
     default:
       return state;

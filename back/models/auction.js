@@ -1,18 +1,36 @@
-const { Schema, model } = require('mongoose')
+const { Schema, model } = require("mongoose");
 
 const AuctionSchema = new Schema({
   subject: {
-    type: String, required: true
+    type: String,
+    required: true,
   },
   subscribers: {
-    type: String, required: true
+    type: Number,
+    required: true,
   },
   budget: {
-    type: String,  required: true
+    type: Number,
+    required: true,
   },
-  usercreate: {
-    type: String
-  }
-})
+  usercreate:
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Data_advertiser",
+    },
+  participant: {
+    type: Array
+  },
+  winner: {
+    type: String,
+  },
+  bets: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
+  blogerin: []
+});
 
-module.exports = model('Auction', AuctionSchema)
+module.exports = model("Auction", AuctionSchema);

@@ -1,0 +1,55 @@
+.box-input{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.auction-form{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 80%;
+  justify-content: center;
+}
+
+.auction-form input {
+  margin: 5px;
+  height: 30px;
+  border-radius: 10px;
+  padding-left: 5px;
+  outline: none;
+  border: 0.5px solid;
+
+}
+
+.auction-form button {
+  width: 70%;
+  margin: 15px auto;
+  border-radius: 20px;
+  height: 30px;
+  
+}
+
+.auction-form button:hover {
+  border: 0.5px solid; 
+  background-color: #F9A826;
+  color: black;
+}
+
+.my-auction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  flex-grow: 1;
+  height: 100%;
+  margin: 20px 10px
+}
+
+.my-auction p{
+  font-size: 15px;
+}
+

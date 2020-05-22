@@ -12,12 +12,19 @@ const UserSchema = new Schema({
   },
   regDate: Date,
   tenders: Array,
+  auctions: Array,
   bets: Array,
   money: {
     type: Number,
     default: 0,
   },
-  description: String,
+  description: {
+    type: String,
+    default: ''
+  },
+  social: Array,
+  social: Array,
+  auctionsWin: Array
 });
 
 module.exports = model('User', UserSchema);

@@ -49,7 +49,7 @@ router.post('/register', async (req, res) => {
       req.session.user = newUser;
       res.json({
         message: true,
-        user: user._id,
+        user: newUser._id,
       });
     }
   } catch (err) {
@@ -58,7 +58,7 @@ router.post('/register', async (req, res) => {
 });
 
 router.get('/logout', (req, res) => {
-  console.log('log<<<<');
+  // console.log('log<<<<');
   req.session.destroy(() => {
     res.json({
       message: true,

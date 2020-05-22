@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, NavLink, Switch, Link } from 'react-router-dom'
-import Login from '../../auth/Login'
-import Register from '../../auth/Register'
+import { BrowserRouter as Router, NavLink, Link } from 'react-router-dom'
 import { show_user } from '../../../redux/auth/auth-action'
 import { connect } from 'react-redux'
+import classes from '../../../css/bloggerLog.module.css'
 
 
 class BloggerReg extends Component {
@@ -14,14 +13,9 @@ class BloggerReg extends Component {
 
   render() {
     return (
-      <Router>
-        {/* {this.props.blogger ? null : <Redirect to="/orgReg" /> } */}
-        <Link to="/">
-        <button onClick={this.clickHandler}>Для организаций</button>
-        </Link>
-        
-        <nav>
-          <h2>Blogger</h2>
+
+        <nav className={classes['nav-blogger']}>
+          <h1>NasAd</h1>
           <ul>
             <li>
               <NavLink to="/login">Login</NavLink>
@@ -30,19 +24,13 @@ class BloggerReg extends Component {
               <NavLink to="/register">Register</NavLink>
             </li>
             <li>
-              <NavLink to="/orgReg">Для организаций</NavLink>
+              <Link to="/">
+                <button onClick={this.clickHandler}>Для организаций</button>
+              </Link>
             </li>
           </ul>
         </nav>
-        <Switch>
-          <Route exact path="/" render={() => <h1>Main page</h1>} />
-          <Route exact path="/login" component={Login} />
-          {/* <Route exact path="/orgReg" component={} /> */}
-          <Route exact path="/register" component={Register} />
-          <Route render={() => <h1>404</h1>} />
-          
-        </Switch>
-      </Router >
+ 
     )
   }
 }

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, NavLink, Switch, Link } from 'react-router-dom'
-import LoginOrg from '../../authAdvertiser/LoginOrg'
-import RegisterOrg from '../../authAdvertiser/RegisterOrg'
+import { BrowserRouter as Router, Route, NavLink, Link } from 'react-router-dom'
+// import LoginOrg from '../../authAdvertiser/LoginOrg'
+// import RegisterOrg from '../../authAdvertiser/RegisterOrg'
 import { connect } from 'react-redux'
 import { show_user } from '../../../redux/auth/auth-action'
-
+import classes from '../../../css/orgRegister.module.css'
 class OrgReg extends Component {
 
   clickHandler = () => {
@@ -12,33 +12,24 @@ class OrgReg extends Component {
   }
 
   render() {
-    console.log(this.props)
+
     return (
-      <Router>
-        <Link to="/"><button onClick={this.clickHandler}>Для блоггеров</button></Link>
-        
-        {/* {this.props.blogger ? <Redirect to="/login" /> : null} */}
-        <nav>
-          <h2>Oraganization</h2>
+      <>
+        <nav className={classes.nav}>
           <ul>
+            <li>
+            <Link to="/"><button onClick={this.clickHandler}>Для блоггеров</button></Link>
+            </li>
             <li>
               <NavLink to="/loginOrg">Login</NavLink>
             </li>
             <li>
               <NavLink to="/regOrg">Register</NavLink>
             </li>
-            <li>
-              <NavLink to="/login">Для блогеров</NavLink>
-            </li>
           </ul>
+          <h1>NasAd</h1>
         </nav>
-        <Switch>
-          <Route exact path="/" render={() => <h1>Main page</h1>} />
-          <Route exact path="/loginOrg" component={LoginOrg} />
-          <Route exact path="/regOrg" component={RegisterOrg} />
-          <Route render={() => <h1>404</h1>} />
-        </Switch>
-      </Router >
+      </>
     )
   }
 }

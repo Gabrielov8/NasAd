@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { asyncGetDataFromBase, sendIdOfBargainingToBase } from '../../../../redux/advertiser/FetchData/fetchSendToBase'
 import style from './ArrayBargaining.module.css' 
-// import { changeActiveBargaining } from '../../../../redux/advertiser/actions'
+import { changeActiveBargaining } from '../../../../redux/advertiser/actions'
 
 class BargainingOfCustomer extends Component {
 
@@ -14,10 +14,9 @@ class BargainingOfCustomer extends Component {
   componentDidUpdate = (PrevProps) => {
     if (this.props.masBargaining.length !== PrevProps.masBargaining.length) {
       this.props.asyncGetDataFromBase(localStorage.getItem('id'))
-      // this.props.changeActiveBargaining()
+      this.props.changeActiveBargaining()
     }
   }
-
 
   showArrayBargaining = () => {
     this.setState({ check: true, showButton: false })
@@ -30,7 +29,7 @@ class BargainingOfCustomer extends Component {
   changeActive = (id) => {
     this.props.sendIdOfBargainingToBase(id)
     this.props.asyncGetDataFromBase(localStorage.getItem('id'))
-    // this.props.changeActiveBargaining()
+    this.props.changeActiveBargaining()
   }
 
   render() {
@@ -67,7 +66,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   asyncGetDataFromBase,
   sendIdOfBargainingToBase,
-  // changeActiveBargaining
+  changeActiveBargaining
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BargainingOfCustomer);

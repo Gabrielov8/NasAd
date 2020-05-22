@@ -7,61 +7,123 @@ import {
   getCurrentTender,
   addBetTender,
 } from '../redux/ivan/actions/currentTenderActions';
+import { deleteAuction } from '../redux/ivan/actions/currentUserActions.js';
+import Button from '../components/generalComponents/button';
 
-// const ws = new WebSocket('ws://localhost:3001/echo');
+
 class CurrentTender extends React.Component {
-  ws = new WebSocket('ws://localhost:3001/echo');
-   componentDidMount() {
-    this.props.getCurrentTender(this.props.match.params.tenderid);
+  constructor() {
+    super();
+    this.state = {
+      initiator: false,
+      cost: 0,
+      errorBet: '',
+      start: false,
+    }
+    this.ws = new WebSocket('ws://localhost:3001/echo');
+  }
 
+  async componentDidMount() {
     
-    this.ws.onopen = () => {
-      console.log('Connection start');
+    await this.props.getCurrentTender(this.props.match.params.tenderID);
+
+    if (this.props.tender.currentTender.initator == localStorage.getItem('id')) {
+      this.setState({
+        initiator: true
+      })
+    }
+    if (this.props.tender.currentTender.state == 'Аукцион стартовал') {
+      this.setState({
+        start: true
+      })
     }
 
-    this.ws.onmessage = (event) => {
-      console.log(5555);
-      this.props.getCurrentTender(this.props.match.params.tenderid);
+    this.setState({
+      cost: this.props.tender.currentTender.nextBet
+    });
+
+
+    this.timerId = setInterval(() => {
+      const currentDate = Date.now();
+      this.ws.send(JSON.stringify({ currentDate, id: this.props.match.params.tenderID }))
+    }, 5000);
+
+    this.ws.onmessage = async (event) => {
+      await this.props.getCurrentTender(this.props.match.params.tenderID);
     }
-}
+  }
 
-onSubmitNewBetHandler = (event) => {
-  event.preventDefault();
-  console.log(this.ws)
-  const orgID = localStorage.getItem('id');
-  this.props.addBetTender(this.props.match.params.tenderid, orgID, event.target.bet.value, this.ws,);
-  event.target.bet.value = '';
-}
+  componentWillUnmount() {
+    clearInterval(this.timerId);
+    this.ws.close();
+  }
 
-render() {
+  onSubmitNewBetHandler = (event) => {
+    event.preventDefault();
+    const orgID = localStorage.getItem('id');
+    if (event.target.bet.value < this.props.tender.currentTender.nextBet) {
+      this.setState({
+        errorBet: `Ваша ставка не может быть меньше ${this.props.tender.currentTender.nextBet} рублей`,
+      })
+    } else {
+      this.props.addBetTender(this.props.match.params.tenderID, orgID, event.target.bet.value, this.ws);
+    }
+    event.target.bet.value = '';
+  }
 
-  return (
-    <>
-      {
-        this.props.tender.currentTender &&
-        <div>
-          <h2>
-            {this.props.tender.currentTender.title}
-          </h2>
-          <div>
-            <h4>
-              Ход торгов
+  onClickDeleteHandler = () => {
+    this.props.deleteAuction(localStorage.getItem('id'), this.props.match.params.tenderid);
+    window.location.replace(`/homepage/${localStorage.getItem('id')}`);
+  }
+
+  render() {
+
+
+    return (
+      <>
+        {this.state.errorBet &&
+          <p>{this.state.errorBet}</p>
+        }
+        {
+          this.props.tender.currentTender &&
+          <div className="torg">
+            <h2>
+              {this.props.tender.currentTender.title}
+            </h2>
+            <h3>
+              {this.props.tender.currentTender.state}
+            </h3>
+            <div>
+              <h4>
+                Ход торгов
               </h4>
-            {
-              this.props.tender.currentTender.bets.length &&
-              <Bets
-                bets={this.props.tender.currentTender.bets}
+              {
+                this.props.tender.currentTender.bets.length &&
+                <Bets
+                  bets={this.props.tender.currentTender.bets}
+                />
+              }<span>р</span>
+            </div> 
+
+            {this.state.initiator &&
+              <Button
+                text="Отменить"
+                onClick={this.onClickDeleteHandler}
+              />
+            }
+            {!this.state.initiator
+              &&
+              this.state.start
+              &&
+              <Bet
+                onSubmit={this.onSubmitNewBetHandler}
               />
             }
           </div>
-          <Bet
-            onSubmit={this.onSubmitNewBetHandler}
-          />
-        </div>
-      }
-    </>
-  )
-}
+        }
+      </>
+    )
+  }
 }
 
 const mapStatetoProps = (state) => {
@@ -75,4 +137,5 @@ const mapStatetoProps = (state) => {
 export default connect(mapStatetoProps, {
   getCurrentTender,
   addBetTender,
+  deleteAuction,
 })(withRouter(CurrentTender));

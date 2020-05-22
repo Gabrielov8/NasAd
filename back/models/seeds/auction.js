@@ -64,7 +64,7 @@ const entries = [
     usercreate: Jolly,
   },
   {
-    subject: "phone accessories",
+    subject: "accessories",
     subscribers: "for all phone",
     budget: 10000,
     usercreate: Neo,
