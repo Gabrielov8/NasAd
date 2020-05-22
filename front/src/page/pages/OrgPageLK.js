@@ -13,7 +13,7 @@ import CurrentTender from "../../conteiner/CurrentTender";
 import AnnouncementAboutWin from "../../components/CabOrganization/AnnouncementAboutWin";
 import ListTenders from "../../components/CabOrganization/List/ListTenders";
 import ListAuctions from "../../components/CabOrganization/List/ListAuctions";
-import Tenders from "../../components/CurrentUser/Tenders/MyTenders";
+import TenderFull from "../pages/fullcomponent/Tenderfull";
 import SearchAuction from "../../components/CabOrganization/SearchAuction";
 
 import AuctionManePageOrg from '../../components/OrgLk/AuctionMainPageOrg'
@@ -38,7 +38,7 @@ export default class OrgPageLK extends Component {
 
         {/* <OrgLk /> */}
         <Switch>
-        <Route
+          <Route
             exact
             path="/"
             component={Homepagefull}
@@ -70,7 +70,7 @@ export default class OrgPageLK extends Component {
             path="/SearchAllAuction/:searchId"
             component={ListAuctions}
           /> */}
-           <Route
+          <Route
             exact
             path="/createauction"
             component={Auctionfull}
@@ -100,11 +100,11 @@ export default class OrgPageLK extends Component {
           />
 
 
-          {/* <Route
+          <Route
             exact
-            path="/Tenders/:searchId"
-            render={() => <Tenders tenders={this.props.tenders} />}
-          /> */}
+            path="/currenttender/:userId/:tenderID"
+            component={TenderFull} />}
+          />
         </Switch>
       </>
     );

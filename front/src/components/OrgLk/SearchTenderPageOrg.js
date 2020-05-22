@@ -2,6 +2,7 @@ import React from 'react'
 import SearchTender from '../CabOrganization/SearchTender'
 import ListTenders from '../CabOrganization/List/ListTenders'
 
+
 export default function MainPageOrg() {
   return (
     <div className="main-page-org">
@@ -21,9 +22,10 @@ export default function MainPageOrg() {
       <div className="info-block-org">
         <div className="first-org">
           <SearchTender />
-          {/* <ListTenders /> */}
+          <ListTenders />
         </div>
         <div className="second-org">
+          
         </div>
       </div>
     </div>
