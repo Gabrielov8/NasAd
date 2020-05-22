@@ -22,7 +22,7 @@ import {parcer} from '../../../redux/actions'
   render() {
     return (
       <div>
-        <h1>Привет, я парсер ;)</h1>
+        <h2>Вставьте ссылку на группу ВК и я вам покажу ее статистику</h2>
         <from>
           <input type='text' onChange={this.onChange} />
           <input type='submit' onClick={this.onClick.bind(this,this.state.inputvalue)} />
@@ -32,13 +32,13 @@ import {parcer} from '../../../redux/actions'
           return (
             <div> 
 
-            <h2>Ваши социальные сети:</h2>
+            <h2>Результаты анализа:</h2>
             <ul>
               <li>
-                Среднее кол-во лайков {social.middlelike}
+                Среднее кол-во лайков на публикации <b>{social.middlelike}</b>
               </li>
               <li>
-              Среднее кол-во просмотров {social.middleview}
+              Среднее кол-во просмотров на публикации <b> {social.middleview}</b>
               </li>
               <li>
                 <a href={social.url}>{social.url}</a> 

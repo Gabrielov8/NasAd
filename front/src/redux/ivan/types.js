@@ -13,3 +13,4 @@ export const CHANGE_SHOW_TENDERS = 'CHANGE_SHOW_TENDERS';
 export const SHOW_CURRENT_TENDER = 'SHOW_CURRENT_TENDER';
 export const SHOW_HOME = 'SHOW_HOME';
 export const CURRENT_ORG = 'CURRENT_ORG';
+export const SHOW_SOCIAL = 'SHOW_SOCIAL';
