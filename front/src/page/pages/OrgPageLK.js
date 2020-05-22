@@ -17,6 +17,7 @@ import MyAuctionfull from './fullcomponent/MyAuctionfull'
 import SearchAuctionFull from "./fullcomponent/SearchAuctionFull";
 import SearchTenderFull from "./fullcomponent/SearchTenderFull";
 import WinTenderFull from "./fullcomponent/WinTenderFull";
+import ParcerPagefull from "./fullcomponent/ParcerPagefull";
 
 export default class OrgPageLK extends Component {
   render() {
@@ -28,7 +29,7 @@ export default class OrgPageLK extends Component {
             path="/"
             component={Homepagefull}
           />
-          
+
 
           {/* <Route
             exact
@@ -65,6 +66,12 @@ export default class OrgPageLK extends Component {
             exact
             path="/myauction"
             component={MyAuctionfull}
+          />
+
+          <Route
+            exact
+            path="/parcer"
+            component={ParcerPagefull}
           />
 
           <Route

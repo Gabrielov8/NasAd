@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Parcer from '../navbars/Parcer'
 import {
   addAuctionForm,
   changeShowTenders,
   showHome,
+  showSocial
 } from '../../../redux/ivan/actions/mainPageActions';
+import Parcerfull from '../../../page/pages/fullcomponent/Parcerfull';
 
 class BloggerLk extends Component {
 
@@ -18,6 +21,12 @@ class BloggerLk extends Component {
     event.preventDefault()
     this.props.changeShowTenders();
   }
+
+
+  // onClickChangeSocial = (event) => {
+  //   event.preventDefault()
+  //   this.props.showSocial();
+  // }
 
   onClickHomepageHandler =(event) => {
     event.preventDefault()
@@ -48,6 +57,14 @@ class BloggerLk extends Component {
           >Просмотреть все запросы предложений
           </NavLink>
         </li>
+        <li>
+          <Route exact path='/socialadd' component={Parcerfull} ></Route>
+
+          <NavLink
+            to='/socialadd'
+          > Добавить социальные сети 
+          </NavLink>
+        </li>
       </ul>
     )
   }
@@ -64,4 +81,5 @@ export default connect(mapStatetoProps, {
   addAuctionForm,
   changeShowTenders,
   showHome,
+  showSocial
 })(BloggerLk);
