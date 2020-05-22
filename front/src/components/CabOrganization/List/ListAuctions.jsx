@@ -20,7 +20,7 @@ class ListAuctions extends Component {
           <p><b>Бюджет:</b> {m.budget}</p>
           <p><b>Блогер:</b> {m.usercreate.login}</p>
 
-        </div>) : "нет данных"
+        </div>) : null
     return (
       <div>
         {arr}

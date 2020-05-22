@@ -8,7 +8,8 @@ import {
   ADD_SEARCH_AUCTION,
   ADD_SEARCH_TENDER,
   SEARCH_ALL_AUCTION,
-  CHANGE_CHECK
+  CHANGE_CHECK,
+  FIND_STATISTIC
 } from "./actionTypes";
 
 const initialState = {
@@ -23,7 +24,8 @@ const initialState = {
   searchAuction: [],
   searchTender: [],
   allAuction:[],
-  changeCheck: true
+  changeCheck: true,
+  findStatistic:[]
 };
 
 export default function (state = initialState, action) {
@@ -97,6 +99,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         changeCheck: action.changeCheck,
+      };
+    case FIND_STATISTIC:
+      return {
+        ...state,
+        findStatistic: action.findStatistic.findStatistic,
       };
     default:
       return state;
