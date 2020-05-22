@@ -10,12 +10,9 @@ export default class MyAuctionfull extends Component {
       
         <div className="content-lk-blog-org">
           <MenuOrg />
-         
           <MyAuctionMainPage></MyAuctionMainPage>
           <LogoutOrg />
-          
         </div>
-      
     )
   }
 }

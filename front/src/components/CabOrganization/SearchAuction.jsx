@@ -13,8 +13,7 @@ class Search extends Component {
   render() {
     let arr = this.props.searchAuction.length !== 0 ?
       this.props.searchAuction.map(m =>
-        <div>
-          <hr />
+        <div className="content-search">
           <p><b>Тема:</b>  {m.subject}</p>
           <p><b>Подписчиков:</b>  {m.subscribers}</p>
           <p><b>Бюджет:</b> {m.budget}</p>
@@ -24,11 +23,11 @@ class Search extends Component {
 
     return (
       <div>
-       <h3>Поиск аукционов</h3> <br />
+       <h3>Поиск аукционов</h3>
         <form onSubmit={this.onSubmitForm} style={{display: 'table-caption'}}>
           <input required type="text" name="subscribers" placeholder="сколько подписчиков" />
           <input required type="text" name="budget" placeholder="бюджет" />
-          <input type="submit" value='Найти'/>
+          <input className='sub-inp' type="submit" value='Найти'/>
         </form>
         {arr}
       </div>

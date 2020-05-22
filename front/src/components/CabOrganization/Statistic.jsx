@@ -25,11 +25,12 @@ class Statistic extends Component {
   render() {
 
     let search = this.state.arrBarg.length !== 0 ? this.state.arrBarg.map(m =>
-      <div>
+      <div className='tema'>
+        <hr/><br />
         <p> Тема: {m.subject}</p>
-        <p> Подрисчиков: {m.subscribers}</p>
+        <p> Подписчиков: {m.subscribers}</p>
         <p> Стоимость: {m.budget}</p>
-        <hr />
+        
       </div>
     ) : null
 
@@ -54,9 +55,9 @@ class Statistic extends Component {
           Тема:<select name='select' >
             {this.state.arrSubject.map(m => <option>{m}</option>)}
           </select>
-          <p><input type="submit" value="Найти" /></p>
+          <p><input className="btn-stat" type="submit" value="Найти" /></p>
         </form> <br />
-        <hr /> {search}
+        {search}
       </div>
     );
   }

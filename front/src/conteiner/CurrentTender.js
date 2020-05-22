@@ -86,7 +86,7 @@ class CurrentTender extends React.Component {
         }
         {
           this.props.tender.currentTender &&
-          <div>
+          <div className="torg">
             <h2>
               {this.props.tender.currentTender.title}
             </h2>
@@ -102,8 +102,8 @@ class CurrentTender extends React.Component {
                 <Bets
                   bets={this.props.tender.currentTender.bets}
                 />
-              }
-            </div>
+              }<span>р</span>
+            </div> 
 
             {this.state.initiator &&
               <Button

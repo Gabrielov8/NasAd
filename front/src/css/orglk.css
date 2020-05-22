@@ -22,6 +22,11 @@ body {
   text-align: center;
 }
 
+/* .menu-org .active {
+  color: #F9A826;
+  text-decoration: underline;
+} */
+
 .menu-org h1 {
   color: #F9A826
 }
@@ -42,7 +47,7 @@ body {
 
 .menu-org ul li a {
   text-decoration: none;
-  color: lightgray;
+  color: #31074d;
   transition-duration: 0.5s;
 }
 
@@ -201,5 +206,42 @@ body {
   width: 100%;
   color: #31074d;
   list-style: none;
+}
+
+.title-ad {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.title-ad button{
+  width: 60%;
+  margin: 15px auto;
+  border-radius: 20px;
+  height: 20px;
+  padding: 3px;
+  transition-duration: 0.5s;
+  outline: none;
+}
+
+.title-ad button:hover {
+  border: 0.5px solid; 
+  background-color: rgba(249, 168, 38, 0.671);
+  color: black;
+}
+
+.title-ad input{
+  padding: 5px;
+  margin: 5px;
+  height: 15px;
+  border-radius: 10px;
+  padding-left: 5px;
+  outline: none;
+  border: 0.5px solid;
+}
+
+.my-offer {
+  margin: 15px;
 }
 
