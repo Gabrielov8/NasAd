@@ -46,7 +46,7 @@ class CurrentTender extends React.Component {
     this.timerId = setInterval(() => {
       const currentDate = Date.now();
       this.ws.send(JSON.stringify({ currentDate, id: this.props.match.params.tenderID }))
-    }, 5000);
+    }, 2000);
 
     this.ws.onmessage = async (event) => {
       await this.props.getCurrentTender(this.props.match.params.tenderID);
@@ -102,7 +102,7 @@ class CurrentTender extends React.Component {
                 <Bets
                   bets={this.props.tender.currentTender.bets}
                 />
-              }<span>р</span>
+              }
             </div> 
 
             {this.state.initiator &&

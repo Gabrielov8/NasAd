@@ -85,7 +85,7 @@ app.ws('/echo', (ws, req) => {
       } else if (bet.currentDate > finish) {
         tender.state = 'Аукцион завершён';
         const i = tender.bets.length - 1;
-        tender.winner.winnerID = tender.bets[i].author;
+        tender.winner.winnerID = tender.bets[i].authtor;
         tender.winner.betWinner = tender.bets[i].cost;
         tender.status = false,
           await tender.save();
