@@ -66,13 +66,7 @@ app.ws('/echo', (ws, req) => {
     const bet = await JSON.parse(msg);
 
     if (bet.currentDate) {
-      // const tender = await Tender.findById(bet.id).populate({
-      //   path: 'bets',
-      //   populate: {
-      //     path: 'authtor',
-      //     model: 'Data_advertiser'
-      //   }
-      // })
+
       const tender = await Tender.findById(bet.id).populate('bets.authtor')
       // console.log(tender, '<<<<<<<');
       const start = Date.parse(tender.startDate);
@@ -85,7 +79,7 @@ app.ws('/echo', (ws, req) => {
       } else if (bet.currentDate > finish) {
         tender.state = 'Аукцион завершён';
         const i = tender.bets.length - 1;
-        tender.winner.winnerID = tender.bets[i].author;
+        tender.winner.winnerID = tender.bets[i].authtor;
         tender.winner.betWinner = tender.bets[i].cost;
         tender.status = false,
           await tender.save();
