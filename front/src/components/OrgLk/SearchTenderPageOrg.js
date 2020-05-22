@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchTender from '../CabOrganization/SearchTender'
 import ListTenders from '../CabOrganization/List/ListTenders'
-
+import '../../css/myauctionMainpage.css'
 
 export default function MainPageOrg() {
   return (
@@ -20,13 +20,13 @@ export default function MainPageOrg() {
       </div>
 
       <div className="info-block-org">
-        <div className="first-org">
+        <div className="first-org-searchList">
           <SearchTender />
           <ListTenders />
         </div>
-        <div className="second-org">
+        {/* <div className="second-org">
           
-        </div>
+        </div> */}
       </div>
     </div>
   )

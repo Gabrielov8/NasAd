@@ -83,7 +83,61 @@
   background-color: rgba(249, 168, 38, 0.671);
   color: black;
 }
+
+.first-org-searchList{
+  width: 100%;
+  border-radius: 20px;
+  background-color: rgba(149, 200, 247, 0.295);;
+  height: 80%;
+  padding: 40px;
+  display: flex;
+  /* flex-direction: column; */
+  text-align: center;
+  justify-content: space-around;
+}
+
+.first-org-searchList input {
+  margin-top: 5px;
+}
+
+.btn-searchTender {
+  width: 80%;
+  margin: 15px auto;
+  border-radius: 20px;
+  height: 20px;
+  transition-duration: 0.5s;
+  outline: none;
+}
+
+.btn-searchTender:hover {
+  border: 0.5px solid; 
+  background-color: rgba(249, 168, 38, 0.671);
+  color: black;
+}
+
+.first-org-tenders{
+  width: 100%;
+  border-radius: 20px;
+  background-color: rgba(149, 200, 247, 0.295);;
+  height: 80%;
+  padding: 40px;
+  display: flex;
+  /* flex-direction: column; */
+  text-align: center;
+  justify-content: space-around;
+}
  
+.first-org-win{
+  width: 100%;
+  border-radius: 20px;
+  background-color: rgba(149, 200, 247, 0.295);;
+  height: 80%;
+  padding: 40px;
+  display: flex;
+  /* flex-direction: column; */
+  text-align: center;
+  justify-content: space-around;
+}
  
  
  

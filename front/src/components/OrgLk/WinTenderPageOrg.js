@@ -1,6 +1,6 @@
 import React from 'react'
 import AnnouncementAboutWin from '../CabOrganization/AnnouncementAboutWin'
-
+import '../../css/myauctionMainpage.css'
 export default function MainPageOrg() {
   return (
     <div className="main-page-org">
@@ -18,10 +18,8 @@ export default function MainPageOrg() {
       </div>
 
       <div className="info-block-org">
-        <div className="first-org">
+        <div className="first-org-win">
           <AnnouncementAboutWin />
-        </div>
-        <div className="second-org">
         </div>
       </div>
     </div>

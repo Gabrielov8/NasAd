@@ -8,7 +8,7 @@ import {
 import {
   getFromBaseOfTender
 } from '../../redux/advertiser/FetchData/fetchSendToBase';
-
+import '../../css/myauctionMainpage.css'
 import Tender from '../../conteiner/CurrentTender';
 
 class MainPageOrg extends React.Component {
@@ -37,12 +37,12 @@ class MainPageOrg extends React.Component {
         </div>
 
         <div className="info-block-org">
-          <div className="first-org">
+          <div className="first-org-tenders">
             <Tender />
           </div>
-          <div className="second-org">
+          {/* <div className="second-org">
 
-          </div>
+          </div> */}
         </div>
       </div>
     )
