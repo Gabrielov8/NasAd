@@ -26,11 +26,12 @@ class MainPageOrg extends React.Component {
           <img src="/imgBloggerLk/vhod.svg" alt="" />
         </div>
         <div className="info-block-org">
-          <div className="first-org">
+          <div className="statistic-org">
+            <h2>Моя статистика</h2>
             <Statistic />
           </div>
-          <div className="second-org">
-          </div>
+          {/* <div className="second-org">
+          </div> */}
         </div>
       </div>
     )

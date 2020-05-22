@@ -244,3 +244,38 @@ body {
   margin: 15px;
 }
 
+.tender-block {
+  width: 100%;
+  border-radius: 20px;
+  background-color: rgba(149, 200, 247, 0.295);;
+  height: 80%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.torg{
+  text-align: center;
+  margin: 10px;
+}
+
+.torg h2{
+  color: #31074d;
+}
+
+.torg button{
+  width: 25%;
+  margin: 15px auto;
+  border-radius: 20px;
+  height: 20px;
+  padding: 3px;
+  transition-duration: 0.5s;
+  outline: none;
+}
+
+.torg button:hover {
+  border: 0.5px solid; 
+  background-color: rgba(249, 168, 38, 0.671);
+  color: black;
+}
+

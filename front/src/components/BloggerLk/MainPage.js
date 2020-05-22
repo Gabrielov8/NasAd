@@ -114,7 +114,7 @@ class MainPage extends React.Component {
           </div>
           :
           <div className="info-block">
-            <div className="first">
+            <div className="tender-block">
               <Route
                 exact
                 path="/currenttender/:userid/:tenderid"
