@@ -117,7 +117,7 @@ class MainPage extends React.Component {
             <div className="tender-block">
               <Route
                 exact
-                path="/currenttender/:userid/:tenderid"
+                path="/currenttender/:tenderID"
                 component={CurrentTender} />
             </div>
           </div>

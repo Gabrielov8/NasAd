@@ -1,15 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment-with-locales-es6';
+import { withRouter } from 'react-router-dom';
 import {
   getCurrentOrg,
 } from '../../redux/ivan/actions/currentOrg';
-import Tender from '../../components/CurrentUser/Tenders/MyTender';
+import {
+  getFromBaseOfTender
+} from '../../redux/advertiser/FetchData/fetchSendToBase';
+
+import Tender from '../../conteiner/CurrentTender';
 
 class MainPageOrg extends React.Component {
-
+  
   componentDidMount() {
+
     this.props.getCurrentOrg(localStorage.getItem('id'));
+    // this.props.getFromBaseOfTender(this.props.match.tenderID)
   }
 
   render() {
@@ -47,7 +54,8 @@ const mapStatetoProps = (state) => {
     org: state.org,
   }
 }
-
+withRouter(MainPageOrg)
 export default connect(mapStatetoProps, {
-  getCurrentOrg
+  getCurrentOrg,
+  getFromBaseOfTender
 })(MainPageOrg);

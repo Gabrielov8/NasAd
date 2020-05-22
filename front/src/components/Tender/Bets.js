@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Bets({ bets }) {
-console.log(bets);
+
 
   return (
     <div>
@@ -10,8 +10,8 @@ console.log(bets);
           <div
             key={i}
           >
-            <p>Cтавка: {bet.cost}</p>
-            <p>Автор: {bet.author}</p>
+            <p>Cтавка: {bet.cost} рублей</p>
+            <p>Ставку сделал :{bet.authtor.login}</p>
           </div>
         )
       })}
