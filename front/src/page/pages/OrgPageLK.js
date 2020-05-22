@@ -102,9 +102,10 @@ export default class OrgPageLK extends Component {
 
           <Route
             exact
-            path="/currenttender/:userId/:tenderID"
+            path="/currenttender/:tenderID"
             component={TenderFull} />}
           />
+
         </Switch>
       </>
     );

@@ -56,6 +56,7 @@ export function getFromBaseOfTender() {
   return async (dispatch) => {
     let response = await fetch("/advertiser/getTender");
     const { tender } = await response.json();
+  
     dispatch(addTenderToStore(tender));
   };
 }

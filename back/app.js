@@ -74,7 +74,7 @@ app.ws('/echo', (ws, req) => {
       //   }
       // })
       const tender = await Tender.findById(bet.id).populate('bets.authtor')
-      console.log(tender, '<<<<<<<');
+      // console.log(tender, '<<<<<<<');
       const start = Date.parse(tender.startDate);
       const finish = Date.parse(tender.finishDate);
 
