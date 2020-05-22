@@ -3,6 +3,7 @@ import {
   CHANGE_SHOW_TENDERS,
   SHOW_CURRENT_TENDER,
   SHOW_HOME,
+  SHOW_SOCIAL
 } from '../types'
 
 export function addAuctionForm() {
@@ -20,3 +21,10 @@ export function showCurrentTender() {
 export function showHome() {
   return { type: SHOW_HOME }
 }
+
+export function showSocial() {
+  return { type: SHOW_SOCIAL }
+}
+
+
+

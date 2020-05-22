@@ -17,6 +17,7 @@ import {
 } from '../../redux/ivan/actions/currentUserActions.js';
 import { showCurrentTender } from '../../redux/ivan/actions/mainPageActions';
 import CurrentTender from '../../conteiner/CurrentTender';
+import Parcer from '../../conteiner/nav/navbars/Parcer';
 
 moment.locale('ru');
 class MainPage extends React.Component {
@@ -73,6 +74,8 @@ class MainPage extends React.Component {
           ?
           <div className="info-block">
             <div className="first">
+              
+              <Parcer></Parcer>
               {this.props.main &&
                 this.props.main.myTenders &&
                 this.props.user.user.tenders &&

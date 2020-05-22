@@ -74,6 +74,10 @@ class LogoutBlock extends React.Component {
               />
             </>}
         </div>
+        <div>
+          
+
+        </div>
         <div className="social">
           <p>Мои социальныe сети</p>
           <ul>
