@@ -140,6 +140,12 @@
   /* flex-direction: column; */
   text-align: center;
   justify-content: space-around;
+  align-items: center;
+  color: #31074d;
+}
+
+.win-block {
+  margin: 10px;
 }
 
 .my-first-org-auction-parcer{
@@ -189,3 +195,5 @@
  .my-first-org-auction-parcer ul {
    list-style: none;
  }
+
+ 

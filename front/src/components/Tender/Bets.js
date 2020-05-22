@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../../css/orglk.css'
 export default function Bets({ bets }) {
 
 
@@ -7,7 +7,7 @@ export default function Bets({ bets }) {
     <div>
       {bets.map((bet, i) => {
         return (
-          <div
+          <div className="stavka"
             key={i}
           >
             <p>Cтавка: {bet.cost} рублей</p>

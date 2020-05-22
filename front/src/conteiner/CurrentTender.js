@@ -107,7 +107,7 @@ class CurrentTender extends React.Component {
 
             {this.state.initiator &&
               <Button
-                text="Отменить"
+                text="Назад"
                 onClick={this.onClickDeleteHandler}
               />
             }

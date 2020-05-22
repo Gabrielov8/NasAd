@@ -1,7 +1,6 @@
 .cont{
   text-align: center;
 }
-
 .auth {
   
   display: flex;
@@ -9,7 +8,6 @@
   max-width: 400px;
   flex-direction: column;
 }
-
 .modal-blog {
   position: fixed;
   top: 0;
@@ -21,15 +19,82 @@
   justify-content: center;
   padding-top: 5rem;
 }
-
-.modal-body-blog {
-  padding: 2rem;
-  width: 400px;
-  border-radius: 5px;
-  background: #fff;
-  height: 200px;
-}
-
 .modal-cancel-blog {
-  float: right;
+  position: absolute;
+  top: 25px;
+  left: 350px;
+}
+.modal-body-blog {
+  border-radius: 25px;    
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: white;
+  padding: 40px;
+  border: 1px solid rgba(0,0,0,.1);
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  
+}
+.modal-body-blog h2 {
+ margin: 0 0 40px;
+ padding: 0;
+ color: black;
+ text-transform: uppercase;
+}
+.modal-body-blog input{
+ padding: 10px;
+ margin-bottom: 15px;
+ width: 95%;
+ box-sizing: 100%;
+ box-shadow: none;
+ outline: none;
+ border: none;
+ border-bottom: 2px solid #999;
+}
+.modal-body-blog input:focus ~ label,
+.modal-body-blog input:valid ~ label{
+ top: -12px;
+ left: 0px;
+ color: black;
+ font-size: 12px;
+ font-weight: bold;
+}
+.modal-body-blog input:focus,
+.modal-body-blog input:valid {
+ border-bottom: 2px solid black;
+}
+.modal-body-blog input[type="submit"]{
+ font-family: "Montserrat", sans-serif;
+ border-bottom: none;
+ cursor: pointer;
+ background-color: #24252A;
+ color: white;
+ width: 100%;
+ margin-bottom: 0px;
+ border-radius: 25px;
+ font-size: 16px;
+ transition: all 0.3s ease 0s;  
+}
+.modal-body-blog form div{
+ position: relative;
+}
+.modal-body-blogul {
+ font-size: 12px;
+ color: red;
+ padding-left: 15px;
+}
+.modal-body-blog form label {
+ position: absolute;
+ top: 10px;
+ left: 0px;
+ color: #999;
+ transition: .5s;
+ pointer-events: none;
+}
+.modal-body-blog input[type="submit"]:hover{
+ background-color: #0088a9;
+ color: white;
 }
