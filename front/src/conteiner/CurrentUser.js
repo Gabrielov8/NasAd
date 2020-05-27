@@ -166,23 +166,7 @@ class CurrentUser extends React.Component {
           <NewTender
             onSubmit={this.onSubmitNewAucHandler}
           />}
-        {/* <NavLink to={`/homepage/${localStorage.id}`}
-          onClick={this.onClickMyTendersHandler}
-        >Мои аукционы
-        
-          </NavLink>
 
-          
-
-        <NavLink to={`/homepage/${localStorage.id}`}
-          onClick={this.onClickMyOffersHandler}
-        >Мои предложения
-          </NavLink>
-
-        <NavLink to={`/homepage/${localStorage.id}`}
-          onClick={this.onClickAllOffersHandler}
-        >Просмотреть запросы предложений
-          </NavLink> */}
 
         {this.state.mytenders &&
           this.props.user.user.tenders &&
