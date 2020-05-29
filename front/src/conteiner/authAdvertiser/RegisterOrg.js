@@ -3,7 +3,6 @@ import classes from './auth.module.css'
 import { Redirect, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { auth_register_ad } from '../../redux/auth/auth-action'
-// import '../auth/Modal.css';
 class RegisterAd extends Component {
   state = {
     login: '',

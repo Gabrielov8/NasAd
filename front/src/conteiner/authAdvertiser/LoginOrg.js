@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
-// import class from '../../css/bloggerLog.module.css' 
 import classes from './auth.module.css'
-// import clas from '../../css/bloggerLog.module.css'
 import { Redirect, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
-
 import { auth_login_ad } from '../../redux/auth/auth-action'
-// import '../auth/Modal.css';
+
 
 class LoginAd extends Component {
   state = {

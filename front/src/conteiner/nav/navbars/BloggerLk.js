@@ -22,12 +22,6 @@ class BloggerLk extends Component {
     this.props.changeShowTenders();
   }
 
-
-  // onClickChangeSocial = (event) => {
-  //   event.preventDefault()
-  //   this.props.showSocial();
-  // }
-
   onClickHomepageHandler =(event) => {
     event.preventDefault()
     this.props.showHome();
