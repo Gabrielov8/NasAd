@@ -35,7 +35,6 @@ class BloggerReg extends Component {
   }
 }
 
-// export default BloggerReg
 const mapDispatchToProps = (dispatch) => {
   return {
     show_user: () => dispatch(show_user())

@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, NavLink, Link } from 'react-router-dom'
-// import LoginOrg from '../../authAdvertiser/LoginOrg'
-// import RegisterOrg from '../../authAdvertiser/RegisterOrg'
 import { connect } from 'react-redux'
 import { show_user } from '../../../redux/auth/auth-action'
 import classes from '../../../css/orgRegister.module.css'
@@ -33,8 +31,6 @@ class OrgReg extends Component {
     )
   }
 }
-
-// export default connect(map)(OrgReg)
 
 const mapDispatchToProps = (dispatch) => {
   return {
