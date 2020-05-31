@@ -6,7 +6,6 @@ const cookieParser = require('cookie-parser');
 const MongoStore = require('connect-mongodb-session')(session);
 const logger = require('morgan');
 
-
 const Tender = require('./models/ivan/tenders');
 const Advertiser = require('./models/advertiser/dataAdvertiser');
 
@@ -19,19 +18,16 @@ const tenderRouter = require('./routes/tender');
 const currentUserRouter = require('./routes/currentuser');
 const advertisersRouter = require('./routes/advertiser/advertiser');
 
-
 const app = express();
 const expressWs = require('express-ws')(app);
 
 const dbConnect = require('./models/db-connect');
-
 
 const store = new MongoStore({
   collection: 'sessions',
   uri: 'mongodb://localhost:27017/NasAd',
 });
 
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
