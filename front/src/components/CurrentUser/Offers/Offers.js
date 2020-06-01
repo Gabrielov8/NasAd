@@ -3,13 +3,10 @@ import Offer from './Offer';
 
 
 export default function Offers({ offers, onClick }) {
-
   return (
     <>
-
       {offers.map(offer => {
         return <div key={offer._id}>
-
           <Offer
             offer={offer}
             onClick={onClick}
