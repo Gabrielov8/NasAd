@@ -13,19 +13,6 @@ function Tender({
   console.log(onClick)
   return (
     <>
-      {/* <Link to={`/currenttender/${localStorage.getItem('id')}/${aucId}`}>
-        <h4>{title}</h4>
-      </Link>
-      <p>Площадка: {market}</p>
-      <p>Торги стартуют: {dateStart}</p>
-      <p>Торги завершатся: {dateFinish}</p>
-      <p>Стартовая цена: {minCost} рублей</p>
-      <p>Шаг торгов: {step} рублей</p>
-      <p>creator: {creator.login} </p> */}
-
-
-
-
       <div className="my-auction">
         <Link
           onClick={onClick}
@@ -38,10 +25,7 @@ function Tender({
         <p className={classes.paragraph}>Стартовая цена: {minCost} рублей</p>
         <p className={classes.paragraph}>Шаг торгов: {step} рублей</p>
       </div>
-
     </>
-
-
   );
 }
 
