@@ -65,7 +65,7 @@ class MainPage extends React.Component {
         <div className="welcome">
           <div className="text">
             <h3>Welcome back {this.props.user.user.login}</h3>
-            <p>Рекламодатели уже заждались тебя маленький негодник!</p>
+            <p>Рекламодатели уже заждались тебя!</p>
           </div>
           <img src="/imgBloggerLk/vhod.svg" alt="" />
         </div>

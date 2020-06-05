@@ -53,7 +53,7 @@ class LogoutOrg extends React.Component {
         <div className="foto-org">
           <img src="/imgBloggerLk/profile.svg" alt="" />
           <p>{this.props.org.org.login}</p>
-          <span>Самый лучший рекламодатель!</span>
+          {/* <span>Самый лучший рекламодатель!</span> */}
         </div>
       <div className="title-ad">
         {!this.state.editInfo &&

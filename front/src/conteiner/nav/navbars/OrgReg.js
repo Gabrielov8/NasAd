@@ -16,7 +16,7 @@ class OrgReg extends Component {
         <nav className={classes.nav}>
           <ul>
             <li>
-            <Link to="/"><button onClick={this.clickHandler}>Для блоггеров</button></Link>
+            <Link to="/"><button className={classes.btnblog} onClick={this.clickHandler}>Для блоггеров</button></Link>
             </li>
             <li>
               <NavLink to="/loginOrg">Login</NavLink>
