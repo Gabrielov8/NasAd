@@ -18,9 +18,6 @@ export function createauction(newauction){
     })
     dispatch(createAuctionStore(newauction))
     const {message} = await responce.json()
-    console.log(message,'AAAAA');
-    
-    // console.log(result,'RESULT');
     if(message){
       dispatch(loadedAuction(message))
     }
@@ -36,11 +33,8 @@ export function allauction(){
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({})
     })
-    // dispatch(createAuctionStore())
     const {message} = await responce.json()
     console.log(message,'BBBB');
-    
-    // console.log(result,'RESULT');
     if(message){
       dispatch(loadedallAuction(message))
     }
@@ -56,11 +50,10 @@ export function useraddauction(userid,auctionid){
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({userid,auctionid})
     })
-    // dispatch(createAuctionStore())
+    
     const {message} = await responce.json()
     console.log(message,'BBBd-a');
     
-    // console.log(result,'RESULT');
     if(message){
       dispatch(userInAuction(message))
     }
@@ -77,11 +70,10 @@ export function parcer(userid,inst){
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({userid,inst})
     })
-    // dispatch(createAuctionStore())
+    
     const {message} = await responce.json()
     console.log(message,'BBBd-a');
     
-    // console.log(result,'RESULT');
     if(message){
       dispatch(usersociaL(message))
     }
@@ -97,11 +89,11 @@ export function myauctionfetch(userid){
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({userid})
     })
-    // dispatch(createAuctionStore())
-    const {message} = await responce.json()
-    // console.log(message[4].blogerin,'BBBd-a');
     
-    // console.log(result,'RESULT');
+    const {message} = await responce.json()
+    
+    
+    
     if(message){
       dispatch(myauction(message))
     }
@@ -118,11 +110,7 @@ export function selectbloger(userid,auctionid){
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({userid,auctionid})
     })
-    // dispatch(createAuctionStore())
-    const {message} = await responce.json()
-    // console.log(message[4].blogerin,'BBBd-a');
-    
-    // console.log(result,'RESULT');
+    const {message} = await responce.json() 
     if(message){
       dispatch(myauction(message))
     }
@@ -179,16 +167,3 @@ export function userInAuction(result){
     payload: result
   }
 }
-
-
-
-
-
-// export function sendfetch () {
-//   return async function (dispatch) {
-//    const responce = await fetch ('https://api.thecatapi.com/v1/images/search?size=full')
-//    const result = await responce.json()
-//    dispatch(fetchUrl(result[0].url))
-
-//   }
-// }
